@@ -52,11 +52,17 @@ async function sendTelegramNotification(payload: {
     .filter(Boolean)
     .join("\n");
 
-  await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+  const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ chat_id: chatId, text, parse_mode: "HTML" }),
   });
+  if (!res.ok) {
+    const err = await res.text();
+    console.error("[Maydonify] Telegram API error:", res.status, err);
+  } else {
+    console.log("[Maydonify] Telegram message sent successfully");
+  }
 }
 
 interface ContactPayload {
