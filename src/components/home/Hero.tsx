@@ -1,54 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
-import { useLanguage } from "@/context/LanguageContext";
-
-/* ══════════════════════════════════════════════════════════════════════
-   AVATAR SVGs — realistic faces for social proof strip
-══════════════════════════════════════════════════════════════════════ */
-
-function AvatarJasur() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="14" cy="14" r="14" fill="#B5723E"/>
-      <path d="M5 28C5 23.5 8.5 21.5 14 21.5C19.5 21.5 23 23.5 23 28Z" fill="#1D3557"/>
-      <ellipse cx="14" cy="15" rx="6" ry="7" fill="#CD8A4E"/>
-      <path d="M8 15C8 9.48 10.69 6 14 6C17.31 6 20 9.48 20 15C19 12.5 16.5 10.5 14 10.5C11.5 10.5 9 12.5 8 15Z" fill="#1A0D06"/>
-      <ellipse cx="11.5" cy="14" rx="1.1" ry="1.1" fill="#1A0D06"/>
-      <ellipse cx="16.5" cy="14" rx="1.1" ry="1.1" fill="#1A0D06"/>
-      <path d="M11.5 18 Q14 20 16.5 18" stroke="#8B4C1E" strokeWidth="0.9" strokeLinecap="round" fill="none"/>
-    </svg>
-  );
-}
-
-function AvatarOlim() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="14" cy="14" r="14" fill="#7E5235"/>
-      <path d="M5 28C5 23.5 8.5 21.5 14 21.5C19.5 21.5 23 23.5 23 28Z" fill="#2D6A4F"/>
-      <ellipse cx="14" cy="15" rx="5.8" ry="7" fill="#C48240"/>
-      <path d="M8.2 14C8.2 8.8 10.9 5.5 14 5.5C17.1 5.5 19.8 8.8 19.8 14C19 11 16.8 9 14 9C11.2 9 9 11 8.2 14Z" fill="#140B04"/>
-      <ellipse cx="11.5" cy="13.5" rx="1.1" ry="1.1" fill="#140B04"/>
-      <ellipse cx="16.5" cy="13.5" rx="1.1" ry="1.1" fill="#140B04"/>
-      <path d="M11.5 17.5 Q14 19.5 16.5 17.5" stroke="#7A3E14" strokeWidth="0.9" strokeLinecap="round" fill="none"/>
-    </svg>
-  );
-}
-
-function AvatarAziz() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="14" cy="14" r="14" fill="#A0693A"/>
-      <path d="M5 28C5 23.5 8.5 21.5 14 21.5C19.5 21.5 23 23.5 23 28Z" fill="#6B2D5E"/>
-      <ellipse cx="14" cy="15" rx="6" ry="7" fill="#E09A5A"/>
-      <path d="M8 14C8 8.6 10.7 5.5 14 5.5C17.3 5.5 20 8.6 20 14C19.2 11.5 17 9.5 14 9.5C11 9.5 8.8 11.5 8 14Z" fill="#150C05"/>
-      <ellipse cx="11.5" cy="14" rx="1.1" ry="1.1" fill="#150C05"/>
-      <ellipse cx="16.5" cy="14" rx="1.1" ry="1.1" fill="#150C05"/>
-      <path d="M11 18 Q14 20.5 17 18" stroke="#8B4A1E" strokeWidth="0.9" strokeLinecap="round" fill="none"/>
-    </svg>
-  );
-}
+import { useState, useEffect, useRef } from "react";
 
 /* ══════════════════════════════════════════════════════════════════════
    FLOW STEP 1 — Field Selection
@@ -361,7 +314,6 @@ function FlowMockup() {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
-    // Respect reduced-motion preference — keep static at step 2 (confirmed)
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setStep(2);
       return;
@@ -371,23 +323,23 @@ function FlowMockup() {
   }, []);
 
   return (
-    <div className="relative w-full flex justify-center lg:justify-end">
+    <div className="relative w-full flex justify-center lg:justify-end phone-float">
 
-      {/* ── Ambient glow layers ───────────────────────────────────── */}
+      {/* Ambient glow */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[440px] h-[440px] rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(0,212,106,0.08) 0%, transparent 70%)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(0,168,107,0.1) 0%, transparent 70%)" }}
         />
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(0,212,106,0.13) 0%, transparent 65%)" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(0,168,107,0.16) 0%, transparent 65%)" }}
         />
       </div>
 
-      {/* ── Phone frame ──────────────────────────────────────────── */}
+      {/* Phone frame */}
       <div
-        className="relative rounded-[2.6rem] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.07)]"
+        className="relative rounded-[2.6rem] overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.07)]"
         style={{ width: 268, background: "#0F1319", flexShrink: 0 }}
       >
         {/* Status bar */}
@@ -432,7 +384,7 @@ function FlowMockup() {
           </div>
         </div>
 
-        {/* Progress bar — resets on step change via key */}
+        {/* Progress bar */}
         <div className="px-5 pb-3">
           <div className="h-[2px] rounded-full w-full overflow-hidden" style={{ background: "rgba(255,255,255,0.07)" }}>
             <motion.div
@@ -473,10 +425,13 @@ function FlowMockup() {
         </AnimatePresence>
       </div>
 
-      {/* ── Floating chip: field found ────────────────────────────── */}
-      <div
-        className="absolute -left-4 top-20 hidden lg:block animate-[fade-up_0.5s_0.9s_both]"
+      {/* Floating chip: field found */}
+      <motion.div
+        className="absolute -left-6 top-20 hidden lg:block"
         style={{ zIndex: 10 }}
+        initial={{ opacity: 0, x: -12 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
       >
         <div
           className="rounded-xl p-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
@@ -501,75 +456,120 @@ function FlowMockup() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* ── Floating chip: confirmed ──────────────────────────────── */}
-      <div
-        className="absolute -right-4 bottom-28 hidden lg:block animate-[fade-up_0.5s_1.1s_both]"
+      {/* Floating chip: confirmed */}
+      <motion.div
+        className="absolute -right-6 bottom-28 hidden lg:block"
         style={{ zIndex: 10 }}
+        initial={{ opacity: 0, x: 12 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
       >
         <div
-          className="rounded-xl px-3.5 py-2 shadow-[0_8px_32px_rgba(0,212,106,0.25)]"
-          style={{ background: "#00D46A" }}
+          className="rounded-xl px-3.5 py-2 shadow-[0_8px_32px_rgba(0,168,107,0.3)]"
+          style={{ background: "#00A86B" }}
         >
-          <p className="text-[11px] font-black tracking-tight" style={{ color: "#0C0F16" }}>
+          <p className="text-[11px] font-black tracking-tight text-white">
             ✓ 30 soniyada bron
           </p>
         </div>
-      </div>
+      </motion.div>
 
     </div>
   );
 }
 
 /* ══════════════════════════════════════════════════════════════════════
-   PRIMARY DOWNLOAD CTA — one dominant button
+   TRUST ITEM — single stat in the trust bar
+══════════════════════════════════════════════════════════════════════ */
+
+function TrustItem({ icon, value, label }: { icon: string; value: string; label: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span style={{ fontSize: 13, lineHeight: 1 }}>{icon}</span>
+      <span style={{ color: "#F9FAFB", fontSize: 14, fontWeight: 700, letterSpacing: "-0.01em" }}>{value}</span>
+      <span style={{ color: "#6B7280", fontSize: 13 }}>{label}</span>
+    </div>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   ANIMATED COUNTER — vanilla IntersectionObserver, no extra libraries
+══════════════════════════════════════════════════════════════════════ */
+
+function AnimatedCounter({ end, suffix = "", decimals = 0 }: { end: number; suffix?: string; decimals?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const duration = 1400;
+          const startTime = performance.now();
+          const tick = (now: number) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = (end * eased).toFixed(decimals) + suffix;
+            el.textContent = current;
+            if (progress < 1) requestAnimationFrame(tick);
+            else el.textContent = end.toFixed(decimals) + suffix;
+          };
+          requestAnimationFrame(tick);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [end, suffix, decimals]);
+
+  return <span ref={ref}>{"0" + suffix}</span>;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   PRIMARY DOWNLOAD CTA
 ══════════════════════════════════════════════════════════════════════ */
 
 function PrimaryDownloadCTA() {
   return (
-    <a
+    <motion.a
       href="#"
-      aria-label="Ilovani yuklab oling"
-      className="group relative inline-flex items-center justify-center gap-3 rounded-2xl font-bold transition-all duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 focus-visible:ring-offset-transparent w-full sm:w-auto"
+      aria-label="Ilovani yuklab oling — App Store va Google Play"
+      className="inline-flex items-center gap-3 rounded-2xl font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00A86B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D1117] w-full sm:w-auto justify-center sm:justify-start"
       style={{
-        background: "#00D46A",
-        color: "#0C0F16",
-        fontSize: 15,
-        paddingLeft: 28,
-        paddingRight: 28,
+        background: "#00A86B",
+        color: "#ffffff",
+        fontSize: 16,
+        paddingLeft: 32,
+        paddingRight: 32,
         height: 56,
-        boxShadow: "0 0 0 0 rgba(0,212,106,0.4)",
+        maxWidth: 340,
       }}
-      onMouseEnter={e => {
-        (e.currentTarget as HTMLAnchorElement).style.background = "#00BF60";
-        (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 40px rgba(0,212,106,0.4)";
-      }}
-      onMouseLeave={e => {
-        (e.currentTarget as HTMLAnchorElement).style.background = "#00D46A";
-        (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 0 0 rgba(0,212,106,0.4)";
-      }}
+      whileHover={{ scale: 1.02, boxShadow: "0 0 48px rgba(0,168,107,0.55)" }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ type: "spring", stiffness: 400, damping: 20 }}
     >
-      {/* Store icons */}
-      <div className="flex items-center gap-1.5 flex-shrink-0">
-        {/* Apple */}
-        <svg width="16" height="19" viewBox="0 0 814 1000" fill="#0C0F16" aria-hidden="true">
-          <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.5 135.4-317.3 267.9-317.3 70.1 0 128.4 46.4 172.5 46.4 42.8 0 109.5-49 191.3-49 30.8 0 108.2 2.6 168.6 71.4zm-174.5-81.6c-8.4-41.9-24.3-85.4-57.8-119.5-29.6-30.8-76-55.4-124-55.4-1.9 0-3.9 0-5.8.6 1.9 43.8 18.5 87.4 50.2 120.9 29.6 31.4 75.4 57.8 137.4 53.4z"/>
-        </svg>
-        {/* Android */}
-        <svg width="15" height="17" viewBox="0 0 512 512" fill="none" aria-hidden="true">
-          <path fill="#0C0F16" fillOpacity="0.75" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z"/>
-          <path fill="#0C0F16" d="M47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0z"/>
-          <path fill="#0C0F16" fillOpacity="0.85" d="M472.1 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c17.1-9.9 17.1-33.7-.1-43.9l-1.1 4.7z"/>
-          <path fill="#0C0F16" fillOpacity="0.6" d="M47 480.5c13 6.8 29.5 6.2 42.5-1.6l255.2-147-60.2-60.2L47 480.5z"/>
-        </svg>
-      </div>
-      <span>Ilovani yuklab oling — bepul</span>
-      {/* Arrow */}
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
-        <path d="M3 8h10M9 4l4 4-4 4" stroke="#0C0F16" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Apple icon */}
+      <svg width="16" height="19" viewBox="0 0 814 1000" fill="white" aria-hidden="true" style={{ flexShrink: 0 }}>
+        <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.5 135.4-317.3 267.9-317.3 70.1 0 128.4 46.4 172.5 46.4 42.8 0 109.5-49 191.3-49 30.8 0 108.2 2.6 168.6 71.4zm-174.5-81.6c-8.4-41.9-24.3-85.4-57.8-119.5-29.6-30.8-76-55.4-124-55.4-1.9 0-3.9 0-5.8.6 1.9 43.8 18.5 87.4 50.2 120.9 29.6 31.4 75.4 57.8 137.4 53.4z"/>
       </svg>
-    </a>
+      {/* Divider */}
+      <span style={{ width: 1, height: 22, background: "rgba(255,255,255,0.25)", flexShrink: 0 }} />
+      {/* Android icon */}
+      <svg width="15" height="17" viewBox="0 0 512 512" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
+        <path fill="white" fillOpacity="0.75" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z"/>
+        <path fill="white" d="M47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0z"/>
+        <path fill="white" fillOpacity="0.85" d="M472.1 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c17.1-9.9 17.1-33.7-.1-43.9l-1.1 4.7z"/>
+        <path fill="white" fillOpacity="0.6" d="M47 480.5c13 6.8 29.5 6.2 42.5-1.6l255.2-147-60.2-60.2L47 480.5z"/>
+      </svg>
+      <span style={{ fontWeight: 700, letterSpacing: "-0.01em" }}>Ilovani yuklab oling</span>
+    </motion.a>
   );
 }
 
@@ -578,193 +578,214 @@ function PrimaryDownloadCTA() {
 ══════════════════════════════════════════════════════════════════════ */
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const bgRef = useRef<HTMLDivElement>(null);
 
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (bgRef.current) {
+        bgRef.current.style.transform = `translateY(${window.scrollY * 0.5}px)`;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section
-      className="noise-overlay relative min-h-svh flex items-center overflow-hidden"
-      style={{ background: "#080B12" }}
+      className="relative min-h-svh flex items-center overflow-hidden"
+      style={{ background: "#0D1117" }}
     >
-      {/* ── Background atmosphere ─────────────────────────────────── */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        {/* Left floodlight */}
+      {/* ── CSS keyframes for phone float ────────────────────────── */}
+      <style>{`
+        @keyframes phoneFloat {
+          0%, 100% { transform: translateY(0px); }
+          50%       { transform: translateY(-12px); }
+        }
+        .phone-float {
+          animation: phoneFloat 6s ease-in-out infinite;
+          animation-delay: 1.4s;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .phone-float { animation: none; }
+        }
+      `}</style>
+      {/* ── Parallax background layer (moves at 0.5× scroll speed) ── */}
+      <div
+        ref={bgRef}
+        className="absolute inset-0 pointer-events-none"
+        style={{ zIndex: 0, willChange: "transform" }}
+      >
+        {/* Green grid */}
         <div
-          className="absolute top-0 left-0 w-[900px] h-[700px]"
-          style={{ background: "radial-gradient(ellipse at 10% 0%, rgba(0,212,106,0.09) 0%, transparent 55%)" }}
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(0,168,107,0.055) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,168,107,0.055) 1px, transparent 1px)
+            `,
+            backgroundSize: "64px 64px",
+          }}
         />
-        {/* Right floodlight */}
+        {/* Vignette to fade grid at edges */}
         <div
-          className="absolute top-0 right-0 w-[600px] h-[600px]"
-          style={{ background: "radial-gradient(ellipse at 90% 0%, rgba(0,212,106,0.05) 0%, transparent 55%)" }}
+          className="absolute inset-0"
+          style={{
+            background: "radial-gradient(ellipse 75% 75% at 50% 50%, transparent 35%, #0D1117 100%)",
+          }}
         />
-        {/* Bottom vignette */}
+        {/* Top-left green ambient bloom */}
         <div
-          className="absolute bottom-0 inset-x-0 h-64"
-          style={{ background: "linear-gradient(to top, rgba(8,11,18,0.9), transparent)" }}
+          className="absolute"
+          style={{
+            top: "-10%",
+            left: "-5%",
+            width: 700,
+            height: 600,
+            background: "radial-gradient(ellipse at 15% 10%, rgba(0,168,107,0.12) 0%, transparent 55%)",
+          }}
         />
-        {/* Pitch geometry overlay */}
-        <svg
-          className="absolute inset-0 w-full h-full"
-          viewBox="0 0 1440 800"
-          preserveAspectRatio="xMidYMid slice"
-          aria-hidden="true"
-          style={{ opacity: 0.03 }}
-        >
-          <circle cx="720" cy="400" r="130" stroke="white" strokeWidth="1.5" fill="none"/>
-          <circle cx="720" cy="400" r="4" fill="white"/>
-          <line x1="720" y1="70" x2="720" y2="730" stroke="white" strokeWidth="1.5"/>
-          <rect x="70" y="70" width="1300" height="660" stroke="white" strokeWidth="1.5" fill="none"/>
-          <line x1="70" y1="178" x2="1370" y2="178" stroke="white" strokeWidth="0.7" opacity="0.5"/>
-          <line x1="70" y1="286" x2="1370" y2="286" stroke="white" strokeWidth="0.7" opacity="0.5"/>
-          <line x1="70" y1="514" x2="1370" y2="514" stroke="white" strokeWidth="0.7" opacity="0.5"/>
-          <line x1="70" y1="622" x2="1370" y2="622" stroke="white" strokeWidth="0.7" opacity="0.5"/>
-          <rect x="70" y="258" width="168" height="284" stroke="white" strokeWidth="1" fill="none"/>
-          <rect x="1202" y="258" width="168" height="284" stroke="white" strokeWidth="1" fill="none"/>
-        </svg>
-        {/* Particles */}
-        <div className="particle w-1.5 h-1.5 bg-brand-green/25" style={{ left: "12%", bottom: "22%", animationDuration: "9s", animationDelay: "0s" }}/>
-        <div className="particle w-1 h-1 bg-brand-green/18" style={{ left: "70%", bottom: "38%", animationDuration: "12s", animationDelay: "2.5s" }}/>
-        <div className="particle w-2 h-2 bg-brand-green/10" style={{ left: "44%", bottom: "12%", animationDuration: "15s", animationDelay: "5s" }}/>
-        <div className="particle w-1 h-1 bg-white/10" style={{ left: "86%", bottom: "58%", animationDuration: "10s", animationDelay: "1s" }}/>
       </div>
 
-      {/* ── Content grid ─────────────────────────────────────────── */}
-      <div className="max-w-6xl mx-auto px-5 sm:px-10 lg:px-16 pt-24 pb-16 lg:pt-28 lg:pb-24 w-full">
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
+      {/* ── Content ──────────────────────────────────────────────── */}
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-28 pb-20 w-full" style={{ zIndex: 1 }}>
+        <div className="grid lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-center">
 
           {/* ── LEFT: Copy column ─────────────────────────────────── */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div className="flex flex-col items-start">
 
-            {/* Trust badge */}
-            <div className="hero-enter mb-6 flex items-center gap-2 justify-center lg:justify-start">
-              <div
-                className="hidden lg:block w-[2px] h-10 rounded-full flex-shrink-0"
-                style={{ background: "linear-gradient(to bottom, #00D46A, rgba(0,212,106,0))" }}
-              />
-              <span
-                className="inline-flex items-center gap-2 rounded-full text-[12px] font-semibold"
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.10)",
-                  color: "#C4D0E3",
-                  paddingLeft: 14,
-                  paddingRight: 14,
-                  paddingTop: 6,
-                  paddingBottom: 6,
-                }}
-              >
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse flex-shrink-0" style={{ background: "#00D46A" }} />
-                Toshkent · 300+ faol foydalanuvchi
-              </span>
-            </div>
-
-            {/* Headline */}
-            <h1 className="hero-enter hero-enter-delay-1 mb-5 w-full">
-              <span
-                className="block font-display font-medium tracking-[-0.01em] leading-snug"
-                style={{ fontSize: "clamp(18px, 2.6vw, 26px)", color: "#8899B4" }}
-              >
-                Futbol maydonini
-              </span>
-              <span
-                className="block font-display font-black tracking-[-0.05em] leading-[0.88]"
-                style={{
-                  fontSize: "clamp(54px, 9vw, 88px)",
-                  background: "linear-gradient(135deg, #00D46A 0%, #00FF7F 50%, #5AE89A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                30 soniyada
-              </span>
-              <span
-                className="block font-display font-bold text-white tracking-[-0.03em] leading-tight"
-                style={{ fontSize: "clamp(28px, 4.2vw, 44px)" }}
-              >
-                bron qiling
-              </span>
+            {/* Headline — 3 lines, staggered */}
+            <h1
+              className="mb-6 font-display"
+              style={{ fontFamily: "var(--font-syne), sans-serif" }}
+            >
+              {(
+                [
+                  { text: "Futbol maydonini", green: false, delay: 0.1 },
+                  { text: "30 soniyada", green: true, delay: 0.3 },
+                  { text: "bron qiling", green: false, delay: 0.5 },
+                ] as { text: string; green: boolean; delay: number }[]
+              ).map(({ text, green, delay }) => (
+                <motion.span
+                  key={text}
+                  className="block"
+                  style={{
+                    fontSize: "clamp(40px, 5.5vw, 72px)",
+                    fontWeight: 800,
+                    lineHeight: 1.08,
+                    letterSpacing: "-0.025em",
+                    color: green ? "#00A86B" : "#FFFFFF",
+                  }}
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay, ease: "easeOut" }}
+                >
+                  {text}
+                </motion.span>
+              ))}
             </h1>
 
-            {/* Subheadline */}
-            <p
-              className="hero-enter hero-enter-delay-2 leading-[1.7] tracking-[-0.01em] mb-7 max-w-[420px]"
-              style={{ fontSize: "clamp(14px, 1.4vw, 15.5px)", color: "#8899B4", fontWeight: 500 }}
+            {/* Subtext */}
+            <motion.p
+              style={{
+                fontSize: 18,
+                color: "#9CA3AF",
+                lineHeight: 1.6,
+                maxWidth: 440,
+                marginBottom: 32,
+              }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              {t.hero.subheadline}
-            </p>
+              Toshkentdagi 100+ tasdiqlangan maydon.
+            </motion.p>
 
-            {/* PRIMARY CTA */}
-            <div className="hero-enter hero-enter-delay-3 w-full sm:w-auto mb-3">
+            {/* CTA block */}
+            <motion.div
+              className="w-full sm:w-auto"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            >
               <PrimaryDownloadCTA />
-            </div>
-
-            {/* Secondary CTA — visually subordinate */}
-            <div className="hero-enter hero-enter-delay-3 mb-8">
-              <button
-                onClick={() => scrollTo("how-it-works")}
-                className="inline-flex items-center gap-1.5 min-h-[44px] px-1 cursor-pointer transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green rounded"
-                style={{ fontSize: 13, fontWeight: 500, color: "#8899B4" }}
-                onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.color = "#ffffff")}
-                onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.color = "#8899B4")}
-              >
-                {t.hero.ctaSecondary}
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </div>
-
-            {/* Social proof — single signal */}
-            <div className="hero-enter hero-enter-delay-4 flex items-center gap-3 justify-center lg:justify-start">
-              <div className="flex -space-x-2.5">
-                <div className="w-8 h-8 rounded-full overflow-hidden ring-[2px] ring-[#080B12]">
-                  <AvatarOlim />
-                </div>
-                <div className="w-8 h-8 rounded-full overflow-hidden ring-[2px] ring-[#080B12]">
-                  <AvatarJasur />
-                </div>
-                <div className="w-8 h-8 rounded-full overflow-hidden ring-[2px] ring-[#080B12]">
-                  <AvatarAziz />
-                </div>
-              </div>
-              <div className="w-px h-6 flex-shrink-0" style={{ background: "rgba(255,255,255,0.1)" }} />
-              <p style={{ fontSize: 13, fontWeight: 500, color: "#8899B4" }}>
-                <span className="text-white font-bold">300+</span>{" "}
-                {t.hero.socialProof}
-              </p>
-              <span
-                className="inline-flex items-center gap-1 rounded-full text-[11px] font-semibold flex-shrink-0"
+              <p
                 style={{
-                  background: "rgba(251,191,36,0.1)",
-                  border: "1px solid rgba(251,191,36,0.2)",
-                  color: "#FBBF24",
-                  paddingLeft: 8,
-                  paddingRight: 8,
-                  paddingTop: 3,
-                  paddingBottom: 3,
+                  color: "#4B5563",
+                  fontSize: 13,
+                  marginTop: 10,
+                  letterSpacing: "0.01em",
                 }}
               >
-                ★ 4.8
-              </span>
-            </div>
+                300+ o&apos;yinchi &middot; Bepul &middot; iOS &amp; Android
+              </p>
+            </motion.div>
+
+            {/* Trust bar */}
+            <motion.div
+              className="flex items-center flex-wrap mt-8"
+              style={{ gap: "0 0" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+            >
+              <div className="flex items-center gap-2">
+                <span style={{ fontSize: 13, lineHeight: 1 }}>★</span>
+                <span style={{ color: "#F9FAFB", fontSize: 14, fontWeight: 700, letterSpacing: "-0.01em" }}>
+                  <AnimatedCounter end={4.8} decimals={1} />
+                </span>
+                <span style={{ color: "#6B7280", fontSize: 13 }}>App Store</span>
+              </div>
+              <span
+                style={{
+                  display: "inline-block",
+                  width: 1,
+                  height: 20,
+                  background: "rgba(255,255,255,0.1)",
+                  margin: "0 16px",
+                  flexShrink: 0,
+                }}
+              />
+              <div className="flex items-center gap-2">
+                <span style={{ fontSize: 13, lineHeight: 1 }}>🏟</span>
+                <span style={{ color: "#F9FAFB", fontSize: 14, fontWeight: 700, letterSpacing: "-0.01em" }}>
+                  <AnimatedCounter end={100} suffix="+" />
+                </span>
+                <span style={{ color: "#6B7280", fontSize: 13 }}>maydon</span>
+              </div>
+              <span
+                style={{
+                  display: "inline-block",
+                  width: 1,
+                  height: 20,
+                  background: "rgba(255,255,255,0.1)",
+                  margin: "0 16px",
+                  flexShrink: 0,
+                }}
+              />
+              <div className="flex items-center gap-2">
+                <span style={{ fontSize: 13, lineHeight: 1 }}>⚡</span>
+                <span style={{ color: "#F9FAFB", fontSize: 14, fontWeight: 700, letterSpacing: "-0.01em" }}>
+                  <AnimatedCounter end={30} />
+                </span>
+                <span style={{ color: "#6B7280", fontSize: 13 }}>soniya</span>
+              </div>
+            </motion.div>
 
           </div>
 
-          {/* ── RIGHT: Flow mockup ────────────────────────────────── */}
-          <div
-            className="flex justify-center lg:justify-end hero-enter hero-enter-delay-3"
-            style={{ transform: "rotate(1.5deg)" }}
+          {/* ── RIGHT: Phone mockup ───────────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94, y: 24 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="flex justify-center lg:justify-end"
           >
             <FlowMockup />
-          </div>
+          </motion.div>
 
         </div>
       </div>
+
     </section>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
@@ -22,48 +23,80 @@ function AccordionItem({
   return (
     <div
       className={cn(
-        "border rounded-2xl transition-all duration-200",
+        "rounded-2xl border transition-colors duration-300 overflow-hidden",
         isOpen
-          ? "bg-dark-800 border-brand-green/30"
-          : "bg-dark-800 border-dark-700 hover:border-dark-600"
+          ? "border-brand-green/40 bg-dark-900"
+          : "border-dark-700 bg-dark-900 hover:border-dark-600"
       )}
     >
-      <button
-        onClick={onToggle}
-        aria-expanded={isOpen}
-        aria-controls={`faq-answer-${index}`}
-        id={`faq-question-${index}`}
-        className="w-full flex items-center justify-between gap-4 px-5 py-5 text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-inset rounded-2xl"
-      >
-        <span className={cn("font-semibold text-sm sm:text-base leading-snug transition-colors", isOpen ? "text-white" : "text-slate-light")}>
-          {question}
-        </span>
-        <span
+      {/* Green left accent bar */}
+      <div className="flex">
+        <div
           className={cn(
-            "w-7 h-7 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-200",
-            isOpen
-              ? "bg-brand-green border-brand-green text-dark-900 rotate-180"
-              : "border-dark-600 text-slate-muted"
+            "w-1 flex-shrink-0 rounded-l-2xl transition-all duration-300",
+            isOpen ? "bg-brand-green" : "bg-transparent"
           )}
-          aria-hidden="true"
-        >
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
-      </button>
+        />
 
-      <div
-        id={`faq-answer-${index}`}
-        role="region"
-        aria-labelledby={`faq-question-${index}`}
-        className={cn(
-          "overflow-hidden transition-all duration-300 ease-in-out",
-          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        )}
-      >
-        <div className="px-5 pb-5">
-          <p className="text-slate-muted text-sm leading-relaxed">{answer}</p>
+        <div className="flex-1 min-w-0">
+          <button
+            onClick={onToggle}
+            aria-expanded={isOpen}
+            aria-controls={`faq-answer-${index}`}
+            id={`faq-question-${index}`}
+            className="w-full flex items-center justify-between gap-4 px-5 py-5 text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-inset"
+          >
+            <span
+              className={cn(
+                "font-semibold text-sm sm:text-base leading-snug transition-colors duration-200",
+                isOpen ? "text-white" : "text-slate-300"
+              )}
+            >
+              {question}
+            </span>
+
+            {/* Chevron icon */}
+            <span
+              className={cn(
+                "w-7 h-7 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-300",
+                isOpen
+                  ? "bg-brand-green border-brand-green text-dark-900 rotate-180"
+                  : "border-dark-600 text-slate-500"
+              )}
+              aria-hidden="true"
+            >
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path
+                  d="M2 4l4 4 4-4"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+
+          {/* Animated answer panel */}
+          <AnimatePresence initial={false}>
+            {isOpen && (
+              <motion.div
+                key="answer"
+                id={`faq-answer-${index}`}
+                role="region"
+                aria-labelledby={`faq-question-${index}`}
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
+                style={{ overflow: "hidden" }}
+              >
+                <div className="px-5 pb-5 pt-0">
+                  <p className="text-slate-400 text-sm leading-relaxed">{answer}</p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>
@@ -89,7 +122,7 @@ export default function FAQ() {
           </h2>
         </div>
 
-        {/* Accordion */}
+        {/* Accordion list */}
         <div className="space-y-3">
           {t.faq.items.map((item, i) => (
             <AccordionItem

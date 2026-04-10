@@ -3,6 +3,8 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+// ─── Stats ────────────────────────────────────────────────────────────────────
+
 const STATS = [
   {
     value: "4.8 / 5",
@@ -36,26 +38,99 @@ const STATS = [
   },
 ];
 
-const AVATAR_GRADIENTS: Record<string, [string, string]> = {
-  JT: ["#1D3557", "#2E4A7A"],
-  DM: ["#5C3D6E", "#8B5CF6"],
-  BK: ["#1B4F72", "#2471A3"],
-  SA: ["#1A5276", "#21618C"],
-  NR: ["#7B241C", "#C0392B"],
-  KY: ["#1C3A5E", "#2874A6"],
+// ─── Review data (6 unique, no duplicates) ───────────────────────────────────
+
+type Review = {
+  initials: string;
+  name: string;
+  district: string;
+  stars: number;
+  quote: string;
+  field: string;
+  month: string;
+  avatarFrom: string;
+  avatarTo: string;
 };
 
-function InitialsAvatar({ initials, size = "md" }: { initials: string; size?: "sm" | "md" | "lg" }) {
-  const [from, to] = AVATAR_GRADIENTS[initials] ?? ["#1a2130", "#243044"];
-  const sizeClass = size === "lg" ? "w-12 h-12" : size === "sm" ? "w-8 h-8" : "w-9 h-9";
-  const textClass = size === "lg" ? "text-[14px]" : size === "sm" ? "text-[10px]" : "text-[12px]";
+const REVIEWS: Review[] = [
+  {
+    initials: "DM",
+    name: "Dilnoza Mirzayeva",
+    district: "Yunusobod",
+    stars: 5,
+    quote: "Narxlar oldindan ko'rinadi, yashirin to'lov yo'q. Haftada ikki marta ishlataman. Do'stlarimga ham aytdim.",
+    field: "Spartak Arena",
+    month: "Mart 2026",
+    avatarFrom: "#065f46",
+    avatarTo: "#059669",
+  },
+  {
+    initials: "JT",
+    name: "Jasur Toshmatov",
+    district: "Chilonzor",
+    stars: 5,
+    quote: "Avval har doim qo'ng'iroq qilardim — hech kim ko'tarmasa, vaqt ketardi. Endi 2 daqiqada bron tayyor.",
+    field: "Olimp Park",
+    month: "Fevral 2026",
+    avatarFrom: "#064e3b",
+    avatarTo: "#047857",
+  },
+  {
+    initials: "BK",
+    name: "Bobur Karimov",
+    district: "Mirzo Ulug'bek",
+    stars: 5,
+    quote: "Jadval aniq ko'rinadi. Bir marta bron qildimmi — shu vaqt meniki. Boshqa o'ylashga hojat yo'q.",
+    field: "Mirzo Arena",
+    month: "Yanvar 2026",
+    avatarFrom: "#166534",
+    avatarTo: "#16a34a",
+  },
+  {
+    initials: "SA",
+    name: "Sardor Aliyev",
+    district: "Shayxontohur",
+    stars: 4,
+    quote: "App juda tez. 3 ta bosish — bron tayyor. Tasdiqlash SMS-i ham bir daqiqada keldi.",
+    field: "Goal FC",
+    month: "Mart 2026",
+    avatarFrom: "#14532d",
+    avatarTo: "#15803d",
+  },
+  {
+    initials: "NR",
+    name: "Nilufar Rahimova",
+    district: "Bektemir",
+    stars: 5,
+    quote: "Qizim bilan birgalikda ishlatamiz. Oson, hech qanday muammo bo'lmagan. Interfeys oddiy va tushunarli.",
+    field: "Bektemir Sport",
+    month: "Fevral 2026",
+    avatarFrom: "#052e16",
+    avatarTo: "#166534",
+  },
+  {
+    initials: "KY",
+    name: "Kamol Yusupov",
+    district: "Sergeli",
+    stars: 5,
+    quote: "60 yoshli otam ham bir o'zi ishlatib ko'rdi — menga hech nima so'ramadi. Bu yaxshi belgi.",
+    field: "Sergeli FC",
+    month: "Mart 2026",
+    avatarFrom: "#004d40",
+    avatarTo: "#00796b",
+  },
+];
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+function InitialsAvatar({ initials, from, to }: { initials: string; from: string; to: string }) {
   return (
     <div
-      className={`${sizeClass} rounded-full flex items-center justify-center flex-shrink-0`}
+      className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
       style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
       aria-hidden="true"
     >
-      <span className={`text-white ${textClass} font-bold tracking-wide`}>{initials}</span>
+      <span className="text-white text-[13px] font-bold tracking-wide">{initials}</span>
     </div>
   );
 }
@@ -66,8 +141,8 @@ function Stars({ count }: { count: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
-          width="12"
-          height="12"
+          width="11"
+          height="11"
           viewBox="0 0 12 12"
           fill={i < count ? "#F59E0B" : "none"}
           stroke={i < count ? "none" : "#D1D5DB"}
@@ -80,57 +155,46 @@ function Stars({ count }: { count: number }) {
   );
 }
 
-const FEATURED = {
-  initials: "DM",
-  name: "Dilnoza Mirzayeva",
-  location: "Yunusobod, Toshkent",
-  stars: 5,
-  quote: "Narxlar oldindan ko'rinadi, yashirin to'lov yo'q. Haftada ikki marta ishlataman. Do'stlarimga ham aytdim.",
-};
+function ReviewCard({ review }: { review: Review }) {
+  return (
+    <div className="break-inside-avoid mb-4 p-5 rounded-2xl border border-gray-100 bg-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+      {/* Top row: avatar + name + stars */}
+      <div className="flex items-start gap-3 mb-3">
+        <InitialsAvatar initials={review.initials} from={review.avatarFrom} to={review.avatarTo} />
+        <div className="flex-1 min-w-0">
+          <p className="text-[13px] font-semibold text-[#0D1117] leading-tight truncate">{review.name}</p>
+          <p className="text-[11px] font-medium text-slate-400 mt-0.5">{review.district}, Toshkent</p>
+        </div>
+        <Stars count={review.stars} />
+      </div>
 
-const CARDS = [
-  {
-    initials: "JT",
-    name: "Jasur Toshmatov",
-    location: "Chilonzor",
-    stars: 5,
-    quote: "Avval har doim qo'ng'iroq qilardim — hech kim ko'tarmasa, vaqt ketardi. Endi 2 daqiqada bron tayyor.",
-  },
-  {
-    initials: "BK",
-    name: "Bobur Karimov",
-    location: "Mirzo Ulug'bek",
-    stars: 5,
-    quote: "Jadval aniq ko'rinadi. Bir marta bron qildimmi — shu vaqt meniki.",
-  },
-  {
-    initials: "SA",
-    name: "Sardor Aliyev",
-    location: "Shayxontohur",
-    stars: 4,
-    quote: "App juda tez. 3 ta bosish — bron tayyor. Tasdiqlash SMS-i ham bir daqiqada keldi.",
-  },
-  {
-    initials: "NR",
-    name: "Nilufar Rahimova",
-    location: "Bektemir",
-    stars: 5,
-    quote: "Qizim bilan birgalikda ishlatamiz. Oson, hech qanday muammo bo'lmagan.",
-  },
-  {
-    initials: "KY",
-    name: "Kamol Yusupov",
-    location: "Sergeli",
-    stars: 5,
-    quote: "60 yoshli otam ham bir o'zi ishlatib ko'rdi — menga hech nima so'ramadi. Bu yaxshi belgi.",
-  },
-];
+      {/* Quote */}
+      <p className="text-[13px] font-medium text-slate-600 leading-[1.65] mb-3">
+        &ldquo;{review.quote}&rdquo;
+      </p>
+
+      {/* Footer: field + month · verified badge */}
+      <div className="flex items-center justify-between gap-2 pt-3 border-t border-gray-50">
+        <span className="text-[11px] font-medium text-slate-400 truncate">
+          {review.field} &middot; {review.month}
+        </span>
+        <span className="flex-shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#00A86B]/10 border border-[#00A86B]/20">
+          <svg width="9" height="9" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+            <path d="M2 5l2.5 2.5L8 3" stroke="#00A86B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <span className="text-[10px] font-semibold text-[#00A86B] tracking-[0.02em]">Tasdiqlangan bron</span>
+        </span>
+      </div>
+    </div>
+  );
+}
+
+// ─── Main component ───────────────────────────────────────────────────────────
 
 export default function Testimonials() {
   const headerRef = useScrollReveal();
   const statsRef = useScrollReveal();
-  const featuredRef = useScrollReveal({ threshold: 0.05 });
-  const cardsRef = useScrollReveal({ threshold: 0.05 });
+  const gridRef = useScrollReveal({ threshold: 0.05 });
 
   return (
     <SectionWrapper id="testimonials" theme="light">
@@ -142,7 +206,7 @@ export default function Testimonials() {
             Made in Tashkent
           </span>
         </div>
-        <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-bold text-dark-900 tracking-[-0.02em] leading-[1.2] mb-3 reveal delay-100">
+        <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-bold text-[#0D1117] tracking-[-0.02em] leading-[1.2] mb-3 reveal delay-100">
           O&apos;yinchilar nima deydi
         </h2>
         <p className="text-[16px] font-medium text-slate-500 max-w-md mx-auto reveal delay-200">
@@ -158,101 +222,18 @@ export default function Testimonials() {
               {s.icon}
             </div>
             <div>
-              <p className="text-[18px] font-bold text-dark-900 tracking-[-0.02em] leading-none">{s.value}</p>
+              <p className="text-[18px] font-bold text-[#0D1117] tracking-[-0.02em] leading-none">{s.value}</p>
               <p className="text-[11px] font-medium text-slate-400 mt-0.5">{s.label}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Featured hero quote */}
-      <div ref={featuredRef} className="reveal mb-6">
-        <div className="relative p-7 sm:p-8 rounded-3xl bg-dark-900 border border-dark-700 overflow-hidden">
-          {/* Green glow accent */}
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-green/10 rounded-full blur-3xl pointer-events-none" />
-
-          {/* Featured label */}
-          <div className="inline-flex items-center gap-1.5 mb-5 px-2.5 py-1 rounded-full bg-brand-green/15 border border-brand-green/25">
-            <div className="w-1.5 h-1.5 rounded-full bg-brand-green" />
-            <span className="text-[10px] font-bold text-brand-green tracking-[0.04em] uppercase">Ko&apos;p o&apos;qilgan</span>
-          </div>
-
-          <div className="sm:flex sm:items-center sm:gap-8">
-            {/* Big quote mark */}
-            <div
-              className="text-[72px] font-black leading-none select-none text-brand-green/25 flex-shrink-0 hidden sm:block"
-              aria-hidden="true"
-            >
-              &#8220;
-            </div>
-
-            <div className="flex-1">
-              <p className="text-[18px] sm:text-[20px] font-semibold text-white leading-[1.55] mb-6">
-                &ldquo;{FEATURED.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <InitialsAvatar initials={FEATURED.initials} size="lg" />
-                <div>
-                  <p className="text-white font-semibold text-[14px]">{FEATURED.name}</p>
-                  <p className="text-slate-500 text-[12px] font-medium mt-0.5">{FEATURED.location}</p>
-                </div>
-                <div className="ml-auto">
-                  <Stars count={FEATURED.stars} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Remaining cards — horizontal scroll on mobile, grid on desktop */}
-      <div ref={cardsRef} className="reveal delay-100">
-        {/* Mobile: horizontal scroll */}
-        <div className="flex gap-3 overflow-x-auto pb-2 sm:hidden" style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
-          {CARDS.map((c) => (
-            <div
-              key={c.name}
-              className="flex-shrink-0 w-[270px] p-5 rounded-2xl border border-gray-100 bg-white"
-              style={{ scrollSnapAlign: "start" }}
-            >
-              <div className="text-[28px] font-black leading-none mb-2 text-gray-100 select-none" aria-hidden="true">
-                &#8220;
-              </div>
-              <p className="text-[13px] font-medium text-slate-600 leading-[1.6] mb-4">{c.quote}</p>
-              <div className="flex items-center gap-2.5">
-                <InitialsAvatar initials={c.initials} size="sm" />
-                <div className="flex-1 min-w-0">
-                  <p className="text-[12px] font-semibold text-dark-900 truncate">{c.name}</p>
-                  <p className="text-[10px] font-medium text-slate-400 mt-0.5">{c.location}</p>
-                </div>
-                <Stars count={c.stars} />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Desktop: grid */}
-        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-4">
-          {CARDS.map((c, i) => (
-            <div
-              key={c.name}
-              className={`reveal delay-${[100, 200, 300, 100, 200][i]} p-5 rounded-2xl border border-gray-100 bg-white hover:shadow-md transition-shadow duration-200`}
-            >
-              <div className="text-[28px] font-black leading-none mb-2 text-gray-100 select-none" aria-hidden="true">
-                &#8220;
-              </div>
-              <p className="text-[14px] font-medium text-slate-600 leading-[1.6] mb-4">{c.quote}</p>
-              <div className="flex items-center gap-2.5">
-                <InitialsAvatar initials={c.initials} />
-                <div className="flex-1 min-w-0">
-                  <p className="text-[13px] font-semibold text-dark-900 truncate">{c.name}</p>
-                  <p className="text-[11px] font-medium text-slate-400 mt-0.5">{c.location}</p>
-                </div>
-                <Stars count={c.stars} />
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* Masonry grid — CSS columns approach (true masonry, no carousel) */}
+      <div ref={gridRef} className="reveal delay-100 columns-1 sm:columns-2 lg:columns-3 gap-4">
+        {REVIEWS.map((review) => (
+          <ReviewCard key={review.name} review={review} />
+        ))}
       </div>
 
       {/* Trust line */}

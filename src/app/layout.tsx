@@ -46,7 +46,9 @@ export default function RootLayout({
   return (
     <html lang="uz" className={`${syne.variable} ${dmSans.variable}`} data-scroll-behavior="smooth">
       <body className="min-h-screen antialiased">
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+{children}
+        </LanguageProvider>
       </body>
     </html>
   );

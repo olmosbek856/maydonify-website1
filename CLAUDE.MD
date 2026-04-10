@@ -2,6 +2,17 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+Project: Maydonify.uz — Next.js 14, Tailwind CSS, TypeScript
+Structure: src/app/, src/components/home/, design-system/
+Brand: primary #00A86B, dark #0D1117, accent #FFFFFF
+Font: Syne (display), system-ui (body)
+Skills available: frontend-design, ui-ux-pro-max
+MCP available: 21st.dev (use for ready-made components)
+Language: Uzbek (UZ), also RU/EN
+Target: football field booking app, Tashkent users
+
+Rule: Only touch files I mention. After task, list changed files.
+
 ## Project
 
 **Maydonify** — landing website for a football field booking platform targeting Uzbekistan. This is a marketing/lead-gen site, not a web app.
