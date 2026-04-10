@@ -11,14 +11,46 @@ export default function FinalCTA() {
 
   return (
     <section id="download" className="relative py-24 lg:py-36 overflow-hidden">
-      {/* Background: stadium floodlights at night */}
-      <div className="absolute inset-0 -z-20">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=1600&h=700&fit=crop&crop=center&q=70&auto=format"
-          alt=""
+      {/* Background: CSS pitch lines */}
+      <div className="absolute inset-0 -z-20" style={{ background: "#080B12" }}>
+        {/* Football pitch line decoration */}
+        <svg
+          className="absolute inset-0 w-full h-full"
+          style={{ opacity: 0.04 }}
+          viewBox="0 0 1200 600"
+          preserveAspectRatio="xMidYMid slice"
+          fill="none"
           aria-hidden="true"
-          className="w-full h-full object-cover"
+        >
+          {/* Outer boundary */}
+          <rect x="60" y="40" width="1080" height="520" stroke="white" strokeWidth="2" />
+          {/* Centre line */}
+          <line x1="600" y1="40" x2="600" y2="560" stroke="white" strokeWidth="2" />
+          {/* Centre circle */}
+          <circle cx="600" cy="300" r="90" stroke="white" strokeWidth="2" />
+          <circle cx="600" cy="300" r="4" fill="white" />
+          {/* Left penalty box */}
+          <rect x="60" y="165" width="165" height="270" stroke="white" strokeWidth="2" />
+          {/* Left goal box */}
+          <rect x="60" y="225" width="60" height="150" stroke="white" strokeWidth="2" />
+          {/* Right penalty box */}
+          <rect x="975" y="165" width="165" height="270" stroke="white" strokeWidth="2" />
+          {/* Right goal box */}
+          <rect x="1080" y="225" width="60" height="150" stroke="white" strokeWidth="2" />
+          {/* Left penalty spot */}
+          <circle cx="165" cy="300" r="4" fill="white" />
+          {/* Right penalty spot */}
+          <circle cx="1035" cy="300" r="4" fill="white" />
+          {/* Corner arcs */}
+          <path d="M60 40 Q75 40 75 55" stroke="white" strokeWidth="1.5" fill="none" />
+          <path d="M1140 40 Q1125 40 1125 55" stroke="white" strokeWidth="1.5" fill="none" />
+          <path d="M60 560 Q75 560 75 545" stroke="white" strokeWidth="1.5" fill="none" />
+          <path d="M1140 560 Q1125 560 1125 545" stroke="white" strokeWidth="1.5" fill="none" />
+        </svg>
+        {/* Subtle radial gradient to focus center */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,212,106,0.04) 0%, transparent 70%)" }}
         />
       </div>
 
@@ -81,7 +113,7 @@ export default function FinalCTA() {
               ))}
             </div>
             <p className="text-[12px] font-medium text-slate-light">
-              <span className="text-white font-bold">3,412</span> o&apos;yinchi ishlatmoqda
+              <span className="text-white font-bold">300+</span> o&apos;yinchi ishlatmoqda
             </p>
           </div>
         </div>

@@ -51,8 +51,8 @@ const STADIUMS: Stadium[] = [
     reviews: 112,
     size: "60×40m",
     surface: "Tabiiy o't",
-    available: false,
-    badge: null,
+    available: true,
+    badge: "urgent",
     photo: `${BASE}/photo-1459865264687-595d652de67e?${Q}`,
   },
   {
@@ -80,7 +80,7 @@ const STADIUMS: Stadium[] = [
     size: "35×18m",
     surface: "Sun'iy o't",
     available: true,
-    badge: null,
+    badge: "urgent",
     photo: `${BASE}/photo-1517466787929-bc90951d0974?${Q}`,
   },
   {
@@ -117,8 +117,10 @@ function Stars({ rating }: { rating: number }) {
 
 // ── Single card ─────────────────────────────────────────────────────────────
 function StadiumCard({ stadium }: { stadium: Stadium }) {
+  const { t } = useLanguage();
   const isTop = stadium.badge === "top";
   const isFreeToday = stadium.badge === "free_today";
+  const isUrgent = stadium.badge === "urgent";
 
   return (
     <article
@@ -159,6 +161,15 @@ function StadiumCard({ stadium }: { stadium: Stadium }) {
             <span className="inline-flex items-center gap-1.5 bg-emerald-500 text-white text-[11px] font-bold rounded-full px-2.5 py-1 leading-none shadow-md">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse flex-shrink-0" />
               Bugun bo&apos;sh
+            </span>
+          )}
+          {isUrgent && (
+            <span className="inline-flex items-center gap-1.5 bg-orange-500 text-white text-[11px] font-bold rounded-full px-2.5 py-1 leading-none shadow-md">
+              <svg width="9" height="9" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M7 1v6M7 10v.5" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                <circle cx="7" cy="7" r="6" stroke="white" strokeWidth="1.5" />
+              </svg>
+              {t.stadiums.urgentBadge}
             </span>
           )}
           {isTop && (

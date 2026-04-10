@@ -148,7 +148,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-dark-700 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-slate-muted text-[12px] font-medium tracking-[0.01em]">
-            © {year} Maydon. {t.footer.rights}
+            © {year} Maydonify. {t.footer.rights}
           </p>
           <p className="text-slate-muted text-[12px] font-medium">Made in Tashkent</p>
         </div>

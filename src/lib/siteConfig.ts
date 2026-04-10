@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Maydonify",
-  company: "Maydon",
+  company: "Maydonify",
 
   // Contact
   email: "support@maydonify.uz",

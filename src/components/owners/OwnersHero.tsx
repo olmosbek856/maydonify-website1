@@ -56,19 +56,7 @@ export default function OwnersHero() {
             </Badge>
 
             <h1 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-black text-white leading-[1.06] tracking-[-0.035em] mb-6">
-              Maydoningizdan{" "}
-              <span
-                className="relative"
-                style={{
-                  background: "linear-gradient(135deg, #00D46A 0%, #00FF7F 50%, #00D46A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                +30% ko&apos;proq
-              </span>{" "}
-              daromad oling
+              {t.owners.hero.headline}
             </h1>
 
             <p className="text-[17px] lg:text-[19px] text-slate-light leading-[1.6] mb-8 max-w-lg font-medium">
@@ -92,7 +80,7 @@ export default function OwnersHero() {
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M8 1L10 6H15L11 9L12.5 14L8 11L3.5 14L5 9L1 6H6L8 1Z" fill="#00D46A" opacity="0.8"/>
               </svg>
-              Ro&apos;yxatdan o&apos;tish — bepul. Komissiya yo&apos;q. Istalgan vaqtda chiqish mumkin.
+              {t.owners.hero.trustStatement}
             </div>
 
             {/* Stats */}

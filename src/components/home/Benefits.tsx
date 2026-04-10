@@ -31,7 +31,6 @@ const BENEFIT_ICONS = [
 ];
 
 const BENEFIT_DELAYS = [100, 200, 300, 400] as const;
-const BENEFIT_METRICS = ["Real vaqt", "30 soniya", "0 to'lov", "100% tekshirilgan"];
 
 export default function Benefits() {
   const { t } = useLanguage();
@@ -39,10 +38,10 @@ export default function Benefits() {
   const rightRef = useScrollReveal({ threshold: 0.05 });
 
   const benefits = [
-    { icon: BENEFIT_ICONS[0], title: t.benefits.b1Title, desc: t.benefits.b1Desc },
-    { icon: BENEFIT_ICONS[1], title: t.benefits.b2Title, desc: t.benefits.b2Desc },
-    { icon: BENEFIT_ICONS[2], title: t.benefits.b3Title, desc: t.benefits.b3Desc },
-    { icon: BENEFIT_ICONS[3], title: t.benefits.b4Title, desc: t.benefits.b4Desc },
+    { icon: BENEFIT_ICONS[0], title: t.benefits.b1Title, desc: t.benefits.b1Desc, metric: t.benefits.metric1 },
+    { icon: BENEFIT_ICONS[1], title: t.benefits.b2Title, desc: t.benefits.b2Desc, metric: t.benefits.metric2 },
+    { icon: BENEFIT_ICONS[2], title: t.benefits.b3Title, desc: t.benefits.b3Desc, metric: t.benefits.metric3 },
+    { icon: BENEFIT_ICONS[3], title: t.benefits.b4Title, desc: t.benefits.b4Desc, metric: t.benefits.metric4 },
   ];
 
   return (
@@ -66,8 +65,8 @@ export default function Benefits() {
                 <span className="text-red-400 text-sm font-bold">✕</span>
               </div>
               <div>
-                <p className="text-white/80 text-[14px] font-semibold leading-tight">5-6 ta raqamga qo&apos;ng&apos;iroq</p>
-                <p className="text-slate-muted text-[12px] mt-0.5">15–30 daqiqa sarflaysiz, ba&apos;zan kim ham ko&apos;tarmaydi</p>
+                <p className="text-white/80 text-[14px] font-semibold leading-tight">{t.benefits.beforeTitle}</p>
+                <p className="text-slate-muted text-[12px] mt-0.5">{t.benefits.beforeDesc}</p>
               </div>
             </div>
 
@@ -88,8 +87,8 @@ export default function Benefits() {
                 </svg>
               </div>
               <div>
-                <p className="text-white text-[14px] font-semibold leading-tight">Bir app — 30 soniya — bron tayyor</p>
-                <p className="text-brand-green/80 text-[12px] mt-0.5 font-medium">SMS tasdiq keladi · Hech qanday qo&apos;ng&apos;iroq yo&apos;q</p>
+                <p className="text-white text-[14px] font-semibold leading-tight">{t.benefits.afterTitle}</p>
+                <p className="text-brand-green/80 text-[12px] mt-0.5 font-medium">{t.benefits.afterDesc}</p>
               </div>
             </div>
           </div>
@@ -123,7 +122,7 @@ export default function Benefits() {
                   {b.icon}
                 </div>
                 <span className="text-[10px] font-bold text-brand-green/70 bg-brand-green/8 border border-brand-green/15 rounded-full px-2 py-0.5 leading-none">
-                  {BENEFIT_METRICS[i]}
+                  {b.metric}
                 </span>
               </div>
               <h3 className="text-white font-semibold text-[15px] tracking-[-0.01em] leading-snug mb-2">{b.title}</h3>

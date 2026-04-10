@@ -257,12 +257,13 @@ function DownloadCTA({ onClick, label }: { onClick: () => void; label: string })
   return (
     <button
       onClick={onClick}
-      className="inline-flex items-center gap-2 bg-brand-green text-dark-900 text-[13px] font-bold tracking-[-0.01em] px-4 py-2.5 rounded-[10px] shadow-[0_0_16px_rgba(0,212,106,0.25)] hover:bg-brand-green-dark hover:shadow-[0_0_22px_rgba(0,212,106,0.4)] transition-all duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green cursor-pointer"
+      className="inline-flex items-center gap-2 min-h-[44px] bg-brand-green text-dark-900 text-[13px] font-bold tracking-[-0.01em] px-4 rounded-[10px] shadow-[0_0_16px_rgba(0,212,106,0.25)] hover:bg-brand-green-dark hover:shadow-[0_0_22px_rgba(0,212,106,0.4)] transition-all duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green cursor-pointer"
     >
-      <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-        <path d="M7 1.5v8M3.5 7l3.5 3.5L10.5 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M1.5 12h11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-      </svg>
+      {/* Pulsing activity dot */}
+      <span className="relative flex-shrink-0">
+        <span className="absolute inline-flex h-full w-full rounded-full bg-dark-900/20 animate-ping opacity-75" />
+        <span className="relative inline-flex rounded-full w-2 h-2 bg-dark-900/30" />
+      </span>
       {label}
     </button>
   );

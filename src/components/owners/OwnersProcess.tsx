@@ -29,30 +29,30 @@ export default function OwnersProcess() {
   ];
 
   return (
-    <SectionWrapper id="owners-process" theme="light">
+    <SectionWrapper id="owners-process" theme="darker">
       <div className="text-center mb-12">
-        <Badge variant="light" className="mb-4">{t.owners.process.badge}</Badge>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-dark-900 tracking-tight">
+        <Badge className="mb-4">{t.owners.process.badge}</Badge>
+        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
           {t.owners.process.headline}
         </h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
         {/* Connector */}
-        <div className="hidden md:block absolute top-10 left-[calc(16.67%+40px)] right-[calc(16.67%+40px)] h-px bg-gradient-to-r from-dark-200 via-brand-green/40 to-dark-200" />
+        <div className="hidden md:block absolute top-10 left-[calc(16.67%+40px)] right-[calc(16.67%+40px)] h-px bg-gradient-to-r from-dark-600 via-brand-green/30 to-dark-600" />
 
         {steps.map((step, i) => (
           <div key={i} className="flex flex-col items-center text-center group">
             <div className="relative mb-6">
-              <div className="w-20 h-20 rounded-2xl bg-white border border-light-100 shadow-sm group-hover:border-brand-green/30 group-hover:shadow-md transition-all duration-200 flex items-center justify-center text-dark-900">
+              <div className="w-20 h-20 rounded-2xl bg-dark-800 border border-dark-600 group-hover:border-brand-green/40 group-hover:shadow-[0_0_20px_rgba(0,212,106,0.12)] transition-all duration-200 flex items-center justify-center text-brand-green">
                 {step.icon}
               </div>
               <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-brand-green text-dark-900 text-xs font-black flex items-center justify-center">
                 {i + 1}
               </div>
             </div>
-            <h3 className="text-dark-900 font-bold text-lg mb-3">{step.title}</h3>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-xs">{step.desc}</p>
+            <h3 className="text-white font-bold text-lg mb-3">{step.title}</h3>
+            <p className="text-slate-muted text-sm leading-relaxed max-w-xs">{step.desc}</p>
           </div>
         ))}
       </div>

@@ -12,7 +12,7 @@ export interface Stadium {
   surface: string;
   available: boolean;
   photo: string;
-  badge?: "top" | "free_today" | null;
+  badge?: "top" | "free_today" | "urgent" | null;
 }
 
 export interface ContactFormData {

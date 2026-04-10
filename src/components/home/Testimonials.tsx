@@ -14,7 +14,7 @@ const STATS = [
     ),
   },
   {
-    value: "3,412",
+    value: "300+",
     label: "faol o'yinchi",
     icon: (
       <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -36,87 +36,27 @@ const STATS = [
   },
 ];
 
-const TESTIMONIALS = [
-  {
-    initials: "JT",
-    name: "Jasur Toshmatov",
-    location: "Chilonzor, Toshkent",
-    skinBg: "#B5723E",
-    shirtColor: "#1D3557",
-    faceBg: "#CD8A4E",
-    stars: 5,
-    quote:
-      "Avval har doim qo'ng'iroq qilardim — hech kim ko'tarmasa, vaqt ketardi. Endi 2 daqiqada bron tayyor. Hech nima so'ramaysiz.",
-  },
-  {
-    initials: "DM",
-    name: "Dilnoza Mirzayeva",
-    location: "Yunusobod, Toshkent",
-    skinBg: "#C68642",
-    shirtColor: "#5C3D6E",
-    faceBg: "#D4945A",
-    stars: 5,
-    quote:
-      "Narxlar oldindan ko'rinadi, yashirin to'lov yo'q. Haftada ikki marta ishlataman. Do'stlarimga ham aytdim.",
-    featured: true,
-  },
-  {
-    initials: "BK",
-    name: "Bobur Karimov",
-    location: "Mirzo Ulug'bek, Toshkent",
-    skinBg: "#8D5C3B",
-    shirtColor: "#1B4F72",
-    faceBg: "#B8752E",
-    stars: 5,
-    quote:
-      "Jadval aniq ko'rinadi. Bir marta bron qildimmi — shu vaqt meniki. Boshqa o'ylab o'tirmayman.",
-  },
-  {
-    initials: "SA",
-    name: "Sardor Aliyev",
-    location: "Shayxontohur, Toshkent",
-    skinBg: "#A0693A",
-    shirtColor: "#1A5276",
-    faceBg: "#C87941",
-    stars: 4,
-    quote:
-      "App juda tez. 3 ta bosish — bron tayyor. Tasdiqlash SMS-i ham bir daqiqada keldi.",
-  },
-  {
-    initials: "NR",
-    name: "Nilufar Rahimova",
-    location: "Bektemir, Toshkent",
-    skinBg: "#C49A6C",
-    shirtColor: "#7B241C",
-    faceBg: "#D4A574",
-    stars: 5,
-    quote:
-      "Qizim bilan birgalikda ishlatamiz. Oson, hech qanday muammo bo'lmagan. Haqiqatan qulay.",
-  },
-  {
-    initials: "KY",
-    name: "Kamol Yusupov",
-    location: "Sergeli, Toshkent",
-    skinBg: "#7A4928",
-    shirtColor: "#1C3A5E",
-    faceBg: "#A0622E",
-    stars: 5,
-    quote:
-      "60 yoshli otam ham bir o'zi ishlatib ko'rdi — menga hech nima so'ramadi. Bu yaxshi belgi.",
-  },
-];
+const AVATAR_GRADIENTS: Record<string, [string, string]> = {
+  JT: ["#1D3557", "#2E4A7A"],
+  DM: ["#5C3D6E", "#8B5CF6"],
+  BK: ["#1B4F72", "#2471A3"],
+  SA: ["#1A5276", "#21618C"],
+  NR: ["#7B241C", "#C0392B"],
+  KY: ["#1C3A5E", "#2874A6"],
+};
 
-function AvatarSVG({ skinBg, shirtColor, faceBg }: { skinBg: string; shirtColor: string; faceBg: string }) {
+function InitialsAvatar({ initials, size = "md" }: { initials: string; size?: "sm" | "md" | "lg" }) {
+  const [from, to] = AVATAR_GRADIENTS[initials] ?? ["#1a2130", "#243044"];
+  const sizeClass = size === "lg" ? "w-12 h-12" : size === "sm" ? "w-8 h-8" : "w-9 h-9";
+  const textClass = size === "lg" ? "text-[14px]" : size === "sm" ? "text-[10px]" : "text-[12px]";
   return (
-    <svg width="36" height="36" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="14" cy="14" r="14" fill={skinBg}/>
-      <path d="M5 28C5 23.5 8.5 21.5 14 21.5C19.5 21.5 23 23.5 23 28Z" fill={shirtColor}/>
-      <ellipse cx="14" cy="15" rx="6" ry="7" fill={faceBg}/>
-      <path d="M8 15C8 9.48 10.69 6 14 6C17.31 6 20 9.48 20 15C19 12.5 16.5 10.5 14 10.5C11.5 10.5 9 12.5 8 15Z" fill="#1A0D06"/>
-      <ellipse cx="11.5" cy="14" rx="1.1" ry="1.1" fill="#1A0D06"/>
-      <ellipse cx="16.5" cy="14" rx="1.1" ry="1.1" fill="#1A0D06"/>
-      <path d="M11.5 18 Q14 20 16.5 18" stroke="#8B4C1E" strokeWidth="0.9" strokeLinecap="round" fill="none"/>
-    </svg>
+    <div
+      className={`${sizeClass} rounded-full flex items-center justify-center flex-shrink-0`}
+      style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
+      aria-hidden="true"
+    >
+      <span className={`text-white ${textClass} font-bold tracking-wide`}>{initials}</span>
+    </div>
   );
 }
 
@@ -140,23 +80,68 @@ function Stars({ count }: { count: number }) {
   );
 }
 
+const FEATURED = {
+  initials: "DM",
+  name: "Dilnoza Mirzayeva",
+  location: "Yunusobod, Toshkent",
+  stars: 5,
+  quote: "Narxlar oldindan ko'rinadi, yashirin to'lov yo'q. Haftada ikki marta ishlataman. Do'stlarimga ham aytdim.",
+};
+
+const CARDS = [
+  {
+    initials: "JT",
+    name: "Jasur Toshmatov",
+    location: "Chilonzor",
+    stars: 5,
+    quote: "Avval har doim qo'ng'iroq qilardim — hech kim ko'tarmasa, vaqt ketardi. Endi 2 daqiqada bron tayyor.",
+  },
+  {
+    initials: "BK",
+    name: "Bobur Karimov",
+    location: "Mirzo Ulug'bek",
+    stars: 5,
+    quote: "Jadval aniq ko'rinadi. Bir marta bron qildimmi — shu vaqt meniki.",
+  },
+  {
+    initials: "SA",
+    name: "Sardor Aliyev",
+    location: "Shayxontohur",
+    stars: 4,
+    quote: "App juda tez. 3 ta bosish — bron tayyor. Tasdiqlash SMS-i ham bir daqiqada keldi.",
+  },
+  {
+    initials: "NR",
+    name: "Nilufar Rahimova",
+    location: "Bektemir",
+    stars: 5,
+    quote: "Qizim bilan birgalikda ishlatamiz. Oson, hech qanday muammo bo'lmagan.",
+  },
+  {
+    initials: "KY",
+    name: "Kamol Yusupov",
+    location: "Sergeli",
+    stars: 5,
+    quote: "60 yoshli otam ham bir o'zi ishlatib ko'rdi — menga hech nima so'ramadi. Bu yaxshi belgi.",
+  },
+];
+
 export default function Testimonials() {
   const headerRef = useScrollReveal();
   const statsRef = useScrollReveal();
-  const gridRef = useScrollReveal({ threshold: 0.05 });
+  const featuredRef = useScrollReveal({ threshold: 0.05 });
+  const cardsRef = useScrollReveal({ threshold: 0.05 });
 
   return (
     <SectionWrapper id="testimonials" theme="light">
       {/* Header */}
       <div ref={headerRef} className="text-center mb-4">
-        {/* Made in Tashkent badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 mb-5 reveal">
           <span className="text-[13px]" aria-hidden="true">🇺🇿</span>
           <span className="text-[12px] font-semibold text-gray-600 tracking-[0.04em] uppercase">
             Made in Tashkent
           </span>
         </div>
-
         <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-bold text-dark-900 tracking-[-0.02em] leading-[1.2] mb-3 reveal delay-100">
           O&apos;yinchilar nima deydi
         </h2>
@@ -173,81 +158,104 @@ export default function Testimonials() {
               {s.icon}
             </div>
             <div>
-              <p className="text-[18px] font-bold text-dark-900 tracking-[-0.02em] leading-none">
-                {s.value}
-              </p>
+              <p className="text-[18px] font-bold text-dark-900 tracking-[-0.02em] leading-none">{s.value}</p>
               <p className="text-[11px] font-medium text-slate-400 mt-0.5">{s.label}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Testimonial grid */}
-      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {TESTIMONIALS.map((t, i) => (
-          <div
-            key={t.name}
-            className={`reveal delay-${[100, 200, 300, 100, 200, 300][i]} relative p-5 rounded-2xl border transition-shadow duration-200 ${
-              t.featured
-                ? "bg-dark-900 border-dark-700 shadow-xl"
-                : "bg-white border-gray-100 hover:shadow-md"
-            }`}
-          >
-            {/* Featured label */}
-            {t.featured && (
-              <div className="absolute -top-2.5 left-4">
-                <span className="text-[10px] font-bold text-dark-900 bg-brand-green px-2.5 py-0.5 rounded-full">
-                  Ko&apos;p o&apos;qilgan
-                </span>
-              </div>
-            )}
+      {/* Featured hero quote */}
+      <div ref={featuredRef} className="reveal mb-6">
+        <div className="relative p-7 sm:p-8 rounded-3xl bg-dark-900 border border-dark-700 overflow-hidden">
+          {/* Green glow accent */}
+          <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-green/10 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Quote mark */}
+          {/* Featured label */}
+          <div className="inline-flex items-center gap-1.5 mb-5 px-2.5 py-1 rounded-full bg-brand-green/15 border border-brand-green/25">
+            <div className="w-1.5 h-1.5 rounded-full bg-brand-green" />
+            <span className="text-[10px] font-bold text-brand-green tracking-[0.04em] uppercase">Ko&apos;p o&apos;qilgan</span>
+          </div>
+
+          <div className="sm:flex sm:items-center sm:gap-8">
+            {/* Big quote mark */}
             <div
-              className={`text-[36px] font-black leading-none mb-2 select-none ${
-                t.featured ? "text-brand-green/30" : "text-gray-100"
-              }`}
+              className="text-[72px] font-black leading-none select-none text-brand-green/25 flex-shrink-0 hidden sm:block"
               aria-hidden="true"
             >
               &#8220;
             </div>
 
-            <p
-              className={`text-[14px] font-medium leading-[1.6] mb-5 ${
-                t.featured ? "text-slate-300" : "text-slate-600"
-              }`}
-            >
-              {t.quote}
-            </p>
-
-            {/* Footer */}
-            <div className="flex items-center gap-3">
-              <div className="flex-shrink-0">
-                <AvatarSVG skinBg={t.skinBg} shirtColor={t.shirtColor} faceBg={t.faceBg} />
+            <div className="flex-1">
+              <p className="text-[18px] sm:text-[20px] font-semibold text-white leading-[1.55] mb-6">
+                &ldquo;{FEATURED.quote}&rdquo;
+              </p>
+              <div className="flex items-center gap-3">
+                <InitialsAvatar initials={FEATURED.initials} size="lg" />
+                <div>
+                  <p className="text-white font-semibold text-[14px]">{FEATURED.name}</p>
+                  <p className="text-slate-500 text-[12px] font-medium mt-0.5">{FEATURED.location}</p>
+                </div>
+                <div className="ml-auto">
+                  <Stars count={FEATURED.stars} />
+                </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <p
-                  className={`text-[13px] font-semibold leading-tight truncate ${
-                    t.featured ? "text-white" : "text-dark-900"
-                  }`}
-                >
-                  {t.name}
-                </p>
-                <p
-                  className={`text-[11px] font-medium mt-0.5 truncate ${
-                    t.featured ? "text-slate-500" : "text-slate-400"
-                  }`}
-                >
-                  {t.location}
-                </p>
-              </div>
-              <Stars count={t.stars} />
             </div>
           </div>
-        ))}
+        </div>
       </div>
 
-      {/* Bottom trust line */}
+      {/* Remaining cards — horizontal scroll on mobile, grid on desktop */}
+      <div ref={cardsRef} className="reveal delay-100">
+        {/* Mobile: horizontal scroll */}
+        <div className="flex gap-3 overflow-x-auto pb-2 sm:hidden" style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
+          {CARDS.map((c) => (
+            <div
+              key={c.name}
+              className="flex-shrink-0 w-[270px] p-5 rounded-2xl border border-gray-100 bg-white"
+              style={{ scrollSnapAlign: "start" }}
+            >
+              <div className="text-[28px] font-black leading-none mb-2 text-gray-100 select-none" aria-hidden="true">
+                &#8220;
+              </div>
+              <p className="text-[13px] font-medium text-slate-600 leading-[1.6] mb-4">{c.quote}</p>
+              <div className="flex items-center gap-2.5">
+                <InitialsAvatar initials={c.initials} size="sm" />
+                <div className="flex-1 min-w-0">
+                  <p className="text-[12px] font-semibold text-dark-900 truncate">{c.name}</p>
+                  <p className="text-[10px] font-medium text-slate-400 mt-0.5">{c.location}</p>
+                </div>
+                <Stars count={c.stars} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: grid */}
+        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-4">
+          {CARDS.map((c, i) => (
+            <div
+              key={c.name}
+              className={`reveal delay-${[100, 200, 300, 100, 200][i]} p-5 rounded-2xl border border-gray-100 bg-white hover:shadow-md transition-shadow duration-200`}
+            >
+              <div className="text-[28px] font-black leading-none mb-2 text-gray-100 select-none" aria-hidden="true">
+                &#8220;
+              </div>
+              <p className="text-[14px] font-medium text-slate-600 leading-[1.6] mb-4">{c.quote}</p>
+              <div className="flex items-center gap-2.5">
+                <InitialsAvatar initials={c.initials} />
+                <div className="flex-1 min-w-0">
+                  <p className="text-[13px] font-semibold text-dark-900 truncate">{c.name}</p>
+                  <p className="text-[11px] font-medium text-slate-400 mt-0.5">{c.location}</p>
+                </div>
+                <Stars count={c.stars} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Trust line */}
       <p className="text-center text-[13px] font-medium text-slate-400 mt-8 reveal delay-100">
         Barcha sharhlar haqiqiy foydalanuvchilardan · App Store va Google Play da tasdiqlangan
       </p>

@@ -9,7 +9,7 @@ export const translations = {
       mobileMenu: "Menyu",
     },
     hero: {
-      badge: "3,412 o'yinchi Toshkentda ishlatmoqda",
+      badge: "300+ o'yinchi Toshkentda ishlatmoqda",
       headline: "Futbol maydonini 30 soniyada bron qiling",
       subheadline:
         "Toshkentdagi 100+ tasdiqlangan maydon. Real vaqt jadval — kerakli vaqtni toping va darhol band qiling. Hech qanday qo'ng'iroqsiz.",
@@ -50,9 +50,10 @@ export const translations = {
       viewAll: "Barcha maydonlarni ko'rish",
       cardSize: "o'lcham",
       cardSurface: "qoplama",
+      urgentBadge: "Bugun faqat 2 vaqt",
     },
     benefits: {
-      badge: "Nima uchun Maydon?",
+      badge: "Nima uchun Maydonify?",
       headline: "Qo'ng'iroq kerak emas",
       subheadline:
         "Avval maydon topish uchun 5-6 ta raqamga qo'ng'iroq qilardingiz. Endi barchasi bir joyda.",
@@ -64,6 +65,14 @@ export const translations = {
       b3Desc: "Barcha narxlar UZS da, oldindan ko'rinadi. Yashirin to'lovlar yo'q.",
       b4Title: "Ishonchli maydonlar",
       b4Desc: "Faqat tekshirilgan va reyting olgan maydonlar platformada joylashgan.",
+      metric1: "Real vaqt",
+      metric2: "30 soniya",
+      metric3: "0 to'lov",
+      metric4: "100% tekshirilgan",
+      beforeTitle: "5-6 ta raqamga qo'ng'iroq",
+      beforeDesc: "15–30 daqiqa sarflaysiz, ba'zan kim ham ko'tarmaydi",
+      afterTitle: "Bir app — 30 soniya — bron tayyor",
+      afterDesc: "SMS tasdiq keladi · Hech qanday qo'ng'iroq yo'q",
     },
     appPreview: {
       badge: "Platforma ko'rinishi",
@@ -74,6 +83,10 @@ export const translations = {
       feature2: "Filtr va qidiruv",
       feature3: "Bron tarixi",
       feature4: "SMS tasdiq",
+      feature1Desc: "Toshkent bo'ylab maydonlarni xaritada toping va filtrlang",
+      feature2Desc: "Joylashuv, narx va reytingga qarab eng mos variantni tanlang",
+      feature3Desc: "Barcha bronlaringiz bir joyda — tarixi va holati ko'rinadi",
+      feature4Desc: "Bron tasdiqlanganda SMS-tasdiq bir daqiqada keladi",
     },
     faq: {
       badge: "Ko'p so'raladigan savollar",
@@ -113,7 +126,7 @@ export const translations = {
     },
     finalCta: {
       headline: "Hoziroq boshlang",
-      subheadline: "3,412 o'yinchi allaqachon ilovadan foydalanmoqda. Siz ham qo'shiling.",
+      subheadline: "300+ o'yinchi allaqachon ilovadan foydalanmoqda. Siz ham qo'shiling.",
       btn: "Ilovani yuklab oling — bepul",
       secondary: "Maydon egasimisiz?",
       secondaryLink: "Platformaga qo'shiling →",
@@ -145,7 +158,7 @@ export const translations = {
       },
       hero: {
         badge: "Maydon egalari uchun",
-        headline: "Ko'proq mijoz, kamroq tashvish",
+        headline: "Maydoningizdan +30% ko'proq daromad oling",
         subheadline:
           "Maydonifyga qo'shiling va oyiga 30%+ ko'proq bron oling. Reklama xarajatlarsiz.",
         ctaPrimary: "Ariza yuborish",
@@ -153,6 +166,7 @@ export const translations = {
         stat1: "oylik bron oshishi",
         stat2: "faol maydon",
         stat3: "to'liq bepul boshlash",
+        trustStatement: "100+ maydon egasi allaqachon natija ko'ryapti",
       },
       benefits: {
         badge: "Platforma afzalliklari",
@@ -241,7 +255,7 @@ export const translations = {
       title: "Maxfiylik siyosati",
       lastUpdated: "Oxirgi yangilanish",
       intro:
-        "Maydon foydalanuvchilarning shaxsiy ma'lumotlarini muhofaza qilishni ustuvor vazifa deb biladi.",
+        "Maydonify foydalanuvchilarning shaxsiy ma'lumotlarini muhofaza qilishni ustuvor vazifa deb biladi.",
       sections: [
         {
           title: "Qanday ma'lumotlar to'planadi?",
@@ -321,7 +335,7 @@ export const translations = {
       mobileMenu: "Меню",
     },
     hero: {
-      badge: "3 500+ игроков уже используют в Ташкенте",
+      badge: "300+ игроков уже используют в Ташкенте",
       headline: "Забронируйте площадку за 30 секунд",
       subheadline:
         "100+ проверенных площадок по Ташкенту. Живое расписание — найдите свободный слот и забронируйте мгновенно. Без звонков.",
@@ -362,6 +376,7 @@ export const translations = {
       viewAll: "Смотреть все площадки",
       cardSize: "размер",
       cardSurface: "покрытие",
+      urgentBadge: "Сегодня только 2 слота",
     },
     benefits: {
       badge: "Почему Maydonify?",
@@ -376,6 +391,14 @@ export const translations = {
       b3Desc: "Все цены в UZS, видны заранее. Скрытых платежей нет.",
       b4Title: "Проверенные площадки",
       b4Desc: "Только верифицированные площадки с реальными рейтингами.",
+      metric1: "Реальное время",
+      metric2: "30 секунд",
+      metric3: "0 комиссий",
+      metric4: "100% проверено",
+      beforeTitle: "5-6 звонков для поиска поля",
+      beforeDesc: "15-30 минут потрачено, иногда никто не берёт трубку",
+      afterTitle: "Одно приложение — 30 секунд — бронь готова",
+      afterDesc: "SMS-подтверждение придёт · Без единого звонка",
     },
     appPreview: {
       badge: "Интерфейс платформы",
@@ -386,6 +409,10 @@ export const translations = {
       feature2: "Фильтры и поиск",
       feature3: "История броней",
       feature4: "SMS-подтверждение",
+      feature1Desc: "Находите поля по всему Ташкенту на карте",
+      feature2Desc: "Выбирайте по местоположению, цене и рейтингу",
+      feature3Desc: "Все бронирования в одном месте — история и статус",
+      feature4Desc: "SMS-подтверждение приходит в течение минуты",
     },
     faq: {
       badge: "Частые вопросы",
@@ -425,7 +452,7 @@ export const translations = {
     },
     finalCta: {
       headline: "Начните прямо сейчас",
-      subheadline: "3 800+ игроков уже используют приложение. Присоединяйтесь.",
+      subheadline: "300+ игроков уже используют приложение. Присоединяйтесь.",
       btn: "Скачать приложение — бесплатно",
       secondary: "Вы владелец площадки?",
       secondaryLink: "Присоединиться к платформе →",
@@ -457,7 +484,7 @@ export const translations = {
       },
       hero: {
         badge: "Для владельцев площадок",
-        headline: "Больше клиентов, меньше хлопот",
+        headline: "Зарабатывайте на +30% больше с вашей площадкой",
         subheadline:
           "Присоединяйтесь к Maydonify и получайте на 30%+ больше броней в месяц. Без затрат на рекламу.",
         ctaPrimary: "Отправить заявку",
@@ -465,6 +492,7 @@ export const translations = {
         stat1: "рост броней в месяц",
         stat2: "активных площадок",
         stat3: "старт бесплатно",
+        trustStatement: "100+ владельцев площадок уже видят результат",
       },
       benefits: {
         badge: "Преимущества платформы",
@@ -632,7 +660,7 @@ export const translations = {
       mobileMenu: "Menu",
     },
     hero: {
-      badge: "3,500+ players use it across Tashkent",
+      badge: "300+ players use it across Tashkent",
       headline: "Stop searching. Start booking.",
       subheadline:
         "Browse 100+ verified fields across Tashkent, find your perfect slot, and book in seconds — no phone calls needed.",
@@ -673,6 +701,7 @@ export const translations = {
       viewAll: "View all fields",
       cardSize: "size",
       cardSurface: "surface",
+      urgentBadge: "Only 2 slots today",
     },
     benefits: {
       badge: "Why Maydonify?",
@@ -687,6 +716,14 @@ export const translations = {
       b3Desc: "All prices in UZS, shown upfront. No hidden fees.",
       b4Title: "Verified fields",
       b4Desc: "Only verified, rated fields on the platform.",
+      metric1: "Real-time",
+      metric2: "30 sec",
+      metric3: "0 fees",
+      metric4: "100% verified",
+      beforeTitle: "5-6 calls to find a field",
+      beforeDesc: "15-30 minutes wasted, often no one even picks up",
+      afterTitle: "One app — 30 seconds — booking done",
+      afterDesc: "SMS confirmation received · Zero calls needed",
     },
     appPreview: {
       badge: "Platform interface",
@@ -697,6 +734,10 @@ export const translations = {
       feature2: "Filters & search",
       feature3: "Booking history",
       feature4: "SMS confirmation",
+      feature1Desc: "Find fields across Tashkent on the map",
+      feature2Desc: "Filter by location, price, and rating",
+      feature3Desc: "All your bookings in one place — history and status",
+      feature4Desc: "SMS confirmation arrives within a minute",
     },
     faq: {
       badge: "FAQ",
@@ -736,7 +777,7 @@ export const translations = {
     },
     finalCta: {
       headline: "Start booking today",
-      subheadline: "Join 3,800+ players already booking in seconds.",
+      subheadline: "Join 300+ players already booking in seconds.",
       btn: "Download the App — free",
       secondary: "Own a football field?",
       secondaryLink: "Join the platform →",
@@ -768,7 +809,7 @@ export const translations = {
       },
       hero: {
         badge: "For field owners",
-        headline: "More bookings, less hassle",
+        headline: "Earn +30% more from your field",
         subheadline:
           "Join Maydonify and get 30%+ more bookings per month. No advertising costs.",
         ctaPrimary: "Submit application",
@@ -776,6 +817,7 @@ export const translations = {
         stat1: "monthly booking growth",
         stat2: "active fields",
         stat3: "free to start",
+        trustStatement: "100+ field owners are already seeing results",
       },
       benefits: {
         badge: "Platform benefits",
