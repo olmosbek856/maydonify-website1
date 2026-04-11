@@ -593,7 +593,13 @@ export default function Hero() {
   return (
     <section
       className="relative min-h-svh flex items-center overflow-hidden"
-      style={{ background: "#0D1117" }}
+      style={{
+        backgroundImage: "url('/hero-bg.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "right center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+      }}
     >
       {/* ── CSS keyframes for phone float ────────────────────────── */}
       <style>{`
@@ -609,49 +615,47 @@ export default function Hero() {
           .phone-float { animation: none; }
         }
       `}</style>
+      {/* Overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(to right, #0D1117 0%, rgba(13,17,23,0.9) 35%, rgba(13,17,23,0.3) 65%, rgba(13,17,23,0.0) 100%)",
+          zIndex: 0,
+        }}
+      />
       {/* ── Parallax background layer (moves at 0.5× scroll speed) ── */}
       <div
         ref={bgRef}
         className="absolute inset-0 pointer-events-none"
         style={{ zIndex: 0, willChange: "transform" }}
       >
-        {/* Green grid */}
+        {/* Vignette */}
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `
-              linear-gradient(rgba(0,168,107,0.055) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0,168,107,0.055) 1px, transparent 1px)
-            `,
-            backgroundSize: "64px 64px",
-          }}
-        />
-        {/* Vignette to fade grid at edges */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "radial-gradient(ellipse 75% 75% at 50% 50%, transparent 35%, #0D1117 100%)",
-          }}
-        />
-        {/* Top-left green ambient bloom */}
-        <div
-          className="absolute"
-          style={{
-            top: "-10%",
-            left: "-5%",
-            width: 700,
-            height: 600,
-            background: "radial-gradient(ellipse at 15% 10%, rgba(0,168,107,0.12) 0%, transparent 55%)",
+            background: "linear-gradient(to right, rgba(13,17,23,0.85) 0%, rgba(13,17,23,0.5) 50%, rgba(13,17,23,0.1) 100%)",
           }}
         />
       </div>
 
       {/* ── Content ──────────────────────────────────────────────── */}
       <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-28 pb-20 w-full" style={{ zIndex: 1 }}>
-        <div className="grid lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-center">
+        <div className="max-w-2xl">
 
           {/* ── LEFT: Copy column ─────────────────────────────────── */}
           <div className="flex flex-col items-start">
+
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+              className="mb-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-semibold"
+              style={{ background: "rgba(0,168,107,0.12)", border: "1px solid rgba(0,168,107,0.3)", color: "#00A86B" }}
+            >
+              <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#00A86B", display: "inline-block" }} />
+              #1 Football Booking App in Tashkent
+            </motion.div>
 
             {/* Headline — 3 lines, staggered */}
             <h1
@@ -660,16 +664,15 @@ export default function Hero() {
             >
               {(
                 [
-                  { text: "Futbol maydonini", green: false, delay: 0.1 },
-                  { text: "30 soniyada", green: true, delay: 0.3 },
-                  { text: "bron qiling", green: false, delay: 0.5 },
+                  { text: "Maydon band qilish", green: false, delay: 0.1 },
+                  { text: "endi 30 soniya.", green: true, delay: 0.3 },
                 ] as { text: string; green: boolean; delay: number }[]
               ).map(({ text, green, delay }) => (
                 <motion.span
                   key={text}
                   className="block"
                   style={{
-                    fontSize: "clamp(40px, 5.5vw, 72px)",
+                    fontSize: "clamp(40px, 5.5vw, 58px)",
                     fontWeight: 800,
                     lineHeight: 1.08,
                     letterSpacing: "-0.025em",
@@ -697,7 +700,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              Toshkentdagi 100+ tasdiqlangan maydon.
+              Toshkent bo'ylab 30+ tasdiqlangan stadionlar. Bo'sh vaqtlarni ko'ring, online band qiling va darhol o'ynang.
             </motion.p>
 
             {/* CTA block */}
@@ -733,7 +736,7 @@ export default function Hero() {
                 <span style={{ color: "#F9FAFB", fontSize: 14, fontWeight: 700, letterSpacing: "-0.01em" }}>
                   <AnimatedCounter end={4.8} decimals={1} />
                 </span>
-                <span style={{ color: "#6B7280", fontSize: 13 }}>App Store</span>
+                <span style={{ color: "#6B7280", fontSize: 13 }}>App Store & Play Store</span>
               </div>
               <span
                 style={{
@@ -747,10 +750,10 @@ export default function Hero() {
               />
               <div className="flex items-center gap-2">
                 <span style={{ fontSize: 13, lineHeight: 1 }}>🏟</span>
-                <span style={{ color: "#F9FAFB", fontSize: 14, fontWeight: 700, letterSpacing: "-0.01em" }}>
-                  <AnimatedCounter end={100} suffix="+" />
+                <span style={{ color: "#F9FAFB", fontSize: 16, fontWeight: 800, letterSpacing: "-0.01em" }}>
+                  <AnimatedCounter end={30} suffix="+" />
                 </span>
-                <span style={{ color: "#6B7280", fontSize: 13 }}>maydon</span>
+                <span style={{ color: "#6B7280", fontSize: 13 }}>faol maydon</span>
               </div>
               <span
                 style={{
@@ -764,24 +767,14 @@ export default function Hero() {
               />
               <div className="flex items-center gap-2">
                 <span style={{ fontSize: 13, lineHeight: 1 }}>⚡</span>
-                <span style={{ color: "#F9FAFB", fontSize: 14, fontWeight: 700, letterSpacing: "-0.01em" }}>
-                  <AnimatedCounter end={30} />
+                <span style={{ color: "#F9FAFB", fontSize: 16, fontWeight: 800, letterSpacing: "-0.02em" }}>
+                  <AnimatedCounter end={27} />s
                 </span>
-                <span style={{ color: "#6B7280", fontSize: 13 }}>soniya</span>
+                <span style={{ color: "#9CA3AF", fontSize: 13, fontWeight: 500 }}>o'rtacha bron vaqti</span>
               </div>
             </motion.div>
 
           </div>
-
-          {/* ── RIGHT: Phone mockup ───────────────────────────────── */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94, y: 24 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="flex justify-center lg:justify-end"
-          >
-            <FlowMockup />
-          </motion.div>
 
         </div>
       </div>

@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         maydon: {
-          green:   "#00A86B",
+          green:   "#CCFF00",
           dark:    "#0D1117",
           surface: "#111827",
           muted:   "#6B7280",

@@ -87,7 +87,7 @@ export default function OwnersHero() {
             <div className="mt-10 grid grid-cols-3 gap-4 sm:gap-6">
               {[
                 { value: "+30%", label: t.owners.hero.stat1, highlight: true },
-                { value: "100+", label: t.owners.hero.stat2 },
+                { value: "30+", label: t.owners.hero.stat2 },
                 { value: "0 UZS", label: t.owners.hero.stat3 },
               ].map((stat, i) => (
                 <div key={i} className="relative">

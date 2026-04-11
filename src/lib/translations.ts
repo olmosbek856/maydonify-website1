@@ -12,7 +12,7 @@ export const translations = {
       badge: "300+ o'yinchi Toshkentda ishlatmoqda",
       headline: "Futbol maydonini 30 soniyada bron qiling",
       subheadline:
-        "Toshkentdagi 100+ tasdiqlangan maydon. Real vaqt jadval — kerakli vaqtni toping va darhol band qiling. Hech qanday qo'ng'iroqsiz.",
+        "Toshkent bo'ylab 30+ tasdiqlangan stadionlar. Bo'sh vaqtlarni ko'ring, online band qiling va darhol o'ynang.",
       ctaPrimary: "Ilovani yuklab oling — bepul",
       ctaSecondary: "Qanday ishlashini ko'ring",
       statsBooked: "muvaffaqiyatli bron",
@@ -139,7 +139,7 @@ export const translations = {
       footerLabel: "Ilovani yuklab oling",
     },
     footer: {
-      tagline: "Futbol maydonlarini tezda bron qilish platformasi.",
+      tagline: "Futbol maydonlarini masofadan bron qilish platformasi.",
       product: "Platforma",
       howItWorks: "Qanday ishlaydi",
       stadiums: "Maydonlar",
@@ -166,7 +166,7 @@ export const translations = {
         stat1: "oylik bron oshishi",
         stat2: "faol maydon",
         stat3: "to'liq bepul boshlash",
-        trustStatement: "100+ maydon egasi allaqachon natija ko'ryapti",
+        trustStatement: "30+ maydon egasi allaqachon natija ko'ryapti",
       },
       benefits: {
         badge: "Platforma afzalliklari",
@@ -338,7 +338,7 @@ export const translations = {
       badge: "300+ игроков уже используют в Ташкенте",
       headline: "Забронируйте площадку за 30 секунд",
       subheadline:
-        "100+ проверенных площадок по Ташкенту. Живое расписание — найдите свободный слот и забронируйте мгновенно. Без звонков.",
+        "30+ проверенных площадок по Ташкенту. Живое расписание — найдите свободный слот и забронируйте мгновенно. Без звонков.",
       ctaPrimary: "Скачать приложение — бесплатно",
       ctaSecondary: "Посмотреть, как это работает",
       statsBooked: "успешных броней",
@@ -492,7 +492,7 @@ export const translations = {
         stat1: "рост броней в месяц",
         stat2: "активных площадок",
         stat3: "старт бесплатно",
-        trustStatement: "100+ владельцев площадок уже видят результат",
+        trustStatement: "30+ владельцев площадок уже видят результат",
       },
       benefits: {
         badge: "Преимущества платформы",
@@ -663,7 +663,7 @@ export const translations = {
       badge: "300+ players use it across Tashkent",
       headline: "Stop searching. Start booking.",
       subheadline:
-        "Browse 100+ verified fields across Tashkent, find your perfect slot, and book in seconds — no phone calls needed.",
+        "Browse 30+ verified fields across Tashkent, find your perfect slot, and book in seconds — no phone calls needed.",
       ctaPrimary: "Download the App — free",
       ctaSecondary: "See how it works",
       statsBooked: "successful bookings",
@@ -817,7 +817,7 @@ export const translations = {
         stat1: "monthly booking growth",
         stat2: "active fields",
         stat3: "free to start",
-        trustStatement: "100+ field owners are already seeing results",
+        trustStatement: "30+ field owners are already seeing results",
       },
       benefits: {
         badge: "Platform benefits",

@@ -197,7 +197,7 @@ function StatItem({ target, suffix, label, decimals = 0, index = 0 }: StatItemPr
 const STATS: StatItemProps[] = [
   { target: 29, suffix: "x",  label: "tezroq bron",       decimals: 0 },
   { target: 300, suffix: "+", label: "o'yinchi",           decimals: 0 },
-  { target: 50,  suffix: "+", label: "faol maydon",        decimals: 0 },
+  { target: 30,  suffix: "+", label: "faol maydon",        decimals: 0 },
   { target: 4.8, suffix: " ★", label: "o'rtacha reyting", decimals: 1 },
 ];
 

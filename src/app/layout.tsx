@@ -20,21 +20,21 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Maydonify — Futbol Maydonini 30 Soniyada Band Qiling",
   description:
-    "Toshkentdagi 100+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling. Hech qanday qo'ng'iroqsiz. Real vaqt jadval, aniq narxlar, tezkor bron.",
+    "Toshkentdagi 30+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling. Hech qanday qo'ng'iroqsiz. Real vaqt jadval, aniq narxlar, tezkor bron.",
   keywords: [
     "futbol maydon", "football field", "band qilish", "Toshkent", "maydon ijarasi",
     "futsal", "mini football", "bron qilish", "online booking", "maydonify"
   ],
   openGraph: {
     title: "Maydonify — Futbol Maydonini 30 Soniyada Band Qiling",
-    description: "Toshkentdagi 100+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling. Hech qanday qo'ng'iroqsiz.",
+    description: "Toshkentdagi 30+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling. Hech qanday qo'ng'iroqsiz.",
     type: "website",
     siteName: "Maydonify",
   },
   twitter: {
     card: "summary_large_image",
     title: "Maydonify — Futbol Maydonini 30 Soniyada Band Qiling",
-    description: "Toshkentdagi 100+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling.",
+    description: "Toshkentdagi 30+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling.",
   },
 };
 

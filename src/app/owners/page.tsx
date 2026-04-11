@@ -10,7 +10,7 @@ import OwnersFAQ from "@/components/owners/OwnersFAQ";
 export const metadata: Metadata = {
   title: "Maydonify Hamkorlar — Maydoningizdan +30% Daromad Oling",
   description:
-    "Futbol maydoningizni Maydonify platformasiga qo'shing. Ko'proq bron, real vaqt jadval, bepul boshlash. 100+ maydon egasi allaqachon natija ko'ryapti.",
+    "Futbol maydoningizni Maydonify platformasiga qo'shing. Ko'proq bron, real vaqt jadval, bepul boshlash. 30+ maydon egasi allaqachon natija ko'ryapti.",
   openGraph: {
     title: "Maydonify Hamkorlar — Maydoningizdan +30% Daromad Oling",
     description: "Futbol maydoningizni Maydonify platformasiga qo'shing. Ko'proq bron, real vaqt jadval, bepul boshlash.",

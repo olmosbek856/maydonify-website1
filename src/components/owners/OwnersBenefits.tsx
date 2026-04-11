@@ -101,7 +101,7 @@ export default function OwnersBenefits() {
       {/* Bottom CTA nudge */}
       <div className="mt-12 text-center reveal delay-200">
         <p className="text-slate-muted text-[14px] font-medium mb-3">
-          Platformaga qo&apos;shilgan 100+ maydon egasi allaqachon natija ko&apos;ryapti.
+          Platformaga qo&apos;shilgan 30+ maydon egasi allaqachon natija ko&apos;ryapti.
         </p>
         <button
           onClick={() => {
