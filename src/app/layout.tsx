@@ -25,23 +25,33 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Maydonify — Futbol Maydonini 30 Soniyada Band Qiling",
+  title: "Maydon — Futbol Maydonini 30 Soniyada Band Qiling",
   description:
     "Toshkentdagi 30+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling. Hech qanday qo'ng'iroqsiz. Real vaqt jadval, aniq narxlar, tezkor bron.",
   keywords: [
     "futbol maydon", "football field", "band qilish", "Toshkent", "maydon ijarasi",
-    "futsal", "mini football", "bron qilish", "online booking", "maydonify"
+    "futsal", "mini football", "bron qilish", "online booking", "maydonify", "maydon"
   ],
   openGraph: {
-    title: "Maydonify — Futbol Maydonini 30 Soniyada Band Qiling",
+    title: "Maydon — Futbol Maydonini 30 Soniyada Band Qiling",
     description: "Toshkentdagi 30+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling. Hech qanday qo'ng'iroqsiz.",
     type: "website",
-    siteName: "Maydonify",
+    siteName: "Maydon",
+    url: "https://maydonify.uz",
+    images: [
+      {
+        url: "https://maydonify.uz/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Maydon — Futbol Maydonini 30 Soniyada Band Qiling",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maydonify — Futbol Maydonini 30 Soniyada Band Qiling",
+    title: "Maydon — Futbol Maydonini 30 Soniyada Band Qiling",
     description: "Toshkentdagi 30+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling.",
+    images: ["https://maydonify.uz/og-image.png"],
   },
 };
 
