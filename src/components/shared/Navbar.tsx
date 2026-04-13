@@ -49,9 +49,9 @@ export default function Navbar({ variant = "home" }: NavbarProps) {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green rounded-lg"
+            className="shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green rounded-lg"
           >
-            <MaydonLogoMark size={42} />
+            <MaydonLogoMark size={38} />
           </Link>
 
           {/* Desktop nav */}

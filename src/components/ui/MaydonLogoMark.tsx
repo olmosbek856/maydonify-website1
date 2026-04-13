@@ -4,143 +4,101 @@ interface Props {
 }
 
 /**
- * Maydon logo mark:
- *  – Left arch: blue outer band + purple inner band (two-tone ribbon)
- *  – Right arch: teal/blue outer band + purple inner band
- *  – Orange arc with football at the tip
- *  – Silver magnifying glass in the center valley
- *
- * ViewBox 460 × 460 (square).
+ * Maydon logo — metallic chrome text "MAYDON" with a dark-blue swoosh.
+ * Inspired by the 3D-metallic brand mark style.
+ * Compact SVG, no external assets.
  */
 export default function MaydonLogoMark({ className, size = 40 }: Props) {
+  // Aspect ratio ≈ 3.6 : 1
+  const w = size * 3.6;
+  const h = size;
+
   return (
     <svg
-      width={size}
-      height={size}
-      viewBox="0 0 460 460"
+      width={w}
+      height={h}
+      viewBox="0 0 360 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="Maydon logo mark"
+      aria-label="Maydon logo"
     >
       <defs>
-        {/* Left arch outer — dark blue → teal */}
-        <linearGradient id="mlg-lbo" x1="60" y1="442" x2="170" y2="50" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stopColor="#1848B0" />
-          <stop offset="100%" stopColor="#40B8E0" />
+        {/* Metallic text gradient — top highlight → mid silver → bottom shadow */}
+        <linearGradient id="ml-chrome" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stopColor="#F0F4F8" />
+          <stop offset="25%"  stopColor="#D8DEE6" />
+          <stop offset="50%"  stopColor="#B0BCC8" />
+          <stop offset="75%"  stopColor="#8896A4" />
+          <stop offset="100%" stopColor="#A8B8C8" />
         </linearGradient>
 
-        {/* Left arch inner — purple */}
-        <linearGradient id="mlg-lbi" x1="85" y1="442" x2="192" y2="76" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stopColor="#5820A0" />
-          <stop offset="100%" stopColor="#9040D8" />
+        {/* Subtle top-edge highlight for 3D effect */}
+        <linearGradient id="ml-highlight" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stopColor="#FFFFFF" stopOpacity="0.9" />
+          <stop offset="40%"  stopColor="#FFFFFF" stopOpacity="0" />
         </linearGradient>
 
-        {/* Right arch outer — teal/blue */}
-        <linearGradient id="mlg-rbo" x1="238" y1="410" x2="358" y2="168" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stopColor="#2878C8" />
-          <stop offset="100%" stopColor="#44C0E8" />
+        {/* Swoosh gradient — dark navy → teal */}
+        <linearGradient id="ml-swoosh" x1="0" y1="0.5" x2="1" y2="0.5">
+          <stop offset="0%"   stopColor="#0A1628" />
+          <stop offset="50%"  stopColor="#102040" />
+          <stop offset="100%" stopColor="#1A3A5C" />
         </linearGradient>
 
-        {/* Right arch inner — purple */}
-        <linearGradient id="mlg-rbi" x1="238" y1="410" x2="340" y2="175" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stopColor="#5028A8" />
-          <stop offset="100%" stopColor="#7840C8" />
-        </linearGradient>
-
-        {/* Orange arc */}
-        <linearGradient id="mlg-oa" x1="236" y1="412" x2="415" y2="36" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stopColor="#B86810" />
-          <stop offset="100%" stopColor="#F0A830" />
-        </linearGradient>
-
-        {/* Magnifying glass — silver */}
-        <linearGradient id="mlg-mg" x1="205" y1="278" x2="272" y2="348" gradientUnits="userSpaceOnUse">
-          <stop offset="0%"   stopColor="#C8D8E4" />
-          <stop offset="100%" stopColor="#5C7488" />
-        </linearGradient>
-
-        {/* Football — spherical shading */}
-        <radialGradient id="mlg-fb" cx="40%" cy="34%" r="60%">
-          <stop offset="0%"   stopColor="#EEF4FA" />
-          <stop offset="50%"  stopColor="#A8BCC8" />
-          <stop offset="100%" stopColor="#607080" />
+        {/* Glow at swoosh tip */}
+        <radialGradient id="ml-glow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%"   stopColor="#40E8D0" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="#40E8D0" stopOpacity="0" />
         </radialGradient>
+
+        {/* Text shadow filter */}
+        <filter id="ml-shadow" x="-4%" y="-4%" width="108%" height="116%">
+          <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#000000" floodOpacity="0.35" />
+        </filter>
       </defs>
 
-      {/* ── Left arch outer (blue) ──────────────────────────────── */}
+      {/* ── Swoosh / wave element ───────────────────────────────── */}
       <path
-        d="M 60,442 C 12,198 92,8 170,50 C 248,92 262,372 238,410"
-        stroke="url(#mlg-lbo)"
-        strokeWidth="42"
-        strokeLinecap="round"
-        fill="none"
+        d="M 8,42 C 40,38 80,20 130,18 C 180,16 200,32 160,40 C 120,48 60,44 8,42 Z"
+        fill="url(#ml-swoosh)"
       />
-
-      {/* ── Left arch inner (purple) — offset ~22px inward ────────── */}
+      {/* Swoosh tail — thin elegant extension */}
       <path
-        d="M 82,442 C 36,204 114,40 192,76 C 262,110 264,376 240,413"
-        stroke="url(#mlg-lbi)"
-        strokeWidth="22"
-        strokeLinecap="round"
-        fill="none"
+        d="M 130,18 C 155,14 175,12 190,16 Q 200,18 195,22 C 185,20 170,16 150,19"
+        fill="url(#ml-swoosh)"
       />
+      {/* Glow dot at the swoosh tip */}
+      <circle cx="135" cy="19" r="8" fill="url(#ml-glow)" />
 
-      {/* ── Right arch outer (teal/blue) ────────────────────────── */}
-      <path
-        d="M 238,410 C 260,355 322,100 358,168 C 394,236 415,396 405,442"
-        stroke="url(#mlg-rbo)"
-        strokeWidth="42"
-        strokeLinecap="round"
-        fill="none"
-      />
+      {/* ── "MAYDON" chrome text ────────────────────────────────── */}
+      <text
+        x="180"
+        y="74"
+        textAnchor="middle"
+        fontFamily="'Inter', 'Segoe UI', 'Arial Black', sans-serif"
+        fontWeight="800"
+        fontSize="62"
+        letterSpacing="6"
+        fill="url(#ml-chrome)"
+        filter="url(#ml-shadow)"
+      >
+        MAYDON
+      </text>
 
-      {/* ── Right arch inner (purple) — offset ~22px inward ────────── */}
-      <path
-        d="M 238,410 C 238,352 300,118 336,176 C 372,230 392,392 382,442"
-        stroke="url(#mlg-rbi)"
-        strokeWidth="22"
-        strokeLinecap="round"
-        fill="none"
-      />
-
-      {/* ── Orange arc (ball trajectory) ────────────────────────── */}
-      <path
-        d="M 236,412 C 278,322 354,170 400,78 C 410,55 415,42 415,36"
-        stroke="url(#mlg-oa)"
-        strokeWidth="28"
-        strokeLinecap="round"
-        fill="none"
-      />
-
-      {/* ── Football ─────────────────────────────────────────────── */}
-      <circle cx="415" cy="36" r="34" fill="url(#mlg-fb)" />
-      <circle cx="415" cy="36" r="34" stroke="#4A6070" strokeWidth="1.5" fill="none" />
-      {/* Pentagon patch */}
-      <path
-        d="M 415,13 L 430,25 L 425,42 L 405,42 L 400,25 Z"
-        fill="#1C2830"
-        opacity="0.75"
-      />
-      {/* Side patch hints */}
-      <path d="M 398,22 L 402,27" stroke="#1C2830" strokeWidth="1.8" opacity="0.5" strokeLinecap="round"/>
-      <path d="M 432,22 L 428,27" stroke="#1C2830" strokeWidth="1.8" opacity="0.5" strokeLinecap="round"/>
-
-      {/* ── Magnifying glass ─────────────────────────────────────── */}
-      <circle
-        cx="236" cy="314"
-        r="30"
-        stroke="url(#mlg-mg)"
-        strokeWidth="20"
-        fill="rgba(140,180,210,0.07)"
-      />
-      <line
-        x1="258" y1="336"
-        x2="280" y2="360"
-        stroke="url(#mlg-mg)"
-        strokeWidth="20"
-        strokeLinecap="round"
-      />
+      {/* Top highlight pass — same text, clipped to upper portion */}
+      <text
+        x="180"
+        y="74"
+        textAnchor="middle"
+        fontFamily="'Inter', 'Segoe UI', 'Arial Black', sans-serif"
+        fontWeight="800"
+        fontSize="62"
+        letterSpacing="6"
+        fill="url(#ml-highlight)"
+      >
+        MAYDON
+      </text>
     </svg>
   );
 }

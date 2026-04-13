@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 import type { Language } from "@/lib/types";
+import MaydonLogoMark from "@/components/ui/MaydonLogoMark";
 
 const NAV_LINKS = [
   { label: "Qanday ishlaydi", href: "#how-it-works" },
@@ -40,26 +41,19 @@ export function Navbar() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-[#0D1117]/85 backdrop-blur-xl border-b border-white/8"
+            ? "bg-[#0A0F1C]/90 border-b border-white/[0.06]"
             : "bg-transparent"
         )}
+        style={{ backdropFilter: scrolled ? "blur(14px)" : "none" }}
       >
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+        <nav className="mx-auto flex items-center justify-between px-4 sm:px-6" style={{ height: 84, maxWidth: 1280 }}>
           {/* ── Logo ── */}
           <a
             href="/"
-            className="flex items-center gap-1 shrink-0 group"
-            aria-label="Maydonify bosh sahifa"
+            className="shrink-0 group"
+            aria-label="Maydon bosh sahifa"
           >
-            <span
-              className="text-[#00A86B] font-bold leading-none select-none text-lg"
-              aria-hidden="true"
-            >
-              ●
-            </span>
-            <span className="font-[var(--font-syne)] text-[1.15rem] font-bold text-white tracking-tight group-hover:text-[#00A86B] transition-colors duration-200">
-              Maydonify
-            </span>
+            <MaydonLogoMark size={36} />
           </a>
 
           {/* ── Desktop nav links ── */}
