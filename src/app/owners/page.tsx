@@ -8,12 +8,12 @@ import OwnersForm from "@/components/owners/OwnersForm";
 import OwnersFAQ from "@/components/owners/OwnersFAQ";
 
 export const metadata: Metadata = {
-  title: "Maydonify Hamkorlar — Maydoningizdan +30% Daromad Oling",
+  title: "Maydon Hamkorlar — Maydoningizdan +30% Daromad Oling",
   description:
-    "Futbol maydoningizni Maydonify platformasiga qo'shing. Ko'proq bron, real vaqt jadval, bepul boshlash. 30+ maydon egasi allaqachon natija ko'ryapti.",
+    "Futbol maydoningizni Maydon platformasiga qo'shing. Ko'proq bron, real vaqt jadval, bepul boshlash. 30+ maydon egasi allaqachon natija ko'ryapti.",
   openGraph: {
-    title: "Maydonify Hamkorlar — Maydoningizdan +30% Daromad Oling",
-    description: "Futbol maydoningizni Maydonify platformasiga qo'shing. Ko'proq bron, real vaqt jadval, bepul boshlash.",
+    title: "Maydon Hamkorlar — Maydoningizdan +30% Daromad Oling",
+    description: "Futbol maydoningizni Maydon platformasiga qo'shing. Ko'proq bron, real vaqt jadval, bepul boshlash.",
     type: "website",
   },
 };
