@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import { Syne, DM_Sans, Sora } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 
@@ -14,6 +14,13 @@ const dmSans = DM_Sans({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600"],
   variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-sora",
   display: "swap",
 });
 
@@ -44,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uz" className={`${syne.variable} ${dmSans.variable}`} data-scroll-behavior="smooth">
+    <html lang="uz" className={`${syne.variable} ${dmSans.variable} ${sora.variable}`} data-scroll-behavior="smooth">
       <body className="min-h-screen antialiased">
         <LanguageProvider>
 {children}

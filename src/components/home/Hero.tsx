@@ -388,25 +388,68 @@ export default function Hero() {
               ⚽ Tashkent #1 Football Booking Platform
             </motion.div>
 
-            {/* Headline — mb-28 */}
-            <h1 style={{ marginBottom: 20, fontFamily: "var(--font-syne), Inter, ui-sans-serif, system-ui, sans-serif" }}>
+            {/* Headline */}
+            <h1 style={{ marginBottom: 20 }}>
+              {/* Top lines — descriptive */}
               {[
-                { text: "Yaqin stadionni toping.", white: true, delay: 0.15 },
-                { text: "Bron qiling. O'ynang.", white: false, delay: 0.35 },
-              ].map(({ text, white, delay }) => (
+                { text: "Yaqin stadionni", delay: 0.10 },
+                { text: "toping.", delay: 0.20 },
+              ].map(({ text, delay }) => (
                 <motion.span
-                  key={text} className="block"
+                  key={text}
+                  className="block"
                   style={{
-                    fontSize: "clamp(36px, 4.5vw, 56px)", fontWeight: 800,
-                    lineHeight: 1.05, letterSpacing: "-0.035em",
-                    color: white ? "#FFFFFF" : "#22C55E",
+                    fontFamily: "var(--font-sora), var(--font-syne), system-ui, sans-serif",
+                    fontSize: "clamp(34px, 4.2vw, 54px)",
+                    fontWeight: 800,
+                    lineHeight: 1.05,
+                    letterSpacing: "-0.02em",
+                    color: "#F1F5F9",
                   }}
-                  initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
                 >
                   {text}
                 </motion.span>
               ))}
+
+              {/* Gap between descriptive and action */}
+              <span className="block" style={{ height: 10 }} aria-hidden="true" />
+
+              {/* Action lines */}
+              <motion.span
+                className="block"
+                style={{
+                  fontFamily: "var(--font-sora), var(--font-syne), system-ui, sans-serif",
+                  fontSize: "clamp(34px, 4.2vw, 54px)",
+                  fontWeight: 800,
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.02em",
+                  color: "#22C55E",
+                }}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.30, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                Bron qiling.
+              </motion.span>
+              <motion.span
+                className="block"
+                style={{
+                  fontFamily: "var(--font-sora), var(--font-syne), system-ui, sans-serif",
+                  fontSize: "clamp(34px, 4.2vw, 54px)",
+                  fontWeight: 800,
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.02em",
+                  color: "#F1F5F9",
+                }}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.40, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                O&apos;ynang.
+              </motion.span>
             </h1>
 
             {/* Subheadline — mb-36 */}
