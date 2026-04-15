@@ -498,7 +498,7 @@ export default function Hero() {
               <div className="flex items-center gap-2">
                 <span style={{ fontSize: 13 }}>★</span>
                 <span className="text-[14px] font-bold text-white"><AnimatedCounter end={4.8} decimals={1} /></span>
-                <span className="text-[13px]" style={{ color: "#94A3B8" }}>App Store & Play Store</span>
+                <span className="text-[13px]" style={{ color: "#94A3B8" }}>App Store</span>
               </div>
               <span className="inline-block w-px h-5 mx-4 flex-shrink-0" style={{ background: "rgba(255,255,255,0.1)" }} />
               <div className="flex items-center gap-2">
