@@ -25,7 +25,7 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Maydon — Futbol Maydonini 30 Soniyada Band Qiling",
+  title: "Maydon - Futbol uchun mini stadionlarni masofadan bron qilish platformasi",
   description:
     "Toshkentdagi 30+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling. Hech qanday qo'ng'iroqsiz. Real vaqt jadval, aniq narxlar, tezkor bron.",
   keywords: [
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     "futsal", "mini football", "bron qilish", "online booking", "maydonify", "maydon"
   ],
   openGraph: {
-    title: "Maydon — Futbol Maydonini 30 Soniyada Band Qiling",
-    description: "Toshkentdagi 30+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling. Hech qanday qo'ng'iroqsiz.",
+    title: "Maydon - Futbol uchun mini stadionlarni masofadan bron qilish platformasi",
+    description: "Toshkentdagi 100+ tasdiqlangan mini stadionlarni toping va masofadan bron qiling. Hech qanday qo'ng'iroqsiz.",
     type: "website",
     siteName: "Maydon",
     url: "https://maydonify.uz",
@@ -43,18 +43,19 @@ export const metadata: Metadata = {
         url: "https://maydonify.uz/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Maydon — Futbol Maydonini 30 Soniyada Band Qiling",
+        alt: "Maydon - Futbol uchun mini stadionlarni masofadan bron qilish platformasi",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maydon — Futbol Maydonini 30 Soniyada Band Qiling",
-    description: "Toshkentdagi 30+ tasdiqlangan futbol maydonlarini toping va 30 soniyada band qiling.",
+    title: "Maydon - Futbol uchun mini stadionlarni masofadan bron qilish platformasi",
+    description: "Toshkentdagi 100+ tasdiqlangan mini stadionlarni toping va masofadan bron qiling.",
     images: ["https://maydonify.uz/og-image.png"],
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],

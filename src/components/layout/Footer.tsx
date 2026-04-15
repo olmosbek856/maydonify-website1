@@ -62,7 +62,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2.5 group w-fit">
               <MaydonLogoMark size={32} />
               <span className="text-white font-bold text-lg tracking-tight font-[var(--font-syne)]">
-                Maydonify
+                Maydon
               </span>
             </Link>
 

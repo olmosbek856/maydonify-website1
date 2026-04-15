@@ -9,33 +9,21 @@ import { useRef, useEffect } from "react";
 
 function AnimatedCounter({ end, suffix = "", decimals = 0 }: { end: number; suffix?: string; decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const started = useRef(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 1400;
-          const startTime = performance.now();
-          const tick = (now: number) => {
-            const progress = Math.min((now - startTime) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            el.textContent = (end * eased).toFixed(decimals) + suffix;
-            if (progress < 1) requestAnimationFrame(tick);
-            else el.textContent = end.toFixed(decimals) + suffix;
-          };
-          requestAnimationFrame(tick);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.5 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
+    const duration = 2500;
+    const startTime = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = (end * eased).toFixed(decimals) + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = end.toFixed(decimals) + suffix;
+    };
+    requestAnimationFrame(tick);
   }, [end, suffix, decimals]);
-  return <span ref={ref}>{"0" + suffix}</span>;
+  return <span ref={ref}>0</span>;
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -385,7 +373,7 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22C55E] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#22C55E]" />
               </span>
-              ⚽ Tashkent #1 Football Booking Platform
+              Tashkent #1 Football Booking Platform
             </motion.div>
 
             {/* Headline */}
@@ -505,7 +493,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Trust bar — mb-0 */}
-            <motion.div className="flex items-center flex-wrap gap-y-3"
+            <motion.div className="flex items-center flex-nowrap gap-y-3"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 1 }}>
               <div className="flex items-center gap-2">
                 <span style={{ fontSize: 13 }}>★</span>

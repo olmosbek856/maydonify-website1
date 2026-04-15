@@ -26,7 +26,7 @@ export default function LegalPage({ type }: LegalPageProps) {
                   href="/"
                   className="text-slate-muted hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green rounded"
                 >
-                  Maydonify
+                  Maydon
                 </Link>
               </li>
               <li aria-hidden="true" className="text-dark-600">

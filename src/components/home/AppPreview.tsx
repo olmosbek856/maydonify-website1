@@ -85,7 +85,7 @@ function AppBrowseMockup() {
 
         {/* App header */}
         <div className="px-4 pt-2 pb-2">
-          <p className="text-white text-[13px] font-bold tracking-[-0.01em]">Maydonify</p>
+          <p className="text-white text-[13px] font-bold tracking-[-0.01em]">Maydon</p>
           <p className="text-white/40 text-[9px] font-medium mt-0.5">Toshkent bo&apos;ylab qidiring</p>
         </div>
 
