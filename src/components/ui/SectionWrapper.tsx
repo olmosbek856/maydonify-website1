@@ -5,6 +5,7 @@ interface SectionWrapperProps {
   className?: string;
   id?: string;
   theme?: "dark" | "light" | "darker";
+  style?: React.CSSProperties;
 }
 
 export default function SectionWrapper({
@@ -12,10 +13,12 @@ export default function SectionWrapper({
   className,
   id,
   theme = "dark",
+  style,
 }: SectionWrapperProps) {
   return (
     <section
       id={id}
+      style={style}
       className={cn(
         "w-full",
         theme === "dark" && "bg-dark-900",

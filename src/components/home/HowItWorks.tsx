@@ -11,39 +11,33 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 // ── Icons ─────────────────────────────────────────────────────────────────────
 function MapPinIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-        fill="currentColor"
-        fillOpacity="0.2"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      />
-      <circle cx="12" cy="9" r="2.5" fill="currentColor" />
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+        fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
+      <circle cx="12" cy="9" r="2.2" fill="currentColor"/>
+      <path d="M12 2v2M5 9H3M21 9h-2" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" opacity="0.4"/>
     </svg>
   );
 }
 
 function ClockIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="9" fill="currentColor" fillOpacity="0.12" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M12 7v5.5l3.5 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="9" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="1.6"/>
+      <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+      <path d="M12 7.5V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M12 12l3 2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+      <path d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" opacity="0.35"/>
     </svg>
   );
 }
 
 function CheckCircleIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" fill="currentColor" />
-      <path
-        d="M7.5 12l3.5 3.5 5.5-7"
-        stroke="white"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="9" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.6"/>
+      <path d="M7.5 12l3 3 5-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="1" strokeOpacity="0.3"/>
     </svg>
   );
 }
@@ -160,7 +154,7 @@ interface StatItemProps {
 function StatItem({ target, suffix, label, decimals = 0, index = 0 }: StatItemProps) {
   const [display, setDisplay] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const inView = useInView(ref, { once: true, amount: 0.3 });
 
   useEffect(() => {
     if (!inView) return;
@@ -179,7 +173,7 @@ function StatItem({ target, suffix, label, decimals = 0, index = 0 }: StatItemPr
       ref={ref}
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.45, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       className="flex flex-col items-center gap-1.5"
     >
@@ -214,7 +208,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <SectionWrapper id="how-it-works" theme="darker">
+    <SectionWrapper id="how-it-works" theme="darker" style={{ background: "rgba(255,255,255,0.02)" }}>
       {/* ── Header ─────────────────────────────────────────────────────────── */}
       <div ref={headerRef} className="text-center mb-12">
         <Badge className="mb-2 reveal">{t.howItWorks.badge}</Badge>
@@ -228,27 +222,7 @@ export default function HowItWorks() {
 
       {/* ── Steps grid ─────────────────────────────────────────────────────── */}
       <div className="relative">
-        {/* Desktop: dashed horizontal connector line aligned with icon centers (top-10 = 40px) */}
-        <div
-          aria-hidden="true"
-          className="hidden md:block absolute top-10 pointer-events-none"
-          style={{ left: "calc(16.67% + 32px)", right: "calc(16.67% + 32px)" }}
-        >
-          <svg width="100%" height="2" preserveAspectRatio="none">
-            <line
-              x1="0%"
-              y1="1"
-              x2="100%"
-              y2="1"
-              stroke="#00A86B"
-              strokeOpacity="0.38"
-              strokeWidth="1.5"
-              strokeDasharray="7 5"
-            />
-          </svg>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {steps.map((step, i) => {
             const Icon = STEP_ICONS[i];
             return (
@@ -259,15 +233,13 @@ export default function HowItWorks() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.52, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex flex-col flex-1 border-l-[3px] border-brand-green bg-dark-800/60 backdrop-blur-sm rounded-r-xl p-5"
+                  className="flex flex-col flex-1 border-l-[3px] border-brand-green backdrop-blur-sm rounded-r-xl p-5"
+                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderLeft: "3px solid #00A86B" }}
                 >
                   {/* Icon + step number — icon center at ~40px from card top (p-5 + h-10/2) */}
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-xl bg-brand-green/10 border border-brand-green/25 flex items-center justify-center text-brand-green flex-shrink-0">
                       <Icon />
-                    </div>
-                    <div className="w-6 h-6 rounded-full bg-brand-green text-dark-900 text-[12px] font-black flex items-center justify-center flex-shrink-0 z-10">
-                      {i + 1}
                     </div>
                   </div>
 
@@ -283,26 +255,6 @@ export default function HowItWorks() {
                   {STEP_PREVIEWS[i]}
                 </motion.article>
 
-                {/* Mobile: vertical dashed connector between cards */}
-                {i < steps.length - 1 && (
-                  <div
-                    aria-hidden="true"
-                    className="md:hidden flex justify-start pl-[26px] py-0.5"
-                  >
-                    <svg width="2" height="32" viewBox="0 0 2 32">
-                      <line
-                        x1="1"
-                        y1="0"
-                        x2="1"
-                        y2="32"
-                        stroke="#00A86B"
-                        strokeOpacity="0.45"
-                        strokeWidth="1.5"
-                        strokeDasharray="5 3"
-                      />
-                    </svg>
-                  </div>
-                )}
               </div>
             );
           })}
