@@ -364,35 +364,38 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="inline-flex items-center gap-2 rounded-full"
               style={{
-                marginBottom: 16, padding: "6px 14px",
-                fontSize: 14, fontWeight: 600, color: "#22C55E",
-                background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.2)",
+                marginBottom: 16, padding: "9px 22px",
+                fontSize: 13, fontWeight: 600, letterSpacing: "0.04em",
+                color: "#bbf7d0",
+                background: "#040d07", border: "1px solid #15803d",
+                fontFamily: "'Space Grotesk', system-ui, sans-serif",
               }}
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22C55E] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#22C55E]" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#22C55E]" style={{ boxShadow: "0 0 6px #22c55e" }} />
               </span>
-              Tashkent #1 Football Booking Platform
+              Tashkent <span style={{ color: "#4ade80", fontWeight: 700 }}>#1</span> Football Booking Platform
             </motion.div>
 
             {/* Headline */}
             <h1 style={{ marginBottom: 20 }}>
-              {/* Top lines — descriptive */}
               {[
-                { text: "Yaqin stadionni", delay: 0.10 },
-                { text: "toping.", delay: 0.20 },
-              ].map(({ text, delay }) => (
+                { text: "Mini stadion toping.", green: false, delay: 0.1, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 700, italic: false },
+                { text: "Bron qiling.", green: true, delay: 0.3, fontSize: "clamp(38px, 5vw, 72px)", fontWeight: 800, italic: false },
+                { text: "O'ynang.", green: false, delay: 0.5, fontSize: "clamp(28px, 3.2vw, 48px)", fontWeight: 700, italic: true },
+              ].map(({ text, green, delay, fontSize, fontWeight, italic }) => (
                 <motion.span
                   key={text}
                   className="block"
                   style={{
-                    fontFamily: "var(--font-sora), var(--font-syne), system-ui, sans-serif",
-                    fontSize: "clamp(34px, 4.2vw, 54px)",
-                    fontWeight: 800,
+                    fontFamily: "var(--font-bricolage), system-ui, sans-serif",
+                    fontSize,
+                    fontWeight,
+                    fontStyle: italic ? "italic" : "normal",
                     lineHeight: 1.05,
                     letterSpacing: "-0.02em",
-                    color: "#F1F5F9",
+                    color: green ? "#22C55E" : "#F1F5F9",
                   }}
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -401,43 +404,6 @@ export default function Hero() {
                   {text}
                 </motion.span>
               ))}
-
-              {/* Gap between descriptive and action */}
-              <span className="block" style={{ height: 10 }} aria-hidden="true" />
-
-              {/* Action lines */}
-              <motion.span
-                className="block"
-                style={{
-                  fontFamily: "var(--font-sora), var(--font-syne), system-ui, sans-serif",
-                  fontSize: "clamp(34px, 4.2vw, 54px)",
-                  fontWeight: 800,
-                  lineHeight: 1.05,
-                  letterSpacing: "-0.02em",
-                  color: "#22C55E",
-                }}
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.30, ease: [0.25, 0.1, 0.25, 1] }}
-              >
-                Bron qiling.
-              </motion.span>
-              <motion.span
-                className="block"
-                style={{
-                  fontFamily: "var(--font-sora), var(--font-syne), system-ui, sans-serif",
-                  fontSize: "clamp(34px, 4.2vw, 54px)",
-                  fontWeight: 800,
-                  lineHeight: 1.05,
-                  letterSpacing: "-0.02em",
-                  color: "#F1F5F9",
-                }}
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.40, ease: [0.25, 0.1, 0.25, 1] }}
-              >
-                O&apos;ynang.
-              </motion.span>
             </h1>
 
             {/* Subheadline — mb-36 */}

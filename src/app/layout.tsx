@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans, Sora } from "next/font/google";
+import { Bricolage_Grotesque, DM_Sans, Sora } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-const syne = Syne({
-  subsets: ["latin"],
-  weight: ["700", "800"],
-  variable: "--font-syne",
-  display: "swap",
-});
+const bricolage = Bricolage_Grotesque({ subsets: ["latin"], weight: ["500", "700", "800"], variable: "--font-bricolage", display: "swap" });
 
 const dmSans = DM_Sans({
   subsets: ["latin", "latin-ext"],
@@ -71,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uz" className={`${syne.variable} ${dmSans.variable} ${sora.variable}`} data-scroll-behavior="smooth">
+    <html lang="uz" className={`${bricolage.variable} ${dmSans.variable} ${sora.variable}`} data-scroll-behavior="smooth">
       <body className="min-h-screen antialiased">
         <LanguageProvider>
 {children}
