@@ -494,7 +494,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}>
 
             {/* Wrapper — relative for glow, flex for phone overlap */}
-            <div className="relative flex items-center" style={{ marginTop: -40 }}>
+            <div style={{ width: "min(520px, 90vw)", position: "relative" }}>
+            <div className="relative flex items-center scale-75 md:scale-90 lg:scale-100" style={{ marginTop: -40 }}>
 
               {/* Green glow behind */}
               <div className="absolute glow-pulse" style={{
@@ -505,8 +506,9 @@ export default function Hero() {
               <div className="phone-back relative" style={{
                 transform: "rotate(12deg)",
                 zIndex: 1, opacity: 0.95,
-                marginRight: -50,
+                marginRight: "clamp(-30px, -4vw, -50px)",
                 marginTop: 40,
+                width: "clamp(180px, 22vw, 240px)",
               }}>
                 <IPhoneFrame width={240}>
                   <MapScreen />
@@ -517,11 +519,13 @@ export default function Hero() {
               <div className="phone-front relative" style={{
                 transform: "rotate(-8deg)",
                 zIndex: 2,
+                width: "clamp(200px, 25vw, 260px)",
               }}>
                 <IPhoneFrame width={260}>
                   <BookingScreen />
                 </IPhoneFrame>
               </div>
+            </div>
             </div>
           </motion.div>
 
