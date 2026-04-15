@@ -12,16 +12,22 @@ function AnimatedCounter({ end, suffix = "", decimals = 0 }: { end: number; suff
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const duration = 2500;
-    const startTime = performance.now();
-    const tick = (now: number) => {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = (end * eased).toFixed(decimals) + suffix;
-      if (progress < 1) requestAnimationFrame(tick);
-      else el.textContent = end.toFixed(decimals) + suffix;
-    };
-    requestAnimationFrame(tick);
+    const obs = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      obs.disconnect();
+      const duration = 2500;
+      const startTime = performance.now();
+      const tick = (now: number) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = (end * eased).toFixed(decimals) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = end.toFixed(decimals) + suffix;
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.1 });
+    obs.observe(el);
+    return () => obs.disconnect();
   }, [end, suffix, decimals]);
   return <span ref={ref}>0</span>;
 }
