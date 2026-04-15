@@ -20,10 +20,10 @@ export default function SectionWrapper({
       id={id}
       style={style}
       className={cn(
-        "w-full",
-        theme === "dark" && "bg-dark-900",
-        theme === "darker" && "bg-dark-800",
-        theme === "light" && "bg-light-50",
+        "w-full border-t",
+        theme === "dark" && "bg-dark-900 border-white/[0.04]",
+        theme === "darker" && "bg-dark-800 border-white/[0.06]",
+        theme === "light" && "bg-light-50 border-white/[0.02]",
         className
       )}
     >

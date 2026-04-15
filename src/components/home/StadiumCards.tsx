@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { formatPrice } from "@/lib/utils";
 import type { Stadium } from "@/lib/types";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const BASE = "https://images.unsplash.com";
 const Q = "w=800&h=520&fit=crop&crop=center&q=85&auto=format";
@@ -107,7 +107,7 @@ function Stars({ rating }: { rating: number }) {
         <svg key={i} width="11" height="11" viewBox="0 0 10 10" aria-hidden="true">
           <path
             d="M5 0.5L6.12 3.56H9.27L6.76 5.44L7.76 8.5L5 6.75L2.24 8.5L3.24 5.44L0.73 3.56H3.88L5 0.5Z"
-            fill={i <= Math.round(rating) ? "#F59E0B" : "#E2E8F0"}
+            fill={i <= Math.round(rating) ? "#F59E0B" : "rgba(255,255,255,0.15)"}
           />
         </svg>
       ))}
@@ -125,16 +125,16 @@ function StadiumCard({ stadium }: { stadium: Stadium }) {
   return (
     <article
       className={[
-        "group relative flex flex-col bg-white rounded-2xl overflow-hidden",
-        "border transition-all duration-300 ease-out",
-        "hover:-translate-y-1 hover:shadow-[0_16px_40px_-8px_rgba(0,0,0,0.14),0_0_0_1px_rgba(0,212,106,0.12)]",
+        "group relative flex flex-col bg-dark-800 rounded-2xl overflow-hidden",
+        "border transition-colors duration-200 ease-out",
+        "hover:-translate-y-1 hover:shadow-[0_16px_40px_-8px_rgba(0,0,0,0.55),0_0_0_1px_rgba(0,212,106,0.18)]",
         stadium.available
-          ? "border-slate-200/80 shadow-sm"
-          : "border-slate-200/60 shadow-sm opacity-80",
+          ? "border-white/[0.08] shadow-sm"
+          : "border-white/[0.05] shadow-sm opacity-60",
       ].join(" ")}
     >
       {/* ── Photo zone ──────────────────────────────────────────────────── */}
-      <div className="relative h-[200px] overflow-hidden bg-slate-100 flex-shrink-0">
+      <div className="relative h-[200px] overflow-hidden bg-dark-700 flex-shrink-0">
         <Image
           src={stadium.photo}
           alt={`${stadium.name} futbol maydoni`}
@@ -174,7 +174,6 @@ function StadiumCard({ stadium }: { stadium: Stadium }) {
           )}
           {isTop && (
             <span className="inline-flex items-center gap-1 bg-amber-400 text-amber-900 text-[11px] font-bold rounded-full px-2.5 py-1 leading-none shadow-md">
-              {/* trophy micro-icon */}
               <svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path
                   d="M7 9.5C4.79 9.5 3 7.71 3 5.5V2h8v3.5C11 7.71 9.21 9.5 7 9.5Z"
@@ -215,10 +214,10 @@ function StadiumCard({ stadium }: { stadium: Stadium }) {
       <div className="flex flex-col flex-1 p-4 gap-3">
         {/* Name + location */}
         <div>
-          <h3 className="text-[15px] font-bold text-slate-900 leading-snug tracking-tight">
+          <h3 className="text-[15px] font-bold text-white leading-snug tracking-tight">
             {stadium.name}
           </h3>
-          <p className="mt-1 flex items-center gap-1 text-[12px] text-slate-400 font-medium">
+          <p className="mt-1 flex items-center gap-1 text-[12px] text-slate-muted font-medium">
             {/* pin icon */}
             <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true" className="flex-shrink-0">
               <path
@@ -227,14 +226,14 @@ function StadiumCard({ stadium }: { stadium: Stadium }) {
               />
             </svg>
             {stadium.district}
-            <span className="text-slate-300 mx-0.5">·</span>
+            <span className="text-slate-muted/50 mx-0.5">·</span>
             {stadium.location.replace(` tumani`, "")} t.
           </p>
         </div>
 
         {/* Meta chips */}
         <div className="flex flex-wrap gap-1.5">
-          <span className="inline-flex items-center gap-1 bg-slate-50 border border-slate-200 text-slate-500 text-[11px] font-medium rounded-lg px-2 py-1 leading-none">
+          <span className="inline-flex items-center gap-1 bg-white/[0.05] border border-white/[0.08] text-slate-muted text-[11px] font-medium rounded-lg px-2 py-1 leading-none">
             {/* field size icon */}
             <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <rect x="1" y="1" width="10" height="10" rx="1" stroke="#94a3b8" strokeWidth="1.2" />
@@ -243,7 +242,7 @@ function StadiumCard({ stadium }: { stadium: Stadium }) {
             </svg>
             {stadium.size}
           </span>
-          <span className="inline-flex items-center gap-1 bg-slate-50 border border-slate-200 text-slate-500 text-[11px] font-medium rounded-lg px-2 py-1 leading-none">
+          <span className="inline-flex items-center gap-1 bg-white/[0.05] border border-white/[0.08] text-slate-muted text-[11px] font-medium rounded-lg px-2 py-1 leading-none">
             {/* grass icon */}
             <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path d="M2 10 Q3 5 6 4 Q9 5 10 10" stroke="#4ade80" strokeWidth="1.2" fill="none" />
@@ -254,25 +253,25 @@ function StadiumCard({ stadium }: { stadium: Stadium }) {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-slate-100" />
+        <div className="border-t border-white/[0.06]" />
 
         {/* CTA row */}
         <div className="flex items-center justify-between gap-3 mt-auto">
           <div className="flex flex-col">
-            <span className="text-[11px] text-slate-400 leading-none">Narx</span>
-            <span className="text-[15px] font-extrabold text-slate-900 tabular-nums leading-tight mt-0.5">
+            <span className="text-[11px] text-slate-muted uppercase tracking-[0.08em] leading-none">Narx</span>
+            <span className="text-[15px] font-extrabold text-white tabular-nums leading-tight mt-0.5">
               {formatPrice(stadium.price)}
-              <span className="text-[11px] text-slate-400 font-normal ml-0.5">/soat</span>
+              <span className="text-[11px] text-slate-muted font-normal ml-0.5">/soat</span>
             </span>
           </div>
 
           <button
             disabled={!stadium.available}
             className={[
-              "flex items-center gap-1.5 rounded-xl px-4 py-2.5 text-[13px] font-bold transition-all duration-200",
+              "flex items-center gap-1.5 rounded-xl px-4 py-2.5 text-[13px] font-bold transition-colors duration-200",
               stadium.available
                 ? "bg-brand-green text-white shadow-sm hover:bg-brand-green/90 active:scale-[0.97]"
-                : "bg-slate-100 text-slate-400 cursor-not-allowed",
+                : "bg-white/[0.06] text-white/30 cursor-not-allowed border border-white/[0.06]",
             ].join(" ")}
             aria-label={stadium.available ? "Ilovada ochish" : "Band qilingan"}
           >
@@ -296,43 +295,50 @@ function StadiumCard({ stadium }: { stadium: Stadium }) {
   );
 }
 
-const CARD_DELAYS = [100, 200, 300, 100, 200, 300] as const;
-
 // ── Section ──────────────────────────────────────────────────────────────────
 export default function StadiumCards() {
   const { t } = useLanguage();
-  const headerRef = useScrollReveal();
-  const gridRef = useScrollReveal({ threshold: 0.05, rootMargin: "0px 0px -32px 0px" });
 
   return (
-    <SectionWrapper id="stadiums" theme="light">
+    <SectionWrapper id="stadiums" theme="dark">
       {/* Header */}
-      <div ref={headerRef} className="text-center mb-12">
-        <Badge variant="light" className="mb-4 reveal">{t.stadiums.badge}</Badge>
-        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-dark-900 tracking-tight mb-4 reveal delay-100">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        className="text-center mb-12"
+      >
+        <Badge variant="green" className="mb-6 gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse flex-shrink-0" />
+          {t.stadiums.badge}
+        </Badge>
+        <h2 className="font-display text-[28px] sm:text-[36px] lg:text-[40px] font-bold text-white uppercase tracking-[0.04em] leading-[1.2] mb-3">
           {t.stadiums.headline}
         </h2>
-        <p className="text-slate-500 text-lg max-w-md mx-auto reveal delay-200">
+        <p className="text-[17px] font-medium text-slate-light leading-[1.5] tracking-[-0.01em] max-w-md mx-auto">
           {t.stadiums.subheadline}
         </p>
-      </div>
+      </motion.div>
 
       {/* Card grid */}
-      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {STADIUMS.map((stadium, index) => (
-          <div key={stadium.id} className={`reveal delay-${CARD_DELAYS[index]}`}>
+          <motion.div
+            key={stadium.id}
+            initial={{ opacity: 0, y: 20, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.45, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+          >
             <StadiumCard stadium={stadium} />
-          </div>
+          </motion.div>
         ))}
       </div>
 
       {/* Footer CTA */}
       <div className="text-center mt-10">
-        <Button
-          variant="outline"
-          size="lg"
-          className="border-dark-700 text-dark-900 hover:bg-dark-900/5"
-        >
+        <Button variant="outline" size="lg">
           {t.stadiums.viewAll}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path

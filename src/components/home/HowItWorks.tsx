@@ -50,8 +50,8 @@ function StepPreview1() {
     <div className="mt-5 p-3 rounded-xl bg-dark-700/60 border border-dark-600">
       <div className="flex items-center justify-between mb-2">
         <div>
-          <p className="text-white text-[11px] font-semibold">Spartak Arena Pro</p>
-          <p className="text-slate-muted text-[9px] mt-0.5">Chilonzor · ★4.9 · 180 000 UZS/soat</p>
+          <p className="text-white text-[11px] font-semibold">Yunusobod 15 kv 97-maktab</p>
+          <p className="text-slate-muted text-[9px] mt-0.5">Yunusobod · ★4.9 · 180 000 UZS/soat</p>
         </div>
         <span
           className="text-[8.5px] font-bold px-2 py-0.5 rounded-full"
@@ -62,8 +62,8 @@ function StepPreview1() {
       </div>
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-white text-[10px] font-semibold">Yunusobod Stadium</p>
-          <p className="text-slate-muted text-[9px] mt-0.5">Yunusobod · ★4.7 · 200 000 UZS/soat</p>
+          <p className="text-white text-[10px] font-semibold">Chilonzor 25-kvartal, 278-maktab</p>
+          <p className="text-slate-muted text-[9px] mt-0.5">Chilonzor · ★4.7 · 200 000 UZS/soat</p>
         </div>
         <span
           className="text-[8.5px] font-bold px-2 py-0.5 rounded-full"
@@ -126,7 +126,7 @@ function StepPreview3() {
         </div>
         <div>
           <p className="text-white text-[11px] font-bold">Bron tasdiqlandi!</p>
-          <p className="text-slate-muted text-[9px] mt-0.5">Spartak Arena Pro · Bugun 18:00–20:00</p>
+          <p className="text-slate-muted text-[9px] mt-0.5">Yunusobod 15 kv 97-maktab · Bugun 18:00–20:00</p>
         </div>
         <span className="ml-auto text-[8.5px] font-bold text-brand-green bg-brand-green/10 px-2 py-0.5 rounded-full flex-shrink-0">
           #PL64464
@@ -181,7 +181,7 @@ function StatItem({ target, suffix, label, decimals = 0, index = 0 }: StatItemPr
         {decimals > 0 ? display.toFixed(decimals) : display}
         {suffix}
       </span>
-      <span className="text-[12px] font-medium text-slate-muted text-center leading-snug max-w-[90px]">
+      <span className="text-[13px] font-medium text-slate-muted text-center uppercase tracking-[0.1em] leading-snug max-w-[100px]">
         {label}
       </span>
     </motion.div>
@@ -211,8 +211,11 @@ export default function HowItWorks() {
     <SectionWrapper id="how-it-works" theme="darker" style={{ background: "rgba(255,255,255,0.02)" }}>
       {/* ── Header ─────────────────────────────────────────────────────────── */}
       <div ref={headerRef} className="text-center mb-12">
-        <Badge className="mb-2 reveal">{t.howItWorks.badge}</Badge>
-        <h2 className="font-display text-[28px] sm:text-[36px] lg:text-[40px] font-bold text-white tracking-[-0.02em] leading-[1.2] mb-3 reveal delay-100">
+        <Badge className="mb-6 reveal gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse flex-shrink-0" />
+          {t.howItWorks.badge}
+        </Badge>
+        <h2 className="font-display text-[28px] sm:text-[36px] lg:text-[40px] font-bold text-white uppercase tracking-[0.04em] leading-[1.2] mb-3 reveal delay-100">
           {t.howItWorks.headline}
         </h2>
         <p className="text-[17px] font-medium text-slate-light leading-[1.5] tracking-[-0.01em] max-w-md mx-auto reveal delay-200">
@@ -229,25 +232,26 @@ export default function HowItWorks() {
               <div key={i} className="flex flex-col">
                 {/* Step card — fades in from below, gets green left border */}
                 <motion.article
-                  initial={{ opacity: 0, y: 28 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.52, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex flex-col flex-1 border-l-[3px] border-brand-green backdrop-blur-sm rounded-r-xl p-5"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderLeft: "3px solid #00A86B" }}
+                  initial={{ opacity: 0, y: 20, scale: 0.97 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.45, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  className="group flex flex-col flex-1 backdrop-blur-sm rounded-r-xl p-5 bg-white/[0.04] hover:bg-white/[0.07] transition-colors duration-200"
+                  style={{ border: "1px solid rgba(255,255,255,0.08)", borderLeft: "3px solid #00A86B" }}
                 >
                   {/* Icon + step number — icon center at ~40px from card top (p-5 + h-10/2) */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-brand-green/10 border border-brand-green/25 flex items-center justify-center text-brand-green flex-shrink-0">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-brand-green/10 border border-brand-green/25 flex items-center justify-center text-brand-green flex-shrink-0 group-hover:bg-brand-green/15 group-hover:border-brand-green/40 transition-colors duration-200">
                       <Icon />
                     </div>
+                    <span className="text-[11px] font-bold text-white/20 tabular-nums tracking-[0.1em]">{`0${i + 1}`}</span>
                   </div>
 
                   {/* Text */}
-                  <h3 className="font-display text-[16px] font-bold text-white tracking-tight leading-snug mb-1.5">
+                  <h3 className="font-display text-[16px] font-bold text-white uppercase tracking-[0.06em] leading-snug mb-1.5">
                     {step.title}
                   </h3>
-                  <p className="text-[13.5px] font-medium text-slate-muted leading-relaxed">
+                  <p className="text-[15px] font-medium text-slate-muted leading-relaxed">
                     {step.desc}
                   </p>
 
@@ -274,7 +278,7 @@ export default function HowItWorks() {
       <div ref={ctaRef} className="mt-14 flex flex-col items-center gap-4">
         <div className="flex items-center gap-3 mb-1 reveal">
           <div className="h-px w-10 bg-brand-green/30" />
-          <p className="text-[15px] font-semibold text-white tracking-[-0.01em]">
+          <p className="text-[15px] font-semibold text-white uppercase tracking-[0.12em]">
             {t.download.howItWorksCta}
           </p>
           <div className="h-px w-10 bg-brand-green/30" />
@@ -282,7 +286,7 @@ export default function HowItWorks() {
         <div className="reveal delay-100">
           <AppStoreBadges theme="dark" />
         </div>
-        <p className="text-[12px] font-medium text-slate-muted tracking-[0.02em] reveal delay-200">
+        <p className="text-[12px] font-medium text-slate-muted uppercase tracking-[0.12em] reveal delay-200">
           {t.download.availableOn}
         </p>
       </div>

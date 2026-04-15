@@ -12,10 +12,9 @@ function AnimatedCounter({ end, suffix = "", decimals = 0 }: { end: number; suff
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-      obs.disconnect();
-      const duration = 2500;
+
+    const startAnimation = () => {
+      const duration = 2000;
       const startTime = performance.now();
       const tick = (now: number) => {
         const progress = Math.min((now - startTime) / duration, 1);
@@ -25,8 +24,23 @@ function AnimatedCounter({ end, suffix = "", decimals = 0 }: { end: number; suff
         else el.textContent = end.toFixed(decimals) + suffix;
       };
       requestAnimationFrame(tick);
-    }, { threshold: 0.1 });
+    };
+
+    const obs = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      obs.disconnect();
+      startAnimation();
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
     obs.observe(el);
+
+    // Fallback: if already visible on mount, start immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      obs.disconnect();
+      startAnimation();
+    }
+
     return () => obs.disconnect();
   }, [end, suffix, decimals]);
   return <span ref={ref}>0</span>;

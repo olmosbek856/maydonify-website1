@@ -31,13 +31,13 @@ export const translations = {
     howItWorks: {
       badge: "Oddiy jarayon",
       headline: "3 qadamda bron qiling",
-      subheadline: "Hech qanday qo'shimcha ro'yxatdan o'tish kerak emas.",
+      subheadline: "Qidiruv yo'q. Qo'ng'iroq yo'q. Tanlaysiz va o'ynaysiz.",
       step1Title: "Maydon tanlang",
       step1Desc: "Joylashuv, narx va vaqtga qarab eng mos maydonni toping.",
       step2Title: "Vaqtni belgilang",
       step2Desc: "Bo'sh vaqtlardan birini tanlang va qulay sanani kiriting.",
-      step3Title: "Bron tasdiqlandi",
-      step3Desc: "SMS orqali tasdiqlash keling va maydonga boring. Hammasi shu!",
+      step3Title: "Bron tasdiqlanadi",
+      step3Desc: "Soniyalar ichida SMS tasdiq. Boshqa hech narsa kerak emas.",
     },
     stadiums: {
       badge: "Mavjud mini-stadionlar",
@@ -73,6 +73,8 @@ export const translations = {
       beforeDesc: "15–30 daqiqa sarflaysiz, ba'zan kim ham ko'tarmaydi",
       afterTitle: "Bir app — 30 soniya — bron tayyor",
       afterDesc: "SMS tasdiq keladi · Hech qanday qo'ng'iroq yo'q",
+      statLabel: "tezroq",
+      statDesc: "Bron qilish — 30 soniya. Ilgarigi usulda — 15 daqiqa.",
     },
     appPreview: {
       badge: "Platforma ko'rinishi",
@@ -357,13 +359,13 @@ export const translations = {
     howItWorks: {
       badge: "Простой процесс",
       headline: "Забронируйте за 3 шага",
-      subheadline: "Никакой лишней регистрации не нужно.",
+      subheadline: "Без поиска. Без звонков. Выбираете и играете.",
       step1Title: "Выберите площадку",
       step1Desc: "Найдите подходящую площадку по местоположению, цене и времени.",
       step2Title: "Укажите время",
       step2Desc: "Выберите свободный слот и удобную дату.",
-      step3Title: "Бронь подтверждена",
-      step3Desc: "Получите SMS-подтверждение и приходите на площадку. Всё готово!",
+      step3Title: "Бронь подтверждается",
+      step3Desc: "SMS-подтверждение за секунды. Больше ничего не нужно.",
     },
     stadiums: {
       badge: "Доступные площадки",
@@ -399,6 +401,8 @@ export const translations = {
       beforeDesc: "15-30 минут потрачено, иногда никто не берёт трубку",
       afterTitle: "Одно приложение — 30 секунд — бронь готова",
       afterDesc: "SMS-подтверждение придёт · Без единого звонка",
+      statLabel: "быстрее",
+      statDesc: "Бронирование — 30 секунд. Старый способ — 15 минут.",
     },
     appPreview: {
       badge: "Интерфейс платформы",
@@ -682,13 +686,13 @@ export const translations = {
     howItWorks: {
       badge: "Simple process",
       headline: "Book in 3 steps",
-      subheadline: "No extra registration required.",
+      subheadline: "No searching. No calls. You choose and play.",
       step1Title: "Find a field",
       step1Desc: "Browse fields by location, price, and available time.",
       step2Title: "Pick your slot",
       step2Desc: "Select an available time slot and confirm your date.",
-      step3Title: "Booking confirmed",
-      step3Desc: "Get an SMS confirmation and head to the field. That's it!",
+      step3Title: "Booking is confirmed",
+      step3Desc: "SMS confirmation in seconds. Nothing else required.",
     },
     stadiums: {
       badge: "Available fields",
@@ -724,6 +728,8 @@ export const translations = {
       beforeDesc: "15-30 minutes wasted, often no one even picks up",
       afterTitle: "One app — 30 seconds — booking done",
       afterDesc: "SMS confirmation received · Zero calls needed",
+      statLabel: "faster",
+      statDesc: "Booking takes 30 seconds. Old method — 15 minutes.",
     },
     appPreview: {
       badge: "Platform interface",
