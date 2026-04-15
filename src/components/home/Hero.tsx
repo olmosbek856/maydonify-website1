@@ -322,7 +322,7 @@ export default function Hero() {
 
       {/* Content — grid layout */}
       <div className="relative z-10 w-full mx-auto px-6 sm:px-10 lg:px-16" style={{ maxWidth: 1280 }}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: 64 }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: 64, alignItems: "center" }}>
 
           {/* ── LEFT COPY ──────────────────────────────────────────── */}
           <div className="flex flex-col items-start">
@@ -458,12 +458,12 @@ export default function Hero() {
             style={{ alignSelf: "center" }}>
 
             {/* Phone section */}
-            <div style={{ position: "relative", width: 500, height: 660 }}>
+            <div style={{ position: "relative", width: 500, height: 560 }}>
               {/* Green background card */}
               <div style={{
                 position: "absolute",
-                top: 20, left: 30,
-                width: 460, height: 580,
+                top: 0, left: 30,
+                width: 460, height: 540,
                 background: "linear-gradient(145deg, #0a3515 0%, #1a7a35 50%, #0d4a1e 100%)",
                 borderRadius: 36,
                 zIndex: 0,
@@ -471,7 +471,7 @@ export default function Hero() {
               {/* Back phone */}
               <div style={{
                 position: "absolute",
-                left: 50, top: 60,
+                left: 50, top: 40,
                 transform: "rotate(-8deg)",
                 zIndex: 1,
               }}>
@@ -482,7 +482,7 @@ export default function Hero() {
               {/* Front phone */}
               <div style={{
                 position: "absolute",
-                right: 10, top: 10,
+                right: 10, top: 0,
                 transform: "rotate(6deg)",
                 zIndex: 2,
               }}>
