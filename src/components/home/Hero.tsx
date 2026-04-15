@@ -452,18 +452,21 @@ export default function Hero() {
 
           {/* ── RIGHT: TWO PHONES ──────────────────────────────── */}
           <motion.div
-            className="flex items-center justify-center"
+            className="flex items-center justify-center w-full"
             initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             style={{ alignSelf: "center" }}>
 
+            <div className="w-full flex justify-center lg:block" style={{ overflow: "hidden" }}>
             {/* Phone section */}
-            <div style={{ position: "relative", width: 500, height: 560 }}>
+            <div
+              className="scale-[0.6] sm:scale-75 md:scale-90 lg:scale-100"
+              style={{ position: "relative", width: "min(500px, 95vw)", height: "min(560px, 90vw)", transformOrigin: "top center" }}>
               {/* Green background card */}
               <div style={{
                 position: "absolute",
                 top: 0, left: 30,
-                width: 460, height: 540,
+                width: "min(460px, 88vw)", height: "min(540px, 85vw)",
                 background: "linear-gradient(145deg, #0a3515 0%, #1a7a35 50%, #0d4a1e 100%)",
                 borderRadius: 36,
                 zIndex: 0,
@@ -490,6 +493,7 @@ export default function Hero() {
                   <BookingScreen />
                 </IPhoneFrame>
               </div>
+            </div>
             </div>
           </motion.div>
 
