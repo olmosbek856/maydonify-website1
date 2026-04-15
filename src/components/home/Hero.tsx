@@ -38,32 +38,12 @@ function AnimatedCounter({ end, suffix = "", decimals = 0 }: { end: number; suff
 
 function MapScreen() {
   return (
-    <div className="w-full h-full relative overflow-hidden" style={{ background: "#0D1520" }}>
-      {/* Grid */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="mg" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#fff" strokeWidth="0.5"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#mg)" />
-      </svg>
-
-      {/* Roads */}
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 290 600" fill="none">
-        <path d="M 0 200 H 290" stroke="#1a2744" strokeWidth="14" />
-        <path d="M 0 380 H 290" stroke="#1a2744" strokeWidth="11" />
-        <path d="M 100 0 V 600" stroke="#1a2744" strokeWidth="15" />
-        <path d="M 210 0 V 600" stroke="#1a2744" strokeWidth="11" />
-        <path d="M 0 110 H 290" stroke="#141e30" strokeWidth="6" />
-        <path d="M 0 290 H 290" stroke="#141e30" strokeWidth="6" />
-        <path d="M 0 470 H 290" stroke="#141e30" strokeWidth="6" />
-        <path d="M 50 0 V 600" stroke="#141e30" strokeWidth="5" />
-        <path d="M 160 0 V 600" stroke="#141e30" strokeWidth="5" />
-        <path d="M 250 0 V 600" stroke="#141e30" strokeWidth="5" />
-        <path d="M 0 200 H 290" stroke="#223355" strokeWidth="0.8" strokeDasharray="8 6" />
-        <path d="M 100 0 V 600" stroke="#223355" strokeWidth="0.8" strokeDasharray="8 6" />
-      </svg>
+    <div className="w-full h-full relative overflow-hidden">
+      <img
+        src="/map.jpg"
+        alt="map"
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+      />
 
       {/* Search radius */}
       <div className="absolute rounded-full animate-pulse"
@@ -144,7 +124,7 @@ function MapScreen() {
 
 function BookingScreen() {
   return (
-    <div className="w-full h-full relative overflow-hidden" style={{ background: "#0A0F1C" }}>
+    <div className="w-full relative" style={{ height: "100%", overflow: "hidden", display: "flex", flexDirection: "column", background: "#0A0F1C" }}>
       {/* Header */}
       <div className="px-4 pt-3 pb-2">
         <div className="flex items-center justify-between">
@@ -165,25 +145,8 @@ function BookingScreen() {
       <div className="px-4 mb-3">
         <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
           {/* Field image */}
-          <div className="h-28 relative" style={{ background: "linear-gradient(135deg, #0d3b1e 0%, #1a5c2e 50%, #0d3b1e 100%)" }}>
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 280 112" fill="none">
-              <defs>
-                <pattern id="gs" patternUnits="userSpaceOnUse" width="32" height="112">
-                  <rect width="16" height="112" fill="rgba(0,0,0,0.06)"/>
-                </pattern>
-                <linearGradient id="gf" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#1a6b0e"/><stop offset="100%" stopColor="#15570c"/>
-                </linearGradient>
-              </defs>
-              <rect width="280" height="112" fill="url(#gf)"/>
-              <rect width="280" height="112" fill="url(#gs)"/>
-              <rect x="16" y="10" width="248" height="92" stroke="rgba(255,255,255,0.45)" strokeWidth="1.5" fill="none" rx="1"/>
-              <line x1="140" y1="10" x2="140" y2="102" stroke="rgba(255,255,255,0.45)" strokeWidth="1.2"/>
-              <circle cx="140" cy="56" r="20" stroke="rgba(255,255,255,0.45)" strokeWidth="1.2" fill="none"/>
-              <circle cx="140" cy="56" r="2" fill="rgba(255,255,255,0.5)"/>
-              <rect x="16" y="30" width="36" height="52" stroke="rgba(255,255,255,0.35)" strokeWidth="1" fill="none"/>
-              <rect x="228" y="30" width="36" height="52" stroke="rgba(255,255,255,0.35)" strokeWidth="1" fill="none"/>
-            </svg>
+          <div className="h-28 relative overflow-hidden" style={{ borderRadius: 12 }}>
+            <img src="/field.jpg" alt="field" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center bottom" }} />
             {/* Verified */}
             <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full text-[8px] font-bold flex items-center gap-1"
               style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)", color: "#22C55E" }}>
@@ -196,7 +159,7 @@ function BookingScreen() {
           </div>
 
           {/* Info */}
-          <div className="p-3.5" style={{ background: "#111827" }}>
+          <div className="p-3.5" style={{ background: "#111827", flex: 1, overflow: "hidden" }}>
             <div className="flex items-start justify-between mb-2">
               <div>
                 <p className="text-white text-[13.5px] font-bold tracking-tight">Yunusobod Arena</p>
@@ -215,7 +178,7 @@ function BookingScreen() {
             </div>
             <div className="h-px mb-3" style={{ background: "rgba(255,255,255,0.06)" }} />
             {/* Time + price */}
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-3" style={{ gap: 8 }}>
               <div className="flex items-center gap-2">
                 <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "rgba(34,197,94,0.1)" }}>
                   <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
@@ -224,11 +187,11 @@ function BookingScreen() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white text-[12px] font-bold">20:00 — 21:00</p>
+                  <p className="text-white font-bold" style={{ whiteSpace: "nowrap", fontSize: 11 }}>20:00 — 21:00</p>
                   <p className="text-[9px]" style={{ color: "#22C55E" }}>✓ Mavjud</p>
                 </div>
               </div>
-              <div>
+              <div style={{ whiteSpace: "nowrap" }}>
                 <p className="text-white text-[13px] font-bold text-right">200 000</p>
                 <p className="text-[8.5px] text-right" style={{ color: "#94A3B8" }}>so&apos;m/soat</p>
               </div>
@@ -491,41 +454,42 @@ export default function Hero() {
           <motion.div
             className="flex items-center justify-center"
             initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}>
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            style={{ alignSelf: "center" }}>
 
-            {/* Wrapper — relative for glow, flex for phone overlap */}
-            <div style={{ width: "min(520px, 90vw)", position: "relative" }}>
-            <div className="relative flex items-center scale-75 md:scale-90 lg:scale-100" style={{ marginTop: -40 }}>
-
-              {/* Green glow behind */}
-              <div className="absolute glow-pulse" style={{
-                width: 480, height: 480, top: "50%", left: "50%", borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(34,197,94,0.2) 0%, rgba(34,197,94,0.05) 40%, transparent 65%)" }} />
-
-              {/* Back phone — Map */}
-              <div className="phone-back relative" style={{
-                transform: "rotate(12deg)",
-                zIndex: 1, opacity: 0.95,
-                marginRight: "clamp(-30px, -4vw, -50px)",
-                marginTop: 40,
-                width: "clamp(180px, 22vw, 240px)",
+            {/* Phone section */}
+            <div style={{ position: "relative", width: 500, height: 660 }}>
+              {/* Green background card */}
+              <div style={{
+                position: "absolute",
+                top: 20, left: 30,
+                width: 460, height: 580,
+                background: "linear-gradient(145deg, #0a3515 0%, #1a7a35 50%, #0d4a1e 100%)",
+                borderRadius: 36,
+                zIndex: 0,
+              }} />
+              {/* Back phone */}
+              <div style={{
+                position: "absolute",
+                left: 50, top: 60,
+                transform: "rotate(-8deg)",
+                zIndex: 1,
               }}>
-                <IPhoneFrame width={240}>
+                <IPhoneFrame width={210}>
                   <MapScreen />
                 </IPhoneFrame>
               </div>
-
-              {/* Front phone — Booking */}
-              <div className="phone-front relative" style={{
-                transform: "rotate(-8deg)",
+              {/* Front phone */}
+              <div style={{
+                position: "absolute",
+                right: 10, top: 10,
+                transform: "rotate(6deg)",
                 zIndex: 2,
-                width: "clamp(200px, 25vw, 260px)",
               }}>
-                <IPhoneFrame width={260}>
+                <IPhoneFrame width={230}>
                   <BookingScreen />
                 </IPhoneFrame>
               </div>
-            </div>
             </div>
           </motion.div>
 
