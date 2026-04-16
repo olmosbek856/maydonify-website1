@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: "Toshkentdagi 100+ tasdiqlangan mini stadionlarni toping va masofadan bron qiling. Hech qanday qo'ng'iroqsiz.",
     type: "website",
     siteName: "Maydon",
-    url: "https://www.maydonify.uz",
+    url: "https://maydonify.uz",
     images: [
       {
         url: "https://maydonify.uz/og-image.png",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     images: ["https://maydonify.uz/og-image.png"],
   },
   alternates: {
-    canonical: "https://www.maydonify.uz",
+    canonical: "https://maydonify.uz",
   },
   verification: {
     google: "eH0hgFmf85vpzREfxIPdbTS7bVk9q4lfN2GXEaa3ZNk",
