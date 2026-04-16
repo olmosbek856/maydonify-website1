@@ -50,7 +50,7 @@ export default function OwnersHero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: copy */}
           <div className="hero-enter">
-            <Badge className="mb-6">
+            <Badge className="mb-6 normal-case">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
               {t.owners.hero.badge}
             </Badge>
@@ -67,7 +67,7 @@ export default function OwnersHero() {
               <Button size="lg" onClick={() => scrollTo("owners-form")}>
                 {t.owners.hero.ctaPrimary}
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Button>
               <Button variant="outline" size="lg" onClick={() => scrollTo("owners-benefits")}>
@@ -117,9 +117,9 @@ export default function OwnersHero() {
 
 function OwnersPhoneImage() {
   return (
-    <div className="relative w-full max-w-[460px] flex items-center justify-center">
+    <div className="relative w-full max-w-[460px] flex items-center justify-center" style={{ background: "#0A0F1C", borderRadius: 24 }}>
       {/* Ambient glow */}
-      <div className="absolute inset-0 bg-brand-green/6 rounded-full blur-3xl pointer-events-none scale-75" />
+      <div className="absolute inset-0 bg-brand-green/5 rounded-full blur-3xl pointer-events-none scale-75" />
 
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

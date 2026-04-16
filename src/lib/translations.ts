@@ -164,20 +164,20 @@ export const translations = {
         ctaSecondary: "Batafsil ko'rish",
         stat1: "oylik bron oshishi",
         stat2: "faol maydon",
-        stat3: "to'liq bepul boshlash",
+        stat3: "boshlash narxi",
         trustStatement: "30+ maydon egasi allaqachon natija ko'ryapti",
       },
       benefits: {
         badge: "Platforma afzalliklari",
         headline: "Nima olasiz?",
         b1Title: "Ko'proq ko'rinish",
-        b1Desc: "Minglab foydalanuvchilar har kuni Maydonifyda maydon qidiradi. Sizning maydoningiz ro'yxat tepasida.",
+        b1Desc: "Minglab foydalanuvchilar har kuni MAYDONda maydon qidiradi. Sizning maydoningiz ro'yxat tepasida.",
         b2Title: "Online jadval",
-        b2Desc: "Qog'oz daftar yoki WhatsApp guruhiga endi kerak emas. Barchasi avtomatik.",
+        b2Desc: "Qog'oz daftar yoki telegram chat endi kerak emas. Barchasi avtomatik.",
         b3Title: "Tezkor to'lovlar",
-        b3Desc: "Bron tasdiqlanganda siz haqida xabar keladi. Vaqtni yo'qotmasdan ish yurgizasiz.",
+        b3Desc: "Bron tasdiqlanganda sizga xabar keladi. Vaqtni yo'qotmasdan ish yurgizasiz.",
         b4Title: "Bepul boshlash",
-        b4Desc: "Ro'yxatga kirish va birinchi oy bepul. Komissiya faqat bron bo'lganda hisoblanadi.",
+        b4Desc: "Ro'yxatga kirish bepul. Komissiya faqat bron bo'lganda hisoblanadi.",
       },
       process: {
         badge: "Jarayon",
@@ -187,7 +187,7 @@ export const translations = {
         step2Title: "Maydonni sozlang",
         step2Desc: "Jadval, narx va rasm joylashtirishda jamoamiz yordam beradi.",
         step3Title: "Bronlar keladi",
-        step3Desc: "Platforma ishga tushgandan keyin bronlar avtomatik tushusha boshlaydi.",
+        step3Desc: "Platforma ishga tushgandan keyin buyurtmalar avtomatik tusha boshlaydi.",
       },
       form: {
         badge: "Ariza shakli",
@@ -229,12 +229,12 @@ export const translations = {
           {
             question: "Komissiya miqdori qancha?",
             answer:
-              "Har bir bron summasidan kichik foiz (tafsilotlar onboarding paytida kelishiladi). Yashirin to'lovlar yo'q.",
+              "Har bir bron summasidan kichik foiz olinadi. Aniq miqdor onboarding jarayonida kelishiladi.",
           },
           {
             question: "To'lovlar qanday amalga oshadi?",
             answer:
-              "Mijoz to'g'ridan-to'g'ri siz bilan hisob-kitob qiladi. Maydonify vositachi sifatida ishlamaydi.",
+              "Mijoz bron qilishda maydon narxining kamida 50% ini Payme yoki Click orqali to'laydi. Qolgan 50% ni maydonga kelganda to'g'ridan-to'g'ri sizga beradi. Siz har bir bron uchun kafolatlangan to'lovni olasiz.",
           },
           {
             question: "Bir nechta maydonim bo'lsa ham qo'shish mumkinmi?",
