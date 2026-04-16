@@ -35,12 +35,13 @@ function GooglePlayBadge() {
       aria-label="Get it on Google Play"
       className="inline-flex items-center gap-3 bg-black border border-white/20 rounded-xl px-4 h-[52px] hover:bg-white/10 transition-colors duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 select-none"
     >
-      {/* Official Google Play icon */}
-      <svg width="20" height="22" viewBox="0 0 512 512" aria-hidden="true" className="flex-shrink-0">
-        <path fill="#4285F4" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z"/>
-        <path fill="#34A853" d="M47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0z"/>
-        <path fill="#FBBC04" d="M472.1 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c17.1-9.9 17.1-33.7-.1-43.9l-1.1 4.7z"/>
-        <path fill="#EA4335" d="M47 480.5c13 6.8 29.5 6.2 42.5-1.6l255.2-147-60.2-60.2L47 480.5z"/>
+      {/* Official Google Play icon — 4-triangle play button */}
+      <svg width="20" height="22" viewBox="0 0 24 24" aria-hidden="true" className="flex-shrink-0">
+        {/* centroid of triangle (0.5,0)(0.5,24)(23.5,12) ≈ (8.2, 12) */}
+        <path fill="#4285F4" d="M0.5 0 L0.5 12 L8.2 12 Z"/>
+        <path fill="#EA4335" d="M0.5 24 L0.5 12 L8.2 12 Z"/>
+        <path fill="#34A853" d="M0.5 0 L23.5 12 L8.2 12 Z"/>
+        <path fill="#FBBC04" d="M0.5 24 L23.5 12 L8.2 12 Z"/>
       </svg>
       <span className="flex flex-col leading-none">
         <span className="text-white/70 text-[10px] font-medium tracking-wide uppercase">Get it on</span>

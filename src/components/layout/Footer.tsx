@@ -44,8 +44,10 @@ export default function Footer() {
     {
       title: t.footer.contact,
       links: [
-        { label: siteConfig.email, href: `mailto:${siteConfig.email}` },
         { label: siteConfig.phone, href: `tel:${siteConfig.phone.replace(/\D/g, "")}` },
+        { label: "@maydonify_uz", href: siteConfig.telegram },
+        { label: "@maydonify.uz", href: siteConfig.instagram },
+        { label: siteConfig.email, href: `mailto:${siteConfig.email}` },
       ],
     },
   ];

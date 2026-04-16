@@ -53,10 +53,10 @@ export const translations = {
       urgentBadge: "Bugun faqat 2 vaqt",
     },
     benefits: {
-      badge: "Nima uchun Maydonify?",
+      badge: "Nima uchun Maydon?",
       headline: "Qo'ng'iroq kerak emas",
       subheadline:
-        "Avval maydon topish uchun 5-6 ta raqamga qo'ng'iroq qilardingiz. Endi barchasi bir joyda.",
+        "Avval stadion qidirish uchun 30+ minut sarflardingiz. Endi barchasi bir joyda — tez va aniq.",
       b1Title: "Real vaqt bo'shliqlar",
       b1Desc: "Qaysi soat bo'sh ekanini real vaqtda ko'ring. Hech qanday taxmin yo'q.",
       b2Title: "Tezkor bron",
@@ -69,12 +69,14 @@ export const translations = {
       metric2: "30 soniya",
       metric3: "0 to'lov",
       metric4: "100% tekshirilgan",
-      beforeTitle: "5-6 ta raqamga qo'ng'iroq",
-      beforeDesc: "15–30 daqiqa sarflaysiz, ba'zan kim ham ko'tarmaydi",
-      afterTitle: "Bir app — 30 soniya — bron tayyor",
-      afterDesc: "SMS tasdiq keladi · Hech qanday qo'ng'iroq yo'q",
+      beforeItem1: "Qayerda stadion borligini bilmaymiz",
+      beforeItem2: "Narxlarni oldindan bilmaymiz",
+      beforeItem3: "Ko'pincha bir xil joyga boramiz",
+      afterItem1: "30+ stadion xaritada — narxlar aniq",
+      afterItem2: "Real vaqt bo'sh joylar ko'rinadi",
+      afterItem3: "30 soniyada bron — SMS tasdiq",
       statLabel: "tezroq",
-      statDesc: "Bron qilish — 30 soniya. Ilgarigi usulda — 15 daqiqa.",
+      statDesc: "Avval: stadion qidirish + qo'ng'iroq = 30+ minut. Endi: 30 soniya.",
     },
     appPreview: {
       badge: "Platforma ko'rinishi",
@@ -95,34 +97,29 @@ export const translations = {
       headline: "Savollaringizga javob",
       items: [
         {
-          question: "Bron qilish uchun ro'yxatdan o'tish shartmi?",
+          question: "Maydon nima?",
           answer:
-            "Yo'q. Birinchi bronni telefon raqamingiz bilan tasdiqlashingiz kifoya. Keyinchalik shaxsiy kabinet ochish ixtiyoriy.",
+            "Maydon — Toshkentdagi mini stadionlarni onlayn bron qilish platformasi. Ilovamiz orqali yaqin atrofdagi maydonlarni topib, narx va bo'sh vaqtlarni ko'rib, 30 soniyada band qilishingiz mumkin.",
         },
         {
-          question: "To'lovni qanday amalga oshiraman?",
+          question: "Bron qilish qanday ishlaydi?",
           answer:
-            "Bron qilishda hech narsa to'lamaysiz. To'lov maydon egasi bilan kelishilgan holda, maydonga borganda amalga oshiriladi.",
+            "Juda oddiy: maydonni joylashuv yoki vaqt bo'yicha qidiring, sizga mos keladiganini tanlang, qulay slotni belgilang va to'lovni amalga oshiring. Bron tasdig'i SMS orqali keladi.",
         },
         {
-          question: "Bronni bekor qilsam nima bo'ladi?",
+          question: "Ro'yxatdan o'tish kerakmi?",
           answer:
-            "Bron vaqtidan 2 soat oldin bekor qilsangiz, hech qanday jarima yo'q. Keyinroq bekor qilgan holda maydon egasi bilan muzokaralar kerak bo'lishi mumkin.",
+            "Ha, bron qilish uchun telefon raqamingiz bilan ro'yxatdan o'tishingiz kerak. Bu bron tarixingizni saqlash va keyingi bronlarni yanada tezlashtirish uchun kerak — atigi 1 daqiqa.",
         },
         {
-          question: "Maydonlar haqiqatdanam bo'shmi?",
+          question: "To'lov qanday amalga oshiriladi?",
           answer:
-            "Ha. Maydon egalari real vaqtda jadval yangilaydi. Bron tasdiqlangandan keyin maydon sizga ajratiladi.",
+            "Bron qilishda maydon narxining kamida 50% ini Payme yoki Click orqali to'laysiz — qolgan 50% ni maydonga borganingizda to'laysiz. Barcha to'lovlar xavfsiz va shaffof.",
         },
         {
-          question: "Toshkentdan tashqarida ham ishlaydi?",
+          question: "Bronni bekor qilsam bo'ladimi?",
           answer:
-            "Hozirda Toshkent shahrida ishlaydi. Boshqa shaharlarga kengayish rejalashtirilmoqda.",
-        },
-        {
-          question: "Maydon sifati yetarli emasligini ko'rsam nima qilaman?",
-          answer:
-            "Har bir maydonga reyting va sharh qoldirish mumkin. Muammoli holatlarda qo'llab-quvvatlash jamoamiz yordam beradi.",
+            "Ha. O'yin boshlanishidan 24 soat oldin bekor qilsangiz — to'liq qaytariladi. Undan kechroq bekor qilishda qaytarish miqdori maydon siyosatiga bog'liq.",
         },
       ],
     },
@@ -145,7 +142,7 @@ export const translations = {
       product: "Platforma",
       howItWorks: "Qanday ishlaydi",
       stadiums: "Maydonlar",
-      forOwners: "Maydon egalari",
+      forOwners: "Hamkorlar",
       legal: "Huquqiy",
       privacy: "Maxfiylik siyosati",
       terms: "Foydalanish shartlari",
@@ -381,10 +378,10 @@ export const translations = {
       urgentBadge: "Сегодня только 2 слота",
     },
     benefits: {
-      badge: "Почему Maydonify?",
+      badge: "Nima uchun Maydon?",
       headline: "Никаких звонков",
       subheadline:
-        "Раньше приходилось обзванивать 5-6 номеров. Теперь всё в одном месте.",
+        "Раньше на поиск поля уходило 30+ минут. Теперь всё в одном месте — быстро и точно.",
       b1Title: "Свободные слоты в реальном времени",
       b1Desc: "Видите реальную доступность без догадок и звонков.",
       b2Title: "Мгновенное бронирование",
@@ -397,12 +394,14 @@ export const translations = {
       metric2: "30 секунд",
       metric3: "0 комиссий",
       metric4: "100% проверено",
-      beforeTitle: "5-6 звонков для поиска поля",
-      beforeDesc: "15-30 минут потрачено, иногда никто не берёт трубку",
-      afterTitle: "Одно приложение — 30 секунд — бронь готова",
-      afterDesc: "SMS-подтверждение придёт · Без единого звонка",
+      beforeItem1: "Не знаем, где есть стадион",
+      beforeItem2: "Не знаем цены заранее",
+      beforeItem3: "Обычно едем на одно и то же место",
+      afterItem1: "30+ стадионов на карте — цены понятны",
+      afterItem2: "Свободные слоты видны в реальном времени",
+      afterItem3: "Бронь за 30 секунд — SMS-подтверждение",
       statLabel: "быстрее",
-      statDesc: "Бронирование — 30 секунд. Старый способ — 15 минут.",
+      statDesc: "Раньше: поиск поля + звонки = 30+ минут. Теперь: 30 секунд.",
     },
     appPreview: {
       badge: "Интерфейс платформы",
@@ -423,34 +422,34 @@ export const translations = {
       headline: "Ответы на вопросы",
       items: [
         {
-          question: "Нужна ли регистрация для бронирования?",
+          // TODO: translate
+          question: "Maydon nima?",
           answer:
-            "Нет. Достаточно подтвердить первое бронирование по номеру телефона. Личный кабинет — опционально.",
+            "Maydon — Toshkentdagi mini stadionlarni onlayn bron qilish platformasi. Ilovamiz orqali yaqin atrofdagi maydonlarni topib, narx va bo'sh vaqtlarni ko'rib, 30 soniyada band qilishingiz mumkin.",
         },
         {
-          question: "Как оплатить?",
+          // TODO: translate
+          question: "Bron qilish qanday ishlaydi?",
           answer:
-            "При бронировании ничего не платится. Оплата производится на месте договорённости с владельцем площадки.",
+            "Juda oddiy: maydonni joylashuv yoki vaqt bo'yicha qidiring, sizga mos keladiganini tanlang, qulay slotni belgilang va to'lovni amalga oshiring. Bron tasdig'i SMS orqali keladi.",
         },
         {
-          question: "Что будет при отмене?",
+          // TODO: translate
+          question: "Ro'yxatdan o'tish kerakmi?",
           answer:
-            "Отмена за 2 часа до начала — без штрафов. При более поздней отмене условия обсуждаются с владельцем.",
+            "Ha, bron qilish uchun telefon raqamingiz bilan ro'yxatdan o'tishingiz kerak. Bu bron tarixingizni saqlash va keyingi bronlarni yanada tezlashtirish uchun kerak — atigi 1 daqiqa.",
         },
         {
-          question: "Площадки действительно свободны?",
+          // TODO: translate
+          question: "To'lov qanday amalga oshiriladi?",
           answer:
-            "Да. Владельцы обновляют расписание в реальном времени. После подтверждения площадка закрепляется за вами.",
+            "Bron qilishda maydon narxining kamida 50% ini Payme yoki Click orqali to'laysiz — qolgan 50% ni maydonga borganingizda to'laysiz. Barcha to'lovlar xavfsiz va shaffof.",
         },
         {
-          question: "Работает ли за пределами Ташкента?",
+          // TODO: translate
+          question: "Bronni bekor qilsam bo'ladimi?",
           answer:
-            "Сейчас только Ташкент. Расширение на другие города запланировано.",
-        },
-        {
-          question: "Что делать, если площадка не соответствует описанию?",
-          answer:
-            "Оставьте оценку и отзыв. В спорных ситуациях наша команда поддержки поможет.",
+            "Ha. O'yin boshlanishidan 24 soat oldin bekor qilsangiz — to'liq qaytariladi. Undan kechroq bekor qilishda qaytarish miqdori maydon siyosatiga bog'liq.",
         },
       ],
     },
@@ -708,10 +707,10 @@ export const translations = {
       urgentBadge: "Only 2 slots today",
     },
     benefits: {
-      badge: "Why Maydonify?",
+      badge: "Nima uchun Maydon?",
       headline: "No more phone calls",
       subheadline:
-        "You used to call 5-6 numbers to find a field. Now everything is in one place.",
+        "Finding a field used to take 30+ minutes. Now everything is in one place — fast and clear.",
       b1Title: "Real-time availability",
       b1Desc: "See which slots are free in real time. No guessing.",
       b2Title: "Instant booking",
@@ -724,12 +723,14 @@ export const translations = {
       metric2: "30 sec",
       metric3: "0 fees",
       metric4: "100% verified",
-      beforeTitle: "5-6 calls to find a field",
-      beforeDesc: "15-30 minutes wasted, often no one even picks up",
-      afterTitle: "One app — 30 seconds — booking done",
-      afterDesc: "SMS confirmation received · Zero calls needed",
+      beforeItem1: "Don't know where stadiums are",
+      beforeItem2: "Don't know prices in advance",
+      beforeItem3: "Usually go to the same place every time",
+      afterItem1: "30+ stadiums on the map — prices clear",
+      afterItem2: "Real-time availability visible",
+      afterItem3: "Book in 30 seconds — SMS confirmation",
       statLabel: "faster",
-      statDesc: "Booking takes 30 seconds. Old method — 15 minutes.",
+      statDesc: "Before: find a field + calls = 30+ minutes. Now: 30 seconds.",
     },
     appPreview: {
       badge: "Platform interface",
@@ -750,34 +751,34 @@ export const translations = {
       headline: "Common questions answered",
       items: [
         {
-          question: "Do I need to register to book?",
+          // TODO: translate
+          question: "Maydon nima?",
           answer:
-            "No. You just confirm your first booking with your phone number. A full account is optional.",
+            "Maydon — Toshkentdagi mini stadionlarni onlayn bron qilish platformasi. Ilovamiz orqali yaqin atrofdagi maydonlarni topib, narx va bo'sh vaqtlarni ko'rib, 30 soniyada band qilishingiz mumkin.",
         },
         {
-          question: "How do I pay?",
+          // TODO: translate
+          question: "Bron qilish qanday ishlaydi?",
           answer:
-            "You don't pay at booking. Payment is made directly with the field owner when you arrive.",
+            "Juda oddiy: maydonni joylashuv yoki vaqt bo'yicha qidiring, sizga mos keladiganini tanlang, qulay slotni belgilang va to'lovni amalga oshiring. Bron tasdig'i SMS orqali keladi.",
         },
         {
-          question: "What if I need to cancel?",
+          // TODO: translate
+          question: "Ro'yxatdan o'tish kerakmi?",
           answer:
-            "Cancel at least 2 hours before your booking — no penalty. Later cancellations are subject to the field owner's policy.",
+            "Ha, bron qilish uchun telefon raqamingiz bilan ro'yxatdan o'tishingiz kerak. Bu bron tarixingizni saqlash va keyingi bronlarni yanada tezlashtirish uchun kerak — atigi 1 daqiqa.",
         },
         {
-          question: "Are the fields really available?",
+          // TODO: translate
+          question: "To'lov qanday amalga oshiriladi?",
           answer:
-            "Yes. Field owners update their schedules in real time. Once confirmed, your slot is locked.",
+            "Bron qilishda maydon narxining kamida 50% ini Payme yoki Click orqali to'laysiz — qolgan 50% ni maydonga borganingizda to'laysiz. Barcha to'lovlar xavfsiz va shaffof.",
         },
         {
-          question: "Does it work outside Tashkent?",
+          // TODO: translate
+          question: "Bronni bekor qilsam bo'ladimi?",
           answer:
-            "Currently Tashkent only. Expansion to other cities is planned.",
-        },
-        {
-          question: "What if the field doesn't match the listing?",
-          answer:
-            "Leave a rating and review. Our support team is available to help resolve disputes.",
+            "Ha. O'yin boshlanishidan 24 soat oldin bekor qilsangiz — to'liq qaytariladi. Undan kechroq bekor qilishda qaytarish miqdori maydon siyosatiga bog'liq.",
         },
       ],
     },
