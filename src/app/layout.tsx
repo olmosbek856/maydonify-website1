@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     description: "Toshkentdagi 100+ tasdiqlangan mini stadionlarni toping va masofadan bron qiling.",
     images: ["https://maydonify.uz/og-image.png"],
   },
+  alternates: {
+    canonical: "https://www.maydonify.uz",
+  },
   verification: {
     google: "eH0hgFmf85vpzREfxIPdbTS7bVk9q4lfN2GXEaa3ZNk",
   },
