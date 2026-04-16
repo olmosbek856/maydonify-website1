@@ -36,7 +36,11 @@ async function sendTelegramNotification(payload: {
 }): Promise<void> {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) return; // silently skip if not configured
+  console.log("[Maydonify] ENV check — token:", token ? "SET" : "MISSING", "| chatId:", chatId ? "SET" : "MISSING");
+  if (!token || !chatId) {
+    console.error("[Maydonify] Telegram skipped: env vars not configured");
+    return;
+  }
 
   const text = [
     `🏟 <b>Yangi hamkor so'rovi — Maydonify</b>`,
