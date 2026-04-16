@@ -347,8 +347,8 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="inline-flex items-center gap-2 rounded-full"
               style={{
-                marginBottom: 16, padding: "9px 22px",
-                fontSize: 13, fontWeight: 600, letterSpacing: "0.04em",
+                marginBottom: 16, padding: "6px 14px",
+                fontSize: 12, fontWeight: 600, letterSpacing: "0.03em",
                 color: "#bbf7d0",
                 background: "#040d07", border: "1px solid #15803d",
                 fontFamily: "'Space Grotesk', system-ui, sans-serif",

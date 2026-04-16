@@ -128,9 +128,9 @@ function OwnersPhoneImage() {
         className="relative w-full h-auto select-none"
         style={{
           maskImage:
-            "radial-gradient(ellipse 82% 78% at 50% 42%, black 18%, rgba(0,0,0,0.92) 38%, rgba(0,0,0,0.5) 60%, transparent 78%)",
+            "radial-gradient(ellipse 88% 92% at 50% 50%, black 40%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.3) 78%, transparent 90%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 82% 78% at 50% 42%, black 18%, rgba(0,0,0,0.92) 38%, rgba(0,0,0,0.5) 60%, transparent 78%)",
+            "radial-gradient(ellipse 88% 92% at 50% 50%, black 40%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.3) 78%, transparent 90%)",
         }}
         draggable={false}
       />

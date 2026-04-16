@@ -9,7 +9,7 @@ export const translations = {
       mobileMenu: "Menyu",
     },
     hero: {
-      badge: "300+ o'yinchi Toshkentda ishlatmoqda",
+      badge: "Tashkent #1  Football Booking Platform",
       headline: "Futbol maydonini 30 soniyada bron qiling",
       subheadline:
         "Toshkent bo'ylab 30+ tasdiqlangan stadionlar. Bo'sh vaqtlarni ko'ring, online band qiling va darhol o'ynang.",
@@ -337,7 +337,7 @@ export const translations = {
       mobileMenu: "Меню",
     },
     hero: {
-      badge: "300+ игроков уже используют в Ташкенте",
+      badge: "Tashkent #1  Football Booking Platform",
       headline: "Забронируйте площадку за 30 секунд",
       subheadline:
         "30+ проверенных площадок по Ташкенту. Живое расписание — найдите свободный слот и забронируйте мгновенно. Без звонков.",
@@ -664,7 +664,7 @@ export const translations = {
       mobileMenu: "Menu",
     },
     hero: {
-      badge: "300+ players use it across Tashkent",
+      badge: "Tashkent #1  Football Booking Platform",
       headline: "Stop searching. Start booking.",
       subheadline:
         "Browse 30+ verified fields across Tashkent, find your perfect slot, and book in seconds — no phone calls needed.",

@@ -8,9 +8,6 @@ import { StadiumCard } from "@/components/home/StadiumCard";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import type { Stadium } from "@/lib/types";
 
-const BASE = "https://images.unsplash.com";
-const Q = "w=800&h=450&fit=crop&crop=center&q=85&auto=format";
-
 const STADIUMS: Stadium[] = [
   {
     id: "1",
@@ -24,7 +21,7 @@ const STADIUMS: Stadium[] = [
     surface: "Sun'iy o't",
     available: true,
     badge: "top",
-    photo: `${BASE}/photo-1574629810360-7efbbe195018?${Q}`,
+    photo: "/field1.jpg",
   },
   {
     id: "2",
@@ -38,7 +35,7 @@ const STADIUMS: Stadium[] = [
     surface: "Sun'iy o't",
     available: true,
     badge: "free_today",
-    photo: `${BASE}/photo-1431324155629-1a6deb1dec8d?${Q}`,
+    photo: "/field2.jpg",
   },
   {
     id: "3",
@@ -52,7 +49,7 @@ const STADIUMS: Stadium[] = [
     surface: "Tabiiy o't",
     available: true,
     badge: "urgent",
-    photo: `${BASE}/photo-1459865264687-595d652de67e?${Q}`,
+    photo: "/field3.jpg",
   },
   {
     id: "4",
@@ -66,7 +63,7 @@ const STADIUMS: Stadium[] = [
     surface: "Sun'iy o't",
     available: true,
     badge: "free_today",
-    photo: `${BASE}/photo-1553778263-73a83bab9b0c?${Q}`,
+    photo: "/field4.jpg",
   },
   {
     id: "5",
@@ -80,7 +77,7 @@ const STADIUMS: Stadium[] = [
     surface: "Sun'iy o't",
     available: true,
     badge: "urgent",
-    photo: `${BASE}/photo-1517466787929-bc90951d0974?${Q}`,
+    photo: "/field5.jpg",
   },
   {
     id: "6",
@@ -94,7 +91,7 @@ const STADIUMS: Stadium[] = [
     surface: "Sun'iy o't",
     available: true,
     badge: "top",
-    photo: `${BASE}/photo-1522778119026-d647f0596c20?${Q}`,
+    photo: "/field6.jpg",
   },
 ];
 

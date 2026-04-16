@@ -9,9 +9,6 @@ import Button from "@/components/ui/Button";
 import { formatPrice } from "@/lib/utils";
 import type { Stadium } from "@/lib/types";
 
-const BASE = "https://images.unsplash.com";
-const Q = "w=800&h=520&fit=crop&crop=center&q=85&auto=format";
-
 const STADIUMS: Stadium[] = [
   {
     id: "1",
@@ -25,7 +22,7 @@ const STADIUMS: Stadium[] = [
     surface: "Sun'iy o't",
     available: true,
     badge: "top",
-    photo: `${BASE}/photo-1574629810360-7efbbe195018?${Q}`,
+    photo: "/field1.jpg",
   },
   {
     id: "2",
@@ -39,7 +36,7 @@ const STADIUMS: Stadium[] = [
     surface: "Sun'iy o't",
     available: true,
     badge: "free_today",
-    photo: `${BASE}/photo-1431324155629-1a6deb1dec8d?${Q}`,
+    photo: "/field2.jpg",
   },
   {
     id: "3",
@@ -53,7 +50,7 @@ const STADIUMS: Stadium[] = [
     surface: "Tabiiy o't",
     available: true,
     badge: "urgent",
-    photo: `${BASE}/photo-1459865264687-595d652de67e?${Q}`,
+    photo: "/field3.jpg",
   },
   {
     id: "4",
@@ -67,7 +64,7 @@ const STADIUMS: Stadium[] = [
     surface: "Sun'iy o't",
     available: true,
     badge: "free_today",
-    photo: `${BASE}/photo-1553778263-73a83bab9b0c?${Q}`,
+    photo: "/field4.jpg",
   },
   {
     id: "5",
@@ -81,7 +78,7 @@ const STADIUMS: Stadium[] = [
     surface: "Sun'iy o't",
     available: true,
     badge: "urgent",
-    photo: `${BASE}/photo-1517466787929-bc90951d0974?${Q}`,
+    photo: "/field5.jpg",
   },
   {
     id: "6",
@@ -95,7 +92,7 @@ const STADIUMS: Stadium[] = [
     surface: "Sun'iy o't",
     available: true,
     badge: "top",
-    photo: `${BASE}/photo-1522778119026-d647f0596c20?${Q}`,
+    photo: "/field6.jpg",
   },
 ];
 
@@ -205,7 +202,6 @@ function StadiumCard({ stadium }: { stadium: Stadium }) {
         <div className="absolute bottom-3 right-3 z-10">
           <span className="bg-white/95 backdrop-blur-sm text-dark-900 text-[12px] font-extrabold rounded-xl px-2.5 py-1.5 leading-none tabular-nums shadow-sm">
             {formatPrice(stadium.price)}
-            <span className="text-slate-400 font-normal text-[10px] ml-0.5">/soat</span>
           </span>
         </div>
       </div>
@@ -261,7 +257,6 @@ function StadiumCard({ stadium }: { stadium: Stadium }) {
             <span className="text-[11px] text-slate-muted uppercase tracking-[0.08em] leading-none">Narx</span>
             <span className="text-[15px] font-extrabold text-white tabular-nums leading-tight mt-0.5">
               {formatPrice(stadium.price)}
-              <span className="text-[11px] text-slate-muted font-normal ml-0.5">/soat</span>
             </span>
           </div>
 
