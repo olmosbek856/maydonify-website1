@@ -23,12 +23,27 @@ interface FormErrorMessages {
   locationRequired: string;
 }
 
+// Formats raw input into +998 XX XXX XX XX
+function formatUzPhone(raw: string): string {
+  const digits = raw.replace(/\D/g, "");
+  // Strip leading 998 if user typed it
+  const local = digits.startsWith("998") ? digits.slice(3, 12) : digits.slice(0, 9);
+  let result = "+998";
+  if (local.length > 0) result += " " + local.slice(0, 2);
+  if (local.length > 2) result += " " + local.slice(2, 5);
+  if (local.length > 5) result += " " + local.slice(5, 7);
+  if (local.length > 7) result += " " + local.slice(7, 9);
+  return result;
+}
+
 function validate(data: ContactFormData, errorMessages: FormErrorMessages): FormErrors {
   const errs: FormErrors = {};
   if (!data.fullName.trim()) errs.fullName = errorMessages.fullNameRequired;
-  if (!data.phone.trim()) {
+  const phoneDigits = data.phone.replace(/\D/g, "");
+  if (phoneDigits.length === 0) {
     errs.phone = errorMessages.phoneRequired;
-  } else if (!/^[\+]?[\d\s\-\(\)]{9,16}$/.test(data.phone.trim())) {
+  } else if (phoneDigits.length !== 12) {
+    // 998 (3 digits) + 9 local digits = 12 total
     errs.phone = errorMessages.phoneInvalid;
   }
   if (!data.stadiumName.trim()) errs.stadiumName = errorMessages.stadiumNameRequired;
@@ -135,6 +150,12 @@ export default function OwnersForm() {
     }
   };
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatUzPhone(e.target.value);
+    setData((prev) => ({ ...prev, phone: formatted }));
+    if (errors.phone) setErrors((prev) => ({ ...prev, phone: undefined }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate(data, f.errors);
@@ -218,13 +239,15 @@ export default function OwnersForm() {
             <FormInput
               id="form-phone"
               label={f.phone}
-              placeholder={f.phonePlaceholder}
+              placeholder="+998 90 123 45 67"
               value={data.phone}
-              onChange={update("phone")}
+              onChange={handlePhoneChange}
               error={errors.phone}
               required
               type="tel"
               autoComplete="tel"
+              inputMode="numeric"
+              maxLength={17}
             />
           </div>
 

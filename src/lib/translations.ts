@@ -212,7 +212,7 @@ export const translations = {
         errors: {
           fullNameRequired: "Ism majburiy",
           phoneRequired: "Telefon raqam majburiy",
-          phoneInvalid: "Telefon raqam noto'g'ri formatda",
+          phoneInvalid: "To'liq raqam kiriting: +998 XX XXX XX XX",
           stadiumNameRequired: "Maydon nomi majburiy",
           locationRequired: "Manzil majburiy",
         },
@@ -541,7 +541,7 @@ export const translations = {
         errors: {
           fullNameRequired: "Имя обязательно",
           phoneRequired: "Телефон обязателен",
-          phoneInvalid: "Неверный формат телефона",
+          phoneInvalid: "Введите полный номер: +998 XX XXX XX XX",
           stadiumNameRequired: "Название площадки обязательно",
           locationRequired: "Адрес обязателен",
         },
@@ -870,7 +870,7 @@ export const translations = {
         errors: {
           fullNameRequired: "Full name is required",
           phoneRequired: "Phone number is required",
-          phoneInvalid: "Invalid phone number format",
+          phoneInvalid: "Enter full number: +998 XX XXX XX XX",
           stadiumNameRequired: "Field name is required",
           locationRequired: "Address is required",
         },

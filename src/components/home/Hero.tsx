@@ -306,7 +306,7 @@ function IPhoneFrame({ children, width = 320 }: { children: React.ReactNode; wid
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center" style={{ background: "#0A0F1C", paddingTop: 100, paddingBottom: 40 }}>
+    <section className="relative min-h-screen overflow-hidden flex items-center" style={{ background: "#0A0F1C", paddingTop: 80, paddingBottom: 60 }}>
       {/* Keyframes */}
       <style>{`
         @keyframes floatFront { 0%,100%{transform:rotate(-8deg) translateY(0)} 50%{transform:rotate(-8deg) translateY(-14px)} }
@@ -336,7 +336,7 @@ export default function Hero() {
 
       {/* Content — grid layout */}
       <div className="relative z-10 w-full mx-auto px-6 sm:px-10 lg:px-16" style={{ maxWidth: 1280 }}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: 64, alignItems: "center" }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: "32px clamp(32px, 4vw, 64px)", alignItems: "center" }}>
 
           {/* ── LEFT COPY ──────────────────────────────────────────── */}
           <div className="flex flex-col items-start">
@@ -471,16 +471,32 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             style={{ alignSelf: "center" }}>
 
-            <div className="w-full flex justify-center lg:block" style={{ overflow: "hidden" }}>
-            {/* Phone section */}
-            <div
-              className="scale-[0.6] sm:scale-75 md:scale-90 lg:scale-100"
-              style={{ position: "relative", width: "min(500px, 95vw)", height: "min(560px, 90vw)", transformOrigin: "top center" }}>
+            {/* Mobile: single centered phone */}
+            <div className="flex lg:hidden justify-center">
+              <div style={{ position: "relative" }}>
+                {/* Green glow behind */}
+                <div style={{
+                  position: "absolute", inset: -20,
+                  background: "radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%)",
+                  borderRadius: "50%",
+                  zIndex: 0,
+                }} />
+                <div style={{ position: "relative", zIndex: 1 }}>
+                  <IPhoneFrame width={240}>
+                    <BookingScreen />
+                  </IPhoneFrame>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop: two phones */}
+            <div className="hidden lg:flex justify-center">
+            <div style={{ position: "relative", width: 500, height: 560 }}>
               {/* Green background card */}
               <div style={{
                 position: "absolute",
                 top: 0, left: 30,
-                width: "min(460px, 88vw)", height: "min(540px, 85vw)",
+                width: 460, height: 540,
                 background: "linear-gradient(145deg, #0a3515 0%, #1a7a35 50%, #0d4a1e 100%)",
                 borderRadius: 36,
                 zIndex: 0,
