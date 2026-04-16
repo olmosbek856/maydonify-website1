@@ -76,7 +76,7 @@ interface ContactPayload {
   location: string;
   message?: string;
   // Honeypot: must be empty
-  website?: string;
+  fax_number?: string;
 }
 
 export async function POST(req: NextRequest) {
@@ -95,10 +95,10 @@ export async function POST(req: NextRequest) {
     }
 
     const body: ContactPayload = await req.json();
-    const { fullName, phone, stadiumName, location, message, website } = body;
+    const { fullName, phone, stadiumName, location, message, fax_number } = body;
 
     // Honeypot check — bots fill hidden fields, humans don't
-    if (website) {
+    if (fax_number) {
       // Return 200 to avoid tipping off bots
       return NextResponse.json({ success: true }, { status: 200 });
     }

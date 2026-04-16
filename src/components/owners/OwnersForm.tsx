@@ -151,7 +151,7 @@ export default function OwnersForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, website: honeypot }),
+        body: JSON.stringify({ ...data, fax_number: honeypot }),
       });
       if (res.ok) {
         setStatus("success");
@@ -197,9 +197,9 @@ export default function OwnersForm() {
           <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }}>
             <input
               type="text"
-              name="website"
+              name="fax_number"
               tabIndex={-1}
-              autoComplete="off"
+              autoComplete="new-password"
               value={honeypot}
               onChange={(e) => setHoneypot(e.target.value)}
             />
