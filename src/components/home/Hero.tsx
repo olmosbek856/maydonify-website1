@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 /* ══════════════════════════════════════════════════════════════════════
    ANIMATED COUNTER
@@ -305,6 +306,7 @@ function IPhoneFrame({ children, width = 320 }: { children: React.ReactNode; wid
 ══════════════════════════════════════════════════════════════════════ */
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section className="relative min-h-screen overflow-hidden flex items-center" style={{ background: "#0A0F1C", paddingTop: 80, paddingBottom: 60 }}>
       {/* Keyframes */}
@@ -358,15 +360,15 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22C55E] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#22C55E]" style={{ boxShadow: "0 0 6px #22c55e" }} />
               </span>
-              Tashkent <span style={{ color: "#4ade80", fontWeight: 700 }}>#1</span> Football Booking Platform
+              {t.hero.badge}
             </motion.div>
 
             {/* Headline */}
             <h1 style={{ marginBottom: 20 }}>
               {[
-                { text: "Mini stadion toping.", green: false, delay: 0.1, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 700, italic: false },
-                { text: "Bron qiling.", green: true, delay: 0.3, fontSize: "clamp(38px, 5vw, 72px)", fontWeight: 800, italic: false },
-                { text: "O'ynang.", green: false, delay: 0.5, fontSize: "clamp(28px, 3.2vw, 48px)", fontWeight: 700, italic: true },
+                { text: t.hero.headline1, green: false, delay: 0.1, fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 700, italic: false },
+                { text: t.hero.headline2, green: true, delay: 0.3, fontSize: "clamp(38px, 5vw, 72px)", fontWeight: 800, italic: false },
+                { text: t.hero.headline3, green: false, delay: 0.5, fontSize: "clamp(28px, 3.2vw, 48px)", fontWeight: 700, italic: true },
               ].map(({ text, green, delay, fontSize, fontWeight, italic }) => (
                 <motion.span
                   key={text}
@@ -395,7 +397,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              Toshkent bo&apos;ylab 30+ tasdiqlangan stadionlar. Bo&apos;sh vaqtlarni ko&apos;ring, online band qiling va darhol o&apos;ynang.
+              {t.hero.subheadline}
             </motion.p>
 
             {/* Buttons — mb-28 */}
@@ -422,7 +424,7 @@ export default function Hero() {
                     <path fill="white" fillOpacity="0.85" d="M472.1 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c17.1-9.9 17.1-33.7-.1-43.9l-1.1 4.7z"/>
                     <path fill="white" fillOpacity="0.6" d="M47 480.5c13 6.8 29.5 6.2 42.5-1.6l255.2-147-60.2-60.2L47 480.5z"/>
                   </svg>
-                  Ilovani yuklab oling
+                  {t.hero.ctaPrimary}
                 </motion.a>
 
                 {/* Secondary — slightly transparent */}
@@ -433,11 +435,11 @@ export default function Hero() {
                     background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)",
                     opacity: 0.9,
                   }}>
-                  Qanday ishlaydi?
+                  {t.hero.ctaSecondary}
                 </a>
               </div>
               <p style={{ color: "#94A3B8", fontSize: 13, marginTop: 12 }}>
-                300+ o&apos;yinchi &middot; Bepul &middot; iOS &amp; Android
+                {t.hero.trustMicrocopy}
               </p>
             </motion.div>
 
@@ -453,13 +455,13 @@ export default function Hero() {
               <div className="flex items-center gap-2">
                 <span style={{ fontSize: 13 }}>🏟</span>
                 <span className="text-[16px] font-extrabold text-white"><AnimatedCounter end={30} suffix="+" /></span>
-                <span className="text-[13px]" style={{ color: "#94A3B8" }}>faol maydon</span>
+                <span className="text-[13px]" style={{ color: "#94A3B8" }}>{t.hero.statsStadiums}</span>
               </div>
               <span className="inline-block w-px h-5 mx-4 flex-shrink-0" style={{ background: "rgba(255,255,255,0.1)" }} />
               <div className="flex items-center gap-2">
                 <span style={{ fontSize: 13 }}>⚡</span>
                 <span className="text-[16px] font-extrabold text-white"><AnimatedCounter end={27} />s</span>
-                <span className="text-[13px]" style={{ color: "#94A3B8" }}>o&apos;rtacha bron vaqti</span>
+                <span className="text-[13px]" style={{ color: "#94A3B8" }}>{t.hero.trustBookTime}</span>
               </div>
             </motion.div>
           </div>
