@@ -36,11 +36,7 @@ async function sendTelegramNotification(payload: {
 }): Promise<void> {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
-  console.log("[Maydonify] ENV check — token:", token ? "SET" : "MISSING", "| chatId:", chatId ? "SET" : "MISSING");
-  if (!token || !chatId) {
-    console.error("[Maydonify] Telegram skipped: env vars not configured");
-    return;
-  }
+  if (!token || !chatId) return; // silently skip if not configured
 
   const text = [
     `🏟 <b>Yangi hamkor so'rovi — Maydonify</b>`,
@@ -143,22 +139,13 @@ export async function POST(req: NextRequest) {
     console.log("[Maydonify] New form submission:", JSON.stringify(submission));
 
     // Send Telegram notification (non-blocking failure)
-    let telegramStatus = "not_attempted";
     try {
-      const token = process.env.TELEGRAM_BOT_TOKEN;
-      const chatId = process.env.TELEGRAM_CHAT_ID;
-      if (!token || !chatId) {
-        telegramStatus = `env_missing:token=${!!token},chatId=${!!chatId}`;
-      } else {
-        await sendTelegramNotification(submission);
-        telegramStatus = "sent";
-      }
+      await sendTelegramNotification(submission);
     } catch (err) {
-      telegramStatus = `error:${String(err)}`;
       console.error("[Maydonify] Telegram notification failed:", err);
     }
 
-    return NextResponse.json({ success: true, _debug: telegramStatus }, { status: 200 });
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch {
     return NextResponse.json({ error: "Server xatosi. Qayta urinib ko'ring." }, { status: 500 });
   }
