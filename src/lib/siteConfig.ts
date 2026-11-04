@@ -1,17 +1,24 @@
 export const siteConfig = {
-  name: "Maydon",
-  company: "Maydon",
+  /**
+   * Onlayn bron, to'lov, kirish, bronlarim, profil va o'yinga qo'shilish.
+   * To'lov tizimi ulanmaguncha false — sayt faqat ko'rish uchun ishlaydi.
+   * true qilinsa, barcha bron sahifalari va tugmalari qaytadan yoqiladi.
+   */
+  bookingEnabled: false,
 
-  // Contact
-  email: "support@maydonify.uz",
-  privacyEmail: "privacy@maydonify.uz",
-  phone: "+998(97)111-06-56",
+  name: "MiniPolya",
+  domain: "minipolya.uz",
+  url: "https://minipolya.uz",
+  description:
+    "Toshkentdagi mini-futbol maydonlarini onlayn bron qilish platformasi. Bo'sh vaqtni toping, onlayn to'lang va o'ynang.",
 
-  // Social
-  telegram: "https://t.me/maydonify_uz",
-  instagram: "https://instagram.com/maydonify.uz",
+  // Aloqa
+  email: "support@minipolya.uz",
+  privacyEmail: "privacy@minipolya.uz",
 
-  // App store links (placeholder until published)
-  appStore: "#",
-  googlePlay: "#",
+  // Ijtimoiy tarmoqlar
+  telegramHandle: "@minipolya_uz",
+  telegram: "https://t.me/minipolya_uz",
+  instagramHandle: "@minipolya.uz",
+  instagram: "https://instagram.com/minipolya.uz",
 } as const;

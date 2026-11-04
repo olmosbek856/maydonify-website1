@@ -39,7 +39,7 @@ async function sendTelegramNotification(payload: {
   if (!token || !chatId) return; // silently skip if not configured
 
   const text = [
-    `🏟 <b>Yangi hamkor so'rovi — Maydonify</b>`,
+    `🏟 <b>Yangi hamkor so'rovi — MiniPolya</b>`,
     ``,
     `👤 <b>Ism:</b> ${payload.fullName}`,
     `📞 <b>Telefon:</b> ${payload.phone}`,
@@ -59,9 +59,9 @@ async function sendTelegramNotification(payload: {
   });
   if (!res.ok) {
     const err = await res.text();
-    console.error("[Maydonify] Telegram API error:", res.status, err);
+    console.error("[MiniPolya] Telegram API error:", res.status, err);
   } else {
-    console.log("[Maydonify] Telegram message sent successfully");
+    console.log("[MiniPolya] Telegram message sent successfully");
   }
 }
 
@@ -136,13 +136,13 @@ export async function POST(req: NextRequest) {
     };
 
     // Always log server-side as fallback record
-    console.log("[Maydonify] New form submission:", JSON.stringify(submission));
+    console.log("[MiniPolya] New form submission:", JSON.stringify(submission));
 
     // Send Telegram notification (non-blocking failure)
     try {
       await sendTelegramNotification(submission);
     } catch (err) {
-      console.error("[Maydonify] Telegram notification failed:", err);
+      console.error("[MiniPolya] Telegram notification failed:", err);
     }
 
     return NextResponse.json({ success: true }, { status: 200 });

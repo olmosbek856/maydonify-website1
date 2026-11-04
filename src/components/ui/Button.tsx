@@ -1,60 +1,87 @@
+import Link from "next/link";
+import type { ComponentProps } from "react";
+import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ButtonHTMLAttributes, forwardRef } from "react";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "ghost" | "outline";
-  size?: "sm" | "md" | "lg";
-  fullWidth?: boolean;
+export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "dangerSoft" | "white";
+export type ButtonSize = "sm" | "md" | "lg";
+
+const VARIANTS: Record<ButtonVariant, string> = {
+  primary: "bg-accent text-white hover:bg-accent-hover",
+  secondary: "bg-surface text-ink border border-line hover:bg-subtle",
+  ghost: "bg-transparent text-accent hover:bg-accent-soft",
+  danger: "bg-danger text-white hover:bg-danger-hover",
+  dangerSoft: "bg-danger-soft text-danger hover:bg-danger/15",
+  white: "bg-surface text-accent hover:bg-subtle",
+};
+
+const SIZES: Record<ButtonSize, string> = {
+  sm: "h-10 px-4 text-sm",
+  md: "h-11 px-5 text-sm",
+  lg: "h-12 px-6 text-[15px]",
+};
+
+export function buttonClasses({
+  variant = "primary",
+  size = "md",
+  className,
+}: { variant?: ButtonVariant; size?: ButtonSize; className?: string } = {}) {
+  return cn(
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-btn font-semibold transition-colors",
+    "disabled:pointer-events-none disabled:opacity-45 aria-disabled:pointer-events-none aria-disabled:opacity-45",
+    VARIANTS[variant],
+    SIZES[size],
+    className,
+  );
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      variant = "primary",
-      size = "md",
-      fullWidth = false,
-      className,
-      children,
-      disabled,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <button
-        ref={ref}
-        disabled={disabled}
-        className={cn(
-          // Base
-          "inline-flex items-center justify-center gap-2 font-semibold leading-none tracking-[0.01em] transition-all duration-150 cursor-pointer select-none",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900",
-          // Disabled
-          disabled && "opacity-40 cursor-not-allowed pointer-events-none",
-          // Sizes
-          size === "sm" && "text-[13px] px-4 py-2 rounded-lg",
-          size === "md" && "text-[15px] px-6 py-3 rounded-xl",
-          size === "lg" && "text-[15px] px-7 py-3.5 rounded-xl",
-          // Variants
-          variant === "primary" &&
-            "bg-brand-green text-dark-900 hover:bg-brand-green-dark hover:shadow-lg hover:shadow-brand-green/20 active:scale-[0.97]",
-          variant === "secondary" &&
-            "bg-dark-700 text-white hover:bg-dark-600 active:scale-[0.97]",
-          variant === "ghost" &&
-            "bg-transparent text-white hover:bg-white/8 active:scale-[0.97]",
-          variant === "outline" &&
-            "bg-transparent border border-white/20 text-white hover:border-white/40 hover:bg-white/6 active:scale-[0.97]",
-          // Full width
-          fullWidth && "w-full",
-          className
-        )}
-        {...props}
-      >
-        {children}
-      </button>
-    );
-  }
-);
+interface CommonProps {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  icon?: LucideIcon;
+  loading?: boolean;
+}
 
-Button.displayName = "Button";
+export function Button({
+  variant,
+  size,
+  icon: Icon,
+  loading,
+  className,
+  children,
+  disabled,
+  type = "button",
+  ...rest
+}: CommonProps & ComponentProps<"button">) {
+  return (
+    <button
+      type={type}
+      disabled={disabled || loading}
+      className={buttonClasses({ variant, size, className })}
+      {...rest}
+    >
+      {loading ? (
+        <span className="size-4 animate-spin rounded-full border-2 border-current border-t-transparent" aria-hidden />
+      ) : (
+        Icon && <Icon className="size-[18px]" strokeWidth={2} aria-hidden />
+      )}
+      {children}
+    </button>
+  );
+}
 
-export default Button;
+export function ButtonLink({
+  variant,
+  size,
+  icon: Icon,
+  className,
+  children,
+  ...rest
+}: Omit<CommonProps, "loading"> & ComponentProps<typeof Link>) {
+  return (
+    <Link className={buttonClasses({ variant, size, className })} {...rest}>
+      {Icon && <Icon className="size-[18px]" strokeWidth={2} aria-hidden />}
+      {children}
+    </Link>
+  );
+}
