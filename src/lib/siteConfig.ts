@@ -8,7 +8,7 @@ export const siteConfig = {
 
   name: "MiniPolya",
   domain: "minipolya.uz",
-  url: "https://minipolya.uz",
+  url: "https://www.minipolya.uz",
   description:
     "Toshkentdagi mini-futbol maydonlarini onlayn bron qilish platformasi. Bo'sh vaqtni toping, onlayn to'lang va o'ynang.",
 
