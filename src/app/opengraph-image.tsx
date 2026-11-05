@@ -32,7 +32,7 @@ export default async function OgImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <span style={{ fontSize: 72, fontWeight: 700, lineHeight: 1.08, letterSpacing: -2, maxWidth: 940 }}>
-            Futbol maydonini 1 daqiqada bron qiling
+            Maydonni qo&apos;ng&apos;iroqsiz, 30 soniyada band qiling
           </span>
           <span style={{ fontSize: 30, color: "rgba(255,255,255,0.7)" }}>
             Toshkentdagi mini-futbol maydonlari · Onlayn to&apos;lov · minipolya.uz

@@ -67,10 +67,10 @@ export default function HomePage() {
             <MapPin className="size-4" aria-hidden /> Toshkent · 120+ maydon
           </p>
           <h1 className="max-w-[760px] text-[34px] font-bold leading-[1.1] tracking-[-1px] text-white lg:text-[56px] lg:leading-[1.08] lg:tracking-[-1.5px]">
-            Futbol maydonini 1 daqiqada bron qiling
+            Maydonni qo&apos;ng&apos;iroqsiz, 30 soniyada band qiling
           </h1>
           <p className="mt-4 max-w-[560px] text-[15px] leading-relaxed text-white/85 lg:mt-6 lg:text-lg">
-            Toshkentdagi eng yaxshi mini-futbol maydonlari. Bo&apos;sh vaqtni ko&apos;ring, onlayn to&apos;lang, o&apos;ynang.
+            Toshkentdagi eng sara mini-futbol maydonlari bir joyda. Bo&apos;sh vaqtni tanlang, onlayn to&apos;lang va o&apos;ynang.
           </p>
           <div className="mt-7 hidden lg:block">
             <SearchBar />
