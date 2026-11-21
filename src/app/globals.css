@@ -14,9 +14,9 @@
   --color-muted: #6b7280;
   --color-line: #e5e7eb;
 
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
-  --color-accent-soft: #2563eb14;
+  --color-accent: #04875a; /* logo yashili (#04a265) ning o'qiladigan tusi, oq matn bilan 4.5:1 */
+  --color-accent-hover: #036b47;
+  --color-accent-soft: #04875a14;
 
   --color-success: #16a34a;
   --color-success-soft: #16a34a1a;

@@ -3,7 +3,7 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 Project: MiniPolya (minipolya.uz) — Next.js 15 (App Router), Tailwind CSS v4, TypeScript, lucide-react
-Brand: accent #2563EB, ink #0B1220, bg #F7F8FA — tokens live in `src/app/globals.css` (`@theme`)
+Brand: accent #04875A (logo green), ink #0B1220, bg #F7F8FA — tokens live in `src/app/globals.css` (`@theme`)
 Font: Inter (next/font, `--font-inter`)
 Language: Uzbek (Latin) only for now; RU toggle is shown but disabled ("tez orada")
 Target: mini-football pitch booking, Tashkent users
